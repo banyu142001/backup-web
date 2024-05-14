@@ -60,8 +60,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col my-auto">
+                    <!-- <div class="col my-auto">
                         <a href="/produk/create" class="btn bg-gradient-dark btn-sm mx-3 mb-0 float-end"><i class="material-icons text-sm">add</i> Tambah produk</a>
+                    </div> -->
+                    <div class="col my-auto">
+                        <a href="/produk/create" class="mx-4 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
                     </div>
                 </div>
                 <div class="row my-1 px-3">

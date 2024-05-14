@@ -22,8 +22,11 @@
                     </p>
                 </div>
             </div>
-            <div class="col my-auto">
+            <!-- <div class="col my-auto">
                 <a href="/customer/create" class="btn bg-gradient-dark btn-sm mb-0 float-end"><i class="material-icons text-sm">add</i> Tambah customer</a>
+            </div> -->
+            <div class="col my-auto">
+                <a href="/customer/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
         <div class="row">

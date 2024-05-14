@@ -90,6 +90,22 @@ function menu_user($title)
 
 // end of menu user
 
+
+// menu user
+function menu_stok($title)
+{
+    if (($title) == 'Stok Masuk') {
+        // 
+        return ($title) == 'Stok Masuk' ? 'text-white active bg-gradient-primary' : '';
+    } elseif (($title) == 'Tambah Data Stok Masuk') {
+        // 
+        return ($title) == 'Tambah Data Stok Masuk' ? 'text-white active bg-gradient-primary' : '';
+    }
+}
+
+// end of menu user
+
+
 // indo date format
 function indo_date($date)
 {

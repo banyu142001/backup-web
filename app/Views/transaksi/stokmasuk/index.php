@@ -2,7 +2,7 @@
 
 <?= $this->section('main'); ?>
 <div class="container-fluid px-2 px-md-4">
-    <div class="card card-body mx-3 mx-md-4 rounded-1 mt-4">
+    <div class="card card-body mx-3 mx-md-4 rounded-1 shadow-0 mt-4">
         <div class="row gx-4 mb-2">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
