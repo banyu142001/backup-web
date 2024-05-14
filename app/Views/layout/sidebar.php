@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= menu_supplier($title), menu_add_supplier($title), menu_edit_supplier($title) ?>" href=" /supplier">
+                <a class="nav-link <?= menu_supplier($title) ?>" href=" /supplier">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-truck-droplet"></i>
                     </div>
@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= menu_customer($title), menu_add_customer($title), menu_edit_customer($title) ?>" href="/customer">
+                <a class="nav-link <?= menu_customer($title) ?>" href="/customer">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-users-line"></i>
                     </div>
@@ -38,7 +38,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Data Master | <i class="fa-solid fa-magnifying-glass-chart"></i></h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link  text-white p-1 mx-5 <?= menu_produk($title), menu_add_produk($title), menu_edit_produk($title) ?>" href="/produk">
+                <a class="nav-link  text-white p-1 mx-5 <?= menu_produk($title) ?>" href="/produk">
                     <span class=" nav-link-text ms-1">Produk</span>
                 </a>
             </li>
@@ -85,7 +85,7 @@
             </li>
             <?php if (session()->get('level') == 1) : ?>
                 <li class="nav-item">
-                    <a class="nav-link <?= menu_user($title), menu_add_user($title), menu_edit_user($title) ?> " href=" /user">
+                    <a class="nav-link <?= menu_user($title) ?>" href=" /user">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-user-large"></i>
                         </div>

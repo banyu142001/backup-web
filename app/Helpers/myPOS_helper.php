@@ -11,46 +11,50 @@ function menu_dashboard($title)
 // menu supplier
 function menu_supplier($title)
 {
-    return ($title) == 'Supplier' ? 'text-white active bg-gradient-success' : '';
+    if (($title) == 'Supplier') {
+        // 
+        return ($title) == 'Supplier' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Tambah Data Supplier') {
+        // 
+        return ($title) == 'Tambah Data Supplier' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Edit Data Supplier') {
+        // 
+        return ($title) == 'Edit Data Supplier' ? 'text-white active bg-gradient-success' : '';
+    }
 }
 
-function menu_add_supplier($title)
-{
-    return ($title) == 'Tambah Data Supplier' ? 'text-white active bg-gradient-success' : '';
-}
-function menu_edit_supplier($title)
-{
-    return ($title) == 'Edit Data Supplier' ? 'text-white active bg-gradient-success' : '';
-}
 // end of menu supplier
 
 // menu customer
 function menu_customer($title)
 {
-    return ($title) == 'Customer' ? 'text-white active bg-gradient-success' : '';
+    if (($title) == 'Customer') {
+        // 
+        return ($title) == 'Customer' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Tambah Data Customer') {
+        // 
+        return ($title) == 'Tambah Data Customer' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Edit Data Customer') {
+        // 
+        return ($title) == 'Edit Data Customer' ? 'text-white active bg-gradient-success' : '';
+    }
 }
-function menu_add_customer($title)
-{
-    return ($title) == 'Tambah Data Customer' ? 'text-white active bg-gradient-success' : '';
-}
-function menu_edit_customer($title)
-{
-    return ($title) == 'Edit Data Customer' ? 'text-white active bg-gradient-success' : '';
-}
+
 // end of menu customers
 
 // menu produk
 function menu_produk($title)
 {
-    return ($title) == 'Produk' ? 'text-white active bg-gradient-success' : '';
-}
-function menu_add_produk($title)
-{
-    return ($title) == 'Tambah Data Produk' ? 'text-white active bg-gradient-success' : '';
-}
-function menu_edit_produk($title)
-{
-    return ($title) == 'Edit Data Produk' ? 'text-white active bg-gradient-success' : '';
+    if (($title) == 'Produk') {
+        // 
+        return ($title) == 'Produk' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Tambah Data Produk') {
+        // 
+        return ($title) == 'Tambah Data Produk' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Edit Data Produk') {
+        // 
+        return ($title) == 'Edit Data Produk' ? 'text-white active bg-gradient-success' : '';
+    }
 }
 // end of menu produk
 
@@ -72,14 +76,16 @@ function menu_satuan($title)
 // menu user
 function menu_user($title)
 {
-    return ($title) == 'User' ? 'text-white active bg-gradient-success' : '';
+    if (($title) == 'User') {
+        // 
+        return ($title) == 'User' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Tambah Data User') {
+        // 
+        return ($title) == 'Tambah Data User' ? 'text-white active bg-gradient-success' : '';
+    } elseif (($title) == 'Edit Data User') {
+        // 
+        return ($title) == 'Edit Data User' ? 'text-white active bg-gradient-success' : '';
+    }
 }
-function menu_add_user($title)
-{
-    return ($title) == 'Tambah Data User' ? 'text-white active bg-gradient-success' : '';
-}
-function menu_edit_user($title)
-{
-    return ($title) == 'Edit Data User' ? 'text-white active bg-gradient-success' : '';
-}
+
 // end of menu user
