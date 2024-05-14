@@ -11,7 +11,7 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <?php
-                $dashboard = ($title) == 'Dashboard' ? 'text-white active bg-gradient-primary' : '';
+                $dashboard = ($title) == 'Dashboard' ? 'text-white active bg-gradient-success' : '';
                 ?>
                 <a class="nav-link <?= $dashboard ?> " href="/home">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -22,9 +22,9 @@
             </li>
             <li class="nav-item">
                 <?php
-                $supplier         = ($title) == 'Supplier' ? 'text-white active bg-gradient-primary' : '';
-                $create_supplier  = ($title) == 'Tambah Data Supplier' ? 'text-white active bg-gradient-primary' : '';
-                $edit_supplier    = ($title) == 'Edit Data Supplier' ? 'text-white active bg-gradient-primary' : '';
+                $supplier         = ($title) == 'Supplier' ? 'text-white active bg-gradient-success' : '';
+                $create_supplier  = ($title) == 'Tambah Data Supplier' ? 'text-white active bg-gradient-success' : '';
+                $edit_supplier    = ($title) == 'Edit Data Supplier' ? 'text-white active bg-gradient-success' : '';
                 ?>
                 <a class="nav-link <?= $supplier, $create_supplier, $edit_supplier ?>" href=" /supplier">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
