@@ -35,9 +35,9 @@
             </li>
             <li class="nav-item">
                 <?php
-                $customer         = ($title) == 'Customer' ? 'text-white active bg-gradient-primary' : '';
-                $create_customer  = ($title) == 'Tambah Data Customer' ? 'text-white active bg-gradient-primary' : '';
-                $edit_customer    = ($title) == 'Edit Data Customer' ? 'text-white active bg-gradient-primary' : '';
+                $customer         = ($title) == 'Customer' ? 'text-white active bg-gradient-success' : '';
+                $create_customer  = ($title) == 'Tambah Data Customer' ? 'text-white active bg-gradient-success' : '';
+                $edit_customer    = ($title) == 'Edit Data Customer' ? 'text-white active bg-gradient-success' : '';
                 ?>
                 <a class="nav-link <?= $customer, $create_customer, $edit_customer ?>" href="/customer">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -52,8 +52,8 @@
             </li>
             <li class="nav-item">
                 <?php
-                $produk         = ($title) == 'Produk' ? 'text-white active bg-gradient-primary' : '';
-                $create_produk  = ($title) == 'Tambah Data Produk' ? 'text-white active bg-gradient-primary' : '';
+                $produk         = ($title) == 'Produk' ? 'text-white active bg-gradient-success' : '';
+                $create_produk  = ($title) == 'Tambah Data Produk' ? 'text-white active bg-gradient-success' : '';
                 ?>
                 <a class="nav-link  text-white p-1 mx-5 <?= $produk, $create_produk ?>" href="/produk">
                     <span class=" nav-link-text ms-1">Produk</span>
@@ -61,7 +61,7 @@
             </li>
             <li class="nav-item">
                 <?php
-                $kategori = ($title) == 'Kategori' ? 'text-white active bg-gradient-primary' : '';
+                $kategori = ($title) == 'Kategori' ? 'text-white active bg-gradient-success' : '';
                 ?>
                 <a class="nav-link text-white p-1 mx-5 <?= $kategori ?> " href="/kategori">
                     <span class="nav-link-text ms-1">Kategori</span>
@@ -69,7 +69,7 @@
             </li>
             <li class="nav-item">
                 <?php
-                $satuan = ($title) == 'Satuan' ? 'text-white active bg-gradient-primary' : '';
+                $satuan = ($title) == 'Satuan' ? 'text-white active bg-gradient-success' : '';
                 ?>
                 <a class="nav-link text-white p-1 mx-5 <?= $satuan ?>  " href="/satuan">
                     <span class="nav-link-text ms-1">Satuan</span>
@@ -109,9 +109,9 @@
             <?php if (session()->get('level') == 1) : ?>
                 <li class="nav-item">
                     <?php
-                    $user         = ($title) == 'User' ? 'text-white active bg-gradient-primary' : '';
-                    $create_user  = ($title) == 'Tambah Data User' ? 'text-white active bg-gradient-primary' : '';
-                    $edit_user    = ($title) == 'Edit Data User' ? 'text-white active bg-gradient-primary' : '';
+                    $user         = ($title) == 'User' ? 'text-white active bg-gradient-success' : '';
+                    $create_user  = ($title) == 'Tambah Data User' ? 'text-white active bg-gradient-success' : '';
+                    $edit_user    = ($title) == 'Edit Data User' ? 'text-white active bg-gradient-success' : '';
                     ?>
                     <a class="nav-link <?= $user, $create_user, $edit_user ?> " href=" /user">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
