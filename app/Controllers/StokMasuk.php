@@ -89,6 +89,10 @@ class StokMasuk extends BaseController
 
         $this->produkModel->update_delete_stok_masuk($data);
         $this->stokMasukModel->delete(['id_stok_masuk' => $id_stok_masuk]);
+        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
+        <strong>Data stok masuk </strong> telah dihapus & diupdate.
+        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+      </div>');
 
         return redirect()->to('/stokmasuk');
     }

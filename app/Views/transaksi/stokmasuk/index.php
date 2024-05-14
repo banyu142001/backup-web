@@ -34,19 +34,19 @@
             <table class="table align-items-center justify-content-center mb-0" id="">
                 <thead>
                     <tr>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7 ps-2">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-8 ps-2">
                             Tanggal data Masuk
                         </th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-8">
                             Kode Produk
                         </th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7 ps-2">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-8 ps-2">
                             Nama Produk
                         </th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7 ps-2">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-8 ps-2">
                             Jumlah / QTY
                         </th>
-                        <th class="text-uppercase text-center text-warning font-weight-bold opacity-7 ps-2"> <i class="fa-solid fa-file-pen"></i></th>
+                        <th class="text-uppercase text-center text-warning font-weight-bold opacity-8 ps-2"> <i class="fa-solid fa-file-pen"></i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,21 +58,21 @@
                                         <i class="fas fa-history mx-1"></i>
                                     </div>
                                     <div class="my-auto">
-                                        <h6 class="mb-0 mx-2 text-sm"><?= indo_date($stok['tanggal']) ?></h6>
+                                        <p class="mb-0 mx-2 text-sm"><?= indo_date($stok['tanggal']) ?></p>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <h6 class="mb-0 text-sm"><?= $stok['kode_produk'] ?></h6>
+                                <p class="mb-0 text-sm"><?= $stok['kode_produk'] ?></p>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bolder mb-0"><?= $stok['nama_produk'] ?></p>
+                                <p class="text-sm mb-0"><?= $stok['nama_produk'] ?></p>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bolder mb-0"><?= $stok['qty'] ?></p>
+                                <p class="text-sm mb-0"><?= $stok['qty'] ?></p>
                             </td>
                             <td class="align-middle text-center">
-                                <a href="" class="text-success font-weight-bolder text-xs">
+                                <a href="" class="text-success text-xs">
                                     <i class="material-icons text-xs mx-1"></i> Detail
                                 </a>
                                 <a href="/stokmasuk/delete/<?= $stok['id_stok_masuk'] . '/' . $stok['id_produk']  ?>" class="text-primary font-weight-bold text-xs">

@@ -41,7 +41,7 @@
                             <div class="invalid-feedback">
                                 <?= validation_show_error('kode_produk') ?>
                             </div>
-                            <button type="button" class="btn btn-sm btn-info px-1  input-group-text" style="height: 39px;" data-bs-toggle="modal" data-bs-target="#modalStok"><i class="fas fa-search text-white fs-5 mx-3"></i></button>
+                            <button type="button" class="btn btn-sm btn-primary px-1  input-group-text" style="height: 39px;" data-bs-toggle="modal" data-bs-target="#modalStok"><i class="fas fa-search text-white fs-5 mx-3"></i></button>
                         </div>
                     </div>
                     <div class="form-group mb-1">
