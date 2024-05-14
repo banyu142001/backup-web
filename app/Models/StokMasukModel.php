@@ -8,7 +8,7 @@ class StokMasukModel extends Model
 {
     protected $table            = 'stok_masuk';
     protected $primaryKey       = 'id_stok_masuk';
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id_produk', 'id_supplier', 'id_user', 'type', 'detail', 'qty', 'tanggal'];
     protected $useTimestamps    = true;
 
     // select data Stok Masuk
@@ -17,14 +17,18 @@ class StokMasukModel extends Model
 
         if ($id_stok_masuk == false) {
 
-            return $this->findAll();
+            return $this->join('produk', 'stok_masuk.id_produk = produk.id_produk')
+                ->join('supplier', 'stok_masuk.id_supplier = supplier.id_supplier', 'left')
+                ->where('type', 'Masuk')
+                ->orderBy('id_stok_masuk', 'DESC')
+                ->findAll();
         }
 
         return $this->where(['id_stok_masuk' => $id_stok_masuk])->first();
     }
 
-    // save data supplier
-    public function saveSupplierData($data)
+    // save data stok masuk
+    public function saveData($data)
     {
 
         return $this->save($data);
