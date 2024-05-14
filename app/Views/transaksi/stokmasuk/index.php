@@ -75,7 +75,7 @@
                                 <a href="" class="text-success font-weight-bolder text-xs">
                                     <i class="material-icons text-xs mx-1"></i> Detail
                                 </a>
-                                <a href="" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modalDelSupply">
+                                <a href="/stokmasuk/delete/<?= $stok['id_stok_masuk'] . '/' . $stok['id_produk']  ?>" class="text-primary font-weight-bold text-xs">
                                     <i class="material-icons text-xs mx-1"></i> Delete
                                 </a>
                             </td>

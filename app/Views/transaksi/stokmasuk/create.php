@@ -37,15 +37,17 @@
                         <label for="kode_produk" class="fw-bolder">Pilih Produk</label>
                         <div class="input-group input-group-outline ">
                             <input type="hidden" class="form-control" name="id_produk" id="id_produk">
-                            <input type="text" class="form-control" name="kode_produk" id="kode_produk">
-                            <!-- <span class=" input-group-text bg-light">Cari</span> -->
+                            <input type="text" class="form-control text-warning fw-bold <?= (validation_errors()) ? 'is-invalid' :  null ?>" name="kode_produk" id="kode_produk" placeholder="Pilih produk">
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('kode_produk') ?>
+                            </div>
                             <button type="button" class="btn btn-sm btn-info px-1  input-group-text" style="height: 39px;" data-bs-toggle="modal" data-bs-target="#modalStok"><i class="fas fa-search text-white fs-5 mx-3"></i></button>
                         </div>
                     </div>
                     <div class="form-group mb-1">
                         <label for="nama_produk" class="fw-bolder">Nama Produk</label>
                         <div class="input-group input-group-outline">
-                            <input type="text" name="nama_produk" id="nama_produk" class="form-control">
+                            <input type="text" name="nama_produk" id="nama_produk" class="form-control text-warning fw-bold" placeholder="-" readonly>
                         </div>
                     </div>
                     <div class="row">
@@ -53,7 +55,7 @@
                             <div class="form-group mb-1">
                                 <label for="nama_satuan" class="fw-bolder">Satuan</label>
                                 <div class="input-group input-group-outline">
-                                    <input type="text" name="nama_satuan" id="nama_satuan" class="form-control">
+                                    <input type="text" name="nama_satuan" id="nama_satuan" class="form-control text-warning fw-bold" placeholder="-" readonly>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +63,7 @@
                             <div class="form-group mb-1">
                                 <label for="stok" class="fw-bolder">Stok Awal</label>
                                 <div class="input-group input-group-outline">
-                                    <input type="text" name="stok" id="stok" class="form-control">
+                                    <input type="text" name="stok" id="stok" class="form-control text-warning fw-bold " placeholder="0" readonly>
                                 </div>
                             </div>
                         </div>
