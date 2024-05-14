@@ -2,7 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Models\AuthModel;
+use App\Models\CustomerModel;
+use App\Models\KategoriModel;
+use App\Models\ProdukModel;
+use App\Models\SatuanModel;
 use App\Models\SupplierModel;
+use App\Models\UserModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -56,5 +62,16 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+    }
+    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel;
+    public function __construct()
+    {
+        $this->suplyModel = new SupplierModel();
+        $this->userModel = new UserModel();
+        $this->cusModel  = new CustomerModel();
+        $this->katModel = new KategoriModel();
+        $this->satuanModel = new SatuanModel();
+        $this->produkModel = new ProdukModel();
+        $this->authModel = new AuthModel();
     }
 }

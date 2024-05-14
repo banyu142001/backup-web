@@ -3,26 +3,10 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\CustomerModel;
-use App\Models\KategoriModel;
-use App\Models\ProdukModel;
-use App\Models\SatuanModel;
-use App\Models\SupplierModel;
-use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Produk extends BaseController
 {
-    protected $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel;
-    public function __construct()
-    {
-        $this->suplyModel = new SupplierModel();
-        $this->userModel = new UserModel();
-        $this->cusModel  = new CustomerModel();
-        $this->katModel  = new KategoriModel();
-        $this->satuanModel = new SatuanModel();
-        $this->produkModel = new ProdukModel();
-    }
     public function index()
     {
         $data = [

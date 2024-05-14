@@ -3,20 +3,10 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\AuthModel;
-use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Auth extends BaseController
 {
-    protected $userModel;
-    protected $authModel;
-    public function __construct()
-    {
-        $this->userModel = new UserModel();
-        $this->authModel = new AuthModel();
-    }
-
     public function index()
     {
         $data = [

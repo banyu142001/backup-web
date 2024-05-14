@@ -3,35 +3,19 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\ProdukModel;
-use App\Models\CustomerModel;
-use App\Models\KategoriModel;
-use App\Models\SatuanModel;
-use App\Models\SupplierModel;
-use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class User extends BaseController
 {
-    protected $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel;
-    public function __construct()
-    {
-        $this->suplyModel = new SupplierModel();
-        $this->userModel = new UserModel();
-        $this->cusModel  = new CustomerModel();
-        $this->katModel = new KategoriModel();
-        $this->satuanModel = new SatuanModel();
-        $this->produkModel = new ProdukModel();
-    }
 
     public function index()
     {
         $data = [
 
-            'title'      => 'User',
-            'breadcrumb' => 'User',
+            'title'        => 'User',
+            'breadcrumb'    => 'User',
             'konf_delete'   => 'Hapus data User',
-            'users'      => $this->userModel->selectAllUser(),
+            'users'         => $this->userModel->selectAllUser(),
             'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
             'customers'     => $this->cusModel->selectAllCustomer(),
             'kategori'      => $this->katModel->selectAllKategori(),
