@@ -13,12 +13,19 @@ class StokMasuk extends BaseController
         $data = [
             'title'         => 'Stok Masuk',
             'breadcrumb'    => 'Stok Masuk',
-            'konf_delete'   => 'Hapus data Stok Masuk',
             'data_stok_masuk' => $this->stokMasukModel->selectAllStokMasuk(),
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-
-
         ];
         return view('transaksi/stokmasuk/index', $data);
+    }
+
+    // tambah data stok masuk
+    public function create()
+    {
+        $data = [
+            'title'         => 'Tambah Data Stok Masuk',
+            'breadcrumb'    => 'Tambah Data Stok Masuk',
+            'data_stok_masuk' => $this->stokMasukModel->selectAllStokMasuk(),
+        ];
+        return view('transaksi/stokmasuk/create', $data);
     }
 }
