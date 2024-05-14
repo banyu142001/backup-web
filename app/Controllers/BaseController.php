@@ -7,6 +7,7 @@ use App\Models\CustomerModel;
 use App\Models\KategoriModel;
 use App\Models\ProdukModel;
 use App\Models\SatuanModel;
+use App\Models\StokMasukModel;
 use App\Models\SupplierModel;
 use App\Models\UserModel;
 use CodeIgniter\Controller;
@@ -63,7 +64,7 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
-    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel;
+    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel;
     public function __construct()
     {
         $this->suplyModel = new SupplierModel();
@@ -73,5 +74,6 @@ abstract class BaseController extends Controller
         $this->satuanModel = new SatuanModel();
         $this->produkModel = new ProdukModel();
         $this->authModel = new AuthModel();
+        $this->stokMasukModel = new StokMasukModel();
     }
 }

@@ -23,8 +23,11 @@
                 </div>
             </div>
             <div class="col my-auto">
-                <a href="/supplier/create" class="btn bg-gradient-dark btn-sm mb-0 float-end"><i class="material-icons text-sm">add</i> Tambah supplier</a>
+                <a href="/supplier/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
+            <!-- <div class="col my-auto">
+                <a href="/supplier/create" class="btn bg-gradient-dark btn-sm mb-0 float-end"><i class="material-icons text-sm">add</i> Tambah supplier</a>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-lg">

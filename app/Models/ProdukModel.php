@@ -14,7 +14,7 @@ class ProdukModel extends Model
     protected $useTimestamps = true;
 
 
-    // select dat auser
+    // select data produk
     public function selectAllProduk($id_produk = false)
     {
 
@@ -28,7 +28,7 @@ class ProdukModel extends Model
         return $this->where(['id_produk' => $id_produk])->first();
     }
 
-    // save data supplier
+    // save data produk
     public function saveProdukData($data)
     {
 
@@ -40,5 +40,30 @@ class ProdukModel extends Model
     {
 
         return $this->save($data);
+    }
+
+
+    // update data stok from add stok data ( Tambah stok masuk)
+    public function update_stok_masuk($data)
+    {
+
+        $id_produk = $data['id_produk'];
+        $qty = $data['qty'];
+
+        $query = "UPDATE produk SET stok = stok + '$qty' WHERE id_produk = '$id_produk' ";
+
+        return $this->db->query($query);
+    }
+
+    // update data stok from add stok data ( Hapus  stok masuk)
+    public function update_delete_stok_masuk($data)
+    {
+
+        $qty = $data['qty'];
+        $id_produk = $data['id_produk'];
+
+        $query = "UPDATE produk SET stok = stok - '$qty' WHERE id_produk = '$id_produk' ";
+
+        return $this->db->query($query);
     }
 }
