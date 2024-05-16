@@ -69,11 +69,11 @@
                                 <p class="text-sm mb-0"><?= $stok['qty'] ?></p>
                             </td>
                             <td class="align-middle text-center">
-                                <a href="" class="text-success text-xs">
-                                    <i class="material-icons text-xs mx-1"></i> Detail
+                                <a href="" class="text-success text-xs" data-bs-toggle="modal" data-bs-target="#modalDetail<?= $stok['id_stok_masuk'] ?>">
+                                    <i class="fas fa-eye mx-1"></i> Detail
                                 </a>
                                 <a href="/stokmasuk/delete/<?= $stok['id_stok_masuk'] . '/' . $stok['id_produk']  ?>" class="text-primary font-weight-bold text-xs">
-                                    <i class="material-icons text-xs mx-1"></i> Delete
+                                    <i class="fas fa-trash mx-1"></i> Delete
                                 </a>
                             </td>
                         </tr>
@@ -83,6 +83,46 @@
         </div>
     </div>
 </div>
-</div>
 <!-- Modal -->
+<?php foreach ($data_stok_masuk as $stok) : ?>
+    <div class="modal fade" id="modalDetail<?= $stok['id_stok_masuk'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm  position-relative">
+            <div class="modal-content border-0 rounded-1">
+                <div class="modal-header p-2">
+                    <p class="modal-title fs-5 mx-2" id="staticBackdropLabel"> Detail Data </p>
+                    <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-3 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-sm table-borderless">
+                        <tr class="mb-0">
+                            <td class="fw-bold">Tanggal Stok</td>
+                            <td class="fw-lighter">: <?= indo_date($stok['tanggal']) ?></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Kode Produk</td>
+                            <td class="fw-lighter">: <?= $stok['kode_produk'] ?> </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Nama Produk</td>
+                            <td class="fw-lighter">: <?= $stok['nama_produk'] ?></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Supplier</td>
+                            <td class="fw-lighter">: <?= $stok['nama_supplier'] ?></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Qty / Jumlah</td>
+                            <td class="fw-lighter">: <?= $stok['qty'] ?></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Detail</td>
+                            <td class="fw-lighter">: <?= $stok['detail'] ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach ?>
+</div>
 <?= $this->endSection(); ?>

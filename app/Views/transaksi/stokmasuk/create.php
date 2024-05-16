@@ -110,13 +110,14 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="modalStok" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg rounded-2 border-0 shadow-none">
-        <div class="modal-content rounded-2 shadow-none border-0">
+    <div class="modal-dialog modal-lg border-0 shadow-none position-relative ">
+        <div class="modal-content rounded-1 shadow-none border-0">
             <div class="modal-header p-0 py-1 px-3">
                 <p class="modal-title fw-bolder mt-2">Pilih Produk</p>
-                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer"><i class="fas fa-times"></i></span>
+                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-3 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
+                <!-- <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer"><i class="fas fa-times"></i></span> -->
             </div>
-            <div class="modal-body table">
+            <div class="modal-body table-responsive">
                 <table class="table table-borderles table-sm table-striped">
                     <thead>
                         <tr>
