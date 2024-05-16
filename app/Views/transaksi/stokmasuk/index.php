@@ -54,9 +54,9 @@
                         <tr>
                             <td>
                                 <div class="d-flex px-2">
-                                    <div>
+                                    <!-- <div>
                                         <i class="fas fa-history mx-1"></i>
-                                    </div>
+                                    </div> -->
                                     <div class="my-auto">
                                         <p class="mb-0 mx-2 text-sm"><?= indo_date($stok['tanggal']) ?></p>
                                     </div>
