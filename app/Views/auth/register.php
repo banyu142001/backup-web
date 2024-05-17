@@ -4,7 +4,6 @@
 <main class="main-content mt-0">
     <section>
         <div class="page-header min-vh-100">
-            <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row">
                     <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
