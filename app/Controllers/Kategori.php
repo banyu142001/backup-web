@@ -13,13 +13,7 @@ class Kategori extends BaseController
         $data = [
             'title'         => 'Kategori',
             'breadcrumb'    => 'Kategori',
-            'konf_delete'   => 'Hapus data Kategori',
-            'customers'     => $this->cusModel->selectAllCustomer(),
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
             'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('kategori/index', $data);
     }

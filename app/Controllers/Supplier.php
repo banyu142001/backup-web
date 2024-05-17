@@ -12,6 +12,7 @@ class Supplier extends BaseController
         $data = [
             'title'         => 'Supplier',
             'breadcrumb'    => 'Supplier',
+<<<<<<< HEAD
             'konf_delete'   => 'Hapus data Supplier',
             'suppliers'     => $this->suplyModel->selectAllSupplier(),
             'users'         => $this->userModel->selectAllUser(),
@@ -19,6 +20,9 @@ class Supplier extends BaseController
             'kategori'      => $this->katModel->selectAllKategori(),
             'satuan'        => $this->satuanModel->selectAllSatuan(),
             'data_produk'   => $this->produkModel->selectAllProduk(),
+=======
+            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
+>>>>>>> fitur1
 
         ];
         return view('supplier/index', $data);
@@ -30,13 +34,7 @@ class Supplier extends BaseController
         $data = [
             'title'         => 'Tambah Data Supplier',
             'breadcrumb'    => 'Supplier / Tambah Data Supplier',
-            'konf_delete'   => '',
             'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
-            'customers'     => $this->cusModel->selectAllCustomer(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('supplier/create', $data);
     }
@@ -96,10 +94,6 @@ class Supplier extends BaseController
             'title'         => 'Edit Data Supplier',
             'breadcrumb'    => 'Supplier / Edit Data Supplier',
             'suppliers'     =>  $this->suplyModel->selectAllSupplier(['id_supplier' => $id_supplier]),
-            'users'         => $this->userModel->selectAllUser(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('supplier/edit', $data);
     }

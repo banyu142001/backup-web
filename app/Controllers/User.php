@@ -14,14 +14,7 @@ class User extends BaseController
 
             'title'        => 'User',
             'breadcrumb'    => 'User',
-            'konf_delete'   => 'Hapus data User',
             'users'         => $this->userModel->selectAllUser(),
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'customers'     => $this->cusModel->selectAllCustomer(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk()
-
         ];
         return view('user/index', $data);
     }
@@ -34,9 +27,9 @@ class User extends BaseController
 
             'title'      => 'Tambah Data User',
             'breadcrumb' => 'User / Tambah Data User',
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
+            // 'kategori'      => $this->katModel->selectAllKategori(),
+            // 'satuan'        => $this->satuanModel->selectAllSatuan(),
+            // 'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('user/create', $data);
     }
@@ -127,12 +120,9 @@ class User extends BaseController
 
         $data = [
 
-            'title'      => 'Edit Data User',
-            'breadcrumb' => 'User / Edit Data User',
-            'user'       => $this->userModel->selectAllUser(['id' => $id]),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
+            'title'         => 'Edit Data User',
+            'breadcrumb'    => 'User / Edit Data User',
+            'user'          => $this->userModel->selectAllUser(['id' => $id]),
         ];
         return view('user/edit', $data);
     }

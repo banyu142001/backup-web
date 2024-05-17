@@ -126,10 +126,24 @@
 
         </div>
     </div>
-
+    <!-- MODAL HAPUS DATA PRODUK -->
+    <?php foreach ($data_produk as $produk) : ?>
+        <div class="modal fade" id="modalDelProduk<?= $produk['id_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content rounded-1 border-0 shadow-none ">
+                    <div class="modal-header p-2">
+                        <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Produk</h1>
+                    </div>
+                    <div class="modal-body p-3 my-0">
+                        <p>Data Produk <strong><?= $produk['nama_produk'] ?></strong> akan dihapus?</p>
+                    </div>
+                    <div class="modal-footer p-2">
+                        <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
+                        <a href="/produk/delete/<?= $produk['id_produk'] ?>" class="badge text-white bg-danger p-2"> <i class="fa-solid fa-trash mx-1"></i> Hapus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </div>
-
-<?= $this->include('/layout/modal/modal-delete'); ?>
-<?= $this->include('/layout/modal/modal-update'); ?>
-<!-- Modal -->
 <?= $this->endSection(); ?>

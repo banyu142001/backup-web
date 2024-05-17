@@ -84,7 +84,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($satuan as $satuan) : ?>
+                                        <?php foreach ($data_satuan as $satuan) : ?>
                                             <tr>
                                                 <td>
                                                     <h6 class="mb-0 mx-3 text-sm text-uppercase"><?= $satuan['nama_satuan'] ?></h6>
@@ -134,10 +134,53 @@
             </div>
         </div>
     </div>
-
+    <!-- MODAL HAPUS DATA SATUAN -->
+    <?php foreach ($data_satuan as $satuan) : ?>
+        <div class="modal fade" id="modalDelSatuan<?= $satuan['id_satuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content rounded-1 border-0 shadow-none ">
+                    <div class="modal-header p-2">
+                        <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Satuan</h1>
+                    </div>
+                    <div class="modal-body p-3 my-0">
+                        <p>Data Satuan <strong><?= $satuan['nama_satuan'] ?></strong> akan dihapus?</p>
+                    </div>
+                    <div class="modal-footer p-2">
+                        <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
+                        <a href="/satuan/delete/<?= $satuan['id_satuan'] ?>" class="badge text-white bg-danger p-2"> <i class="fa-solid fa-trash mx-1"></i> Hapus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <!-- MODAL UPDATE SATUAN -->
+    <?php foreach ($data_satuan as $satuan) : ?>
+        <div class="modal fade" id="modalUpdateSatuan<?= $satuan['id_satuan'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-1 border-0 shadow-none">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Data Satuan</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/satuan/update/<?= $satuan['id_satuan'] ?>" method="post">
+                        <?= csrf_field() ?>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="kategori_update">NAMA SATUAN</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="hidden" name="id_satuan" value="<?= $satuan['id_satuan'] ?>">
+                                    <input type="text" name="satuan_update" id="satuan_update" class="form-control fw-bold text-uppercase" value="<?= $satuan['nama_satuan'] ?> " />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="" class="btn text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
+                            <button class="btn p-2 btn-success" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </div>
-
-<?= $this->include('/layout/modal/modal-delete'); ?>
-<?= $this->include('/layout/modal/modal-update'); ?>
-<!-- Modal -->
 <?= $this->endSection(); ?>

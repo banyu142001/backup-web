@@ -12,12 +12,6 @@ class Produk extends BaseController
         $data = [
             'title'         => 'Produk',
             'breadcrumb'    => 'Produk',
-            'konf_delete'   => 'Hapus data Produk',
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
-            'customers'     => $this->cusModel->selectAllCustomer(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
             'data_produk'   => $this->produkModel->selectAllProduk(),
 
         ];
@@ -30,13 +24,9 @@ class Produk extends BaseController
         $data = [
             'title'         => 'Tambah Data Produk',
             'breadcrumb'    => 'Produk / Tambah Data Produk',
-            'konf_delete'   => '',
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
-            'customers'     => $this->cusModel->selectAllCustomer(),
+            'data_produk'   => $this->produkModel->selectAllProduk(),
             'kategori'      => $this->katModel->selectAllKategori(),
             'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('produk/create', $data);
     }
@@ -113,14 +103,9 @@ class Produk extends BaseController
         $data = [
             'title'         => 'Edit Data Produk',
             'breadcrumb'    => 'Produk / Edit Data Produk',
-            'konf_delete'   => '',
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'customers'     => $this->cusModel->selectAllCustomer(),
-            'users'         => $this->userModel->selectAllUser(),
+            'produk_update' => $this->produkModel->selectAllProduk(['id_produk' => $id_produk]),
             'kategori'      => $this->katModel->selectAllKategori(),
             'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
-            'produk_update' => $this->produkModel->selectAllProduk(['id_produk' => $id_produk]),
 
         ];
         return view('produk/edit', $data);

@@ -139,9 +139,55 @@
         </div>
     </div>
 
-</div>
+    <!-- MODAL HAPUS DATA KATEGORI -->
+    <?php foreach ($kategori as $kat) : ?>
+        <div class="modal fade" id="modalDelKategori<?= $kat['id_kategori'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content rounded-1 border-0 shadow-none">
+                    <div class="modal-header p-2">
+                        <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Kategori</h1>
+                    </div>
+                    <div class="modal-body p-3 my-0">
+                        <p>Data Kategori <strong><?= $kat['nama_kategori'] ?></strong> akan dihapus?</p>
+                    </div>
+                    <div class="modal-footer p-2">
+                        <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
+                        <a href="/kategori/delete/<?= $kat['id_kategori'] ?>" class="badge text-white bg-danger p-2"> <i class="fa-solid fa-trash mx-1"></i> Hapus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 
-<?= $this->include('/layout/modal/modal-delete'); ?>
-<?= $this->include('/layout/modal/modal-update'); ?>
-<!-- Modal -->
+    <!-- MODAL UPDATE KATEGORI -->
+    <?php foreach ($kategori as $kat) : ?>
+        <div class="modal fade" id="modalUpdateKategori<?= $kat['id_kategori'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-1 border-0 shadow-none">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Data Kategori</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/kategori/update/<?= $kat['id_kategori'] ?>" method="post">
+                        <?= csrf_field() ?>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="kategori_update">NAMA KATEGORI</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="hidden" name="id_kategori" value="<?= $kat['id_kategori'] ?>">
+                                    <input type="text" name="kategori_update" id="kategori_update" class="form-control fw-bold text-uppercase" value="<?= $kat['nama_kategori'] ?> " />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="" class="btn text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
+                            <button class="btn p-2 btn-success" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+</div>
 <?= $this->endSection(); ?>
