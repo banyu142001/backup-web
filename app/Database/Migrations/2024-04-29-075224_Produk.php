@@ -26,12 +26,12 @@ class Produk extends Migration
             ],
             'id_kategori' => [
                 'type'           => 'INT',
-                'constraint'     => 20,
+                'constraint'     => 11,
                 'unsigned'       => true,
             ],
             'id_satuan' => [
                 'type'           => 'INT',
-                'constraint'     => 20,
+                'constraint'     => 11,
                 'unsigned'       => true,
             ],
             'harga' => [
@@ -55,8 +55,9 @@ class Produk extends Migration
 
         ]);;
         $this->forge->addKey('id_produk', true);
-        $this->forge->createTable('produk');
         $this->forge->addForeignKey('id_kategori', 'kategori', 'id_kategori');
+        $this->forge->addForeignKey('id_satuan', 'satuan', 'id_satuan');
+        $this->forge->createTable('produk');
     }
 
     public function down()

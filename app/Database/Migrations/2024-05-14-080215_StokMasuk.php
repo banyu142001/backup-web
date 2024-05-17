@@ -27,7 +27,7 @@ class StokMasuk extends Migration
                 'unsigned'       => true,
             ],
             'id_user' => [
-                'type'           => 'BIGINT',
+                'type'           => 'INT',
                 'constraint'     => 11,
             ],
             'type' => [
@@ -56,9 +56,9 @@ class StokMasuk extends Migration
 
         ]);
         $this->forge->addKey('id_stok_masuk', true);
-        $this->forge->createTable('stok_masuk');
         $this->forge->addForeignKey('id_produk', 'produk', 'id_produk');
         $this->forge->addForeignKey('id_supplier', 'supplier', 'id_supplier');
+        $this->forge->createTable('stok_masuk');
     }
 
     public function down()
