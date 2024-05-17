@@ -10,7 +10,7 @@ class Kategori extends Migration
     {
         $this->forge->addField([
             'id_kategori' => [
-                'type'           => 'BIGINT',
+                'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,

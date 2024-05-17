@@ -11,7 +11,7 @@ class Produk extends Migration
 
         $this->forge->addField([
             'id_produk' => [
-                'type'           => 'BIGINT',
+                'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
@@ -25,12 +25,12 @@ class Produk extends Migration
                 'constraint'     => 100,
             ],
             'id_kategori' => [
-                'type'           => 'BIGINT',
+                'type'           => 'INT',
                 'constraint'     => 20,
                 'unsigned'       => true,
             ],
             'id_satuan' => [
-                'type'           => 'BIGINT',
+                'type'           => 'INT',
                 'constraint'     => 20,
                 'unsigned'       => true,
             ],

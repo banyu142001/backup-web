@@ -10,7 +10,7 @@ class Customer extends Migration
     {
         $this->forge->addField([
             'id_customer' => [
-                'type'           => 'BIGINT',
+                'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
