@@ -12,18 +12,7 @@ class Supplier extends BaseController
         $data = [
             'title'         => 'Supplier',
             'breadcrumb'    => 'Supplier',
-<<<<<<< HEAD
-            'konf_delete'   => 'Hapus data Supplier',
-            'suppliers'     => $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
-            'customers'     => $this->cusModel->selectAllCustomer(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
-=======
             'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
->>>>>>> fitur1
-
         ];
         return view('supplier/index', $data);
     }
