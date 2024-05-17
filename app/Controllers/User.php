@@ -27,9 +27,6 @@ class User extends BaseController
 
             'title'      => 'Tambah Data User',
             'breadcrumb' => 'User / Tambah Data User',
-            // 'kategori'      => $this->katModel->selectAllKategori(),
-            // 'satuan'        => $this->satuanModel->selectAllSatuan(),
-            // 'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('user/create', $data);
     }
