@@ -94,11 +94,7 @@ class Produk extends BaseController
                 'id_kategori' => $this->request->getVar('kategori'),
                 'id_satuan' => $this->request->getVar('satuan'),
                 'harga' => $this->request->getVar('harga'),
-<<<<<<< HEAD
                 "stok"  => 0,
-=======
-                'stok'  => 0,
->>>>>>> fitur1
             ];
 
         // insert data to Database
