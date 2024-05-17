@@ -182,7 +182,8 @@ class Auth extends BaseController
         session()->remove('foto');
 
 
-        session()->setFlashdata('flash', '<div class="alert alert-success alert-dismissible text-white" role="alert">
+        session()->setFlashdata('flash', '<div class="alert alert-dismissible text-white" role="alert" style="background-color: #2fde7e;
+        background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
         <span class="text-sm">Anda berhasil logout ! se you 👋👋</span>
         </div>');
 

@@ -41,7 +41,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navigation">
+                        <div class="collapse navbar-collapse justify-content-center" id="navigation">
                             <ul class="navbar-nav">
                                 <li class="nav-item <?= ($auth_title == 'myPos - Beranda') ? 'fw-bold' : '' ?> ">
                                     <a class="nav-link me-3" href="/">
@@ -50,7 +50,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-4" href="/tentang">
+                                    <a class="nav-link me-4" href="#overview">
                                         <i class="fa-solid fa-circle-info opacity-6 text-dark me-1 "></i>
                                         Tentang
                                     </a>

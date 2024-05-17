@@ -70,7 +70,8 @@ class Supplier extends BaseController
         // insert data to Database
         $this->suplyModel->saveSupplierData($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" style="background-color: #2fde7e;
+        background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
         <strong>Data Supplier Baru</strong> telah ditambahkan.
         <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
       </div>');
@@ -131,7 +132,8 @@ class Supplier extends BaseController
         // insert data to Database
         $this->suplyModel->saveUpdateSupplierData($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" style="background-color: #2fde7e;
+        background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
         <strong>Data Supplier</strong> telah diupdate.
         <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
       </div>');
@@ -147,14 +149,16 @@ class Supplier extends BaseController
         $errors = $this->suplyModel->db->error();
 
         if ($errors['code'] != 0) {
-            session()->setFlashdata('flash', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
+            session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" style="background-color: #ff5978;
+            background-image: linear-gradient(90deg, #ff5978 0%, #FF6A88 55%, #ff5978 100%)">
             <strong>Data supplier tidak dapat dihapus. </strong> (data supplier ini sedang digunakan pada data stok masuk).
             <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
           </div>');
             return redirect()->to('/supplier');
         }
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" style="background-color: #2fde7e;
+        background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
             <strong>Data Supplier</strong> telah dihapus.
             <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
           </div>');
