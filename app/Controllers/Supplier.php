@@ -160,10 +160,20 @@ class Supplier extends BaseController
     {
 
         $this->suplyModel->delete(['id_supplier' => $id_supplier]);
+        $errors = $this->suplyModel->db->error();
+
+        if ($errors['code'] != 0) {
+            session()->setFlashdata('flash', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
+            <strong>Data supplier tidak dapat dihapus. </strong> (data supplier ini sedang digunakan pada data stok masuk).
+            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+          </div>');
+            return redirect()->to('/supplier');
+        }
+
         session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Supplier</strong> telah dihapus.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
-      </div>');
+            <strong>Data Supplier</strong> telah dihapus.
+            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+          </div>');
         return redirect()->to('/supplier');
     }
 }

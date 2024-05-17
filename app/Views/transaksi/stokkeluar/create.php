@@ -6,13 +6,13 @@
         <div class="row gx-4 mb-2">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
-                    <i class="fas fa-folder-plus text-dark fs-1 "></i>
+                    <i class="fas fa-share-square text-dark fs-1 "></i>
                 </div>
             </div>
             <div class="col-auto my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        Tambah Data Stok Masuk
+                        Tambah Data Stok Keluar
                     </h5>
                     <p class="mb-0 font-weight-normal text-sm">
                         Point Of Sale Management
@@ -30,7 +30,7 @@
                 <?php endif; ?>
             </div>
         </div>
-        <form action="/stokmasuk/save" method="post">
+        <form action="/stokkeluar/save" method="post">
             <div class="row justify-content-evenly mt-2 ">
                 <div class="col-lg-4">
                     <div class="form-group mb-1">
@@ -77,23 +77,20 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group mb-1">
-                        <label for="detail" class="fw-bolder">Detail</label>
+                        <label for="detail" class="fw-bolder">Detail Keterangan Produk</label>
                         <div class="input-group input-group-outline">
-                            <input type="text" name="detail" id="detail" class="form-control">
+                            <input type="text" name="detail" id="detail" class="form-control" placeholder="Rusak / Hilang / Kedaluwarsa">
                         </div>
                     </div>
                     <div class="form-group mb-1">
                         <label for="supplier" class="fw-bolder">Supplier</label>
                         <div class="input-group input-group-outline">
-                            <select name="id_supplier" id="id_supplier" class="form-select px-3 fw-light <?= (validation_errors()) ? 'is-invalid' :  null ?> ">
+                            <select name="id_supplier" id="id_supplier" class="form-select px-3 fw-light">
                                 <option value=""> - pilih supplier - </option>
                                 <?php foreach ($data_supplier as $supplier) : ?>
                                     <option value="<?= $supplier['id_supplier'] ?>"> <?= $supplier['nama_supplier'] ?> </option>
                                 <?php endforeach ?>
                             </select>
-                            <div class="invalid-feedback">
-                                <?= validation_show_error('id_supplier') ?>
-                            </div>
                         </div>
                     </div>
                     <div class="form-group mb-1">

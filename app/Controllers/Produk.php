@@ -94,7 +94,11 @@ class Produk extends BaseController
                 'id_kategori' => $this->request->getVar('kategori'),
                 'id_satuan' => $this->request->getVar('satuan'),
                 'harga' => $this->request->getVar('harga'),
+<<<<<<< HEAD
                 "stok"  => 0,
+=======
+                'stok'  => 0,
+>>>>>>> fitur1
             ];
 
         // insert data to Database
@@ -221,6 +225,16 @@ class Produk extends BaseController
     {
 
         $this->produkModel->delete(['id_produk' => $id_produk]);
+
+        $errors = $this->produkModel->db->error();
+        if ($errors['code'] != 0) {
+
+            session()->setFlashdata('flash', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
+        <strong>Data Produk tidak dapat dihapus</strong>  (data produk ini sedang digunakan pada data stok masuk).
+        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+      </div>');
+            return redirect()->to('/produk');
+        }
         session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
         <strong>Data Produk</strong> telah dihapus.
         <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>

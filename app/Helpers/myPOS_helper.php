@@ -11,49 +11,29 @@ function menu_dashboard($title)
 // menu supplier
 function menu_supplier($title)
 {
-    if (($title) == 'Supplier') {
+    if (($title) == 'Supplier' | $title == 'Tambah Data Supplier' | $title == 'Edit Data Supplier') {
         // 
-        return ($title) == 'Supplier' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Tambah Data Supplier') {
-        // 
-        return ($title) == 'Tambah Data Supplier' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Edit Data Supplier') {
-        // 
-        return ($title) == 'Edit Data Supplier' ? 'text-white active bg-gradient-primary' : '';
+        return $title =  'text-white active bg-gradient-primary';
     }
 }
-
 // end of menu supplier
 
 // menu customer
 function menu_customer($title)
 {
-    if (($title) == 'Customer') {
+    if (($title) == 'Customer' | $title == 'Tambah Data Customer' | $title == 'Edit Data Customer') {
         // 
-        return ($title) == 'Customer' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Tambah Data Customer') {
-        // 
-        return ($title) == 'Tambah Data Customer' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Edit Data Customer') {
-        // 
-        return ($title) == 'Edit Data Customer' ? 'text-white active bg-gradient-primary' : '';
+        return $title =  'text-white active bg-gradient-primary';
     }
 }
-
 // end of menu customers
 
 // menu produk
 function menu_produk($title)
 {
-    if (($title) == 'Produk') {
+    if (($title) == 'Produk' | $title == 'Tambah Data Produk' | $title == 'Edit Data Produk') {
         // 
-        return ($title) == 'Produk' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Tambah Data Produk') {
-        // 
-        return ($title) == 'Tambah Data Produk' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Edit Data Produk') {
-        // 
-        return ($title) == 'Edit Data Produk' ? 'text-white active bg-gradient-primary' : '';
+        return $title =  'text-white active bg-gradient-primary';
     }
 }
 // end of menu produk
@@ -76,34 +56,38 @@ function menu_satuan($title)
 // menu user
 function menu_user($title)
 {
-    if (($title) == 'User') {
+    if (($title) == 'User' | $title == 'Tambah Data User' | $title == 'Edit Data User') {
         // 
-        return ($title) == 'User' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Tambah Data User') {
-        // 
-        return ($title) == 'Tambah Data User' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Edit Data User') {
-        // 
-        return ($title) == 'Edit Data User' ? 'text-white active bg-gradient-primary' : '';
+        return $title =  'text-white active bg-gradient-primary';
     }
 }
 
 // end of menu user
 
 
-// menu user
+// menu stok masuk
 function menu_stok($title)
 {
-    if (($title) == 'Stok Masuk') {
+    if (($title) == 'Stok Masuk' | $title == 'Tambah Data Stok Masuk') {
         // 
-        return ($title) == 'Stok Masuk' ? 'text-white active bg-gradient-primary' : '';
-    } elseif (($title) == 'Tambah Data Stok Masuk') {
-        // 
-        return ($title) == 'Tambah Data Stok Masuk' ? 'text-white active bg-gradient-primary' : '';
+        return $title =  'text-white active bg-gradient-primary';
     }
 }
-
 // end of menu user
+
+// menu stok Keluar
+function menu_stok_keluar($title)
+{
+    if ($title == 'Stok Keluar' | $title == 'Tambah Data Stok Keluar') {
+        // 
+        return $title =  'text-white active bg-gradient-primary';
+    }
+}
+// end of menu user
+
+
+
+
 
 
 // indo date format

@@ -5,29 +5,29 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class StokMasuk extends BaseController
+class StokKeluar extends BaseController
 {
 
     public function index()
     {
         $data = [
-            'title'         => 'Stok Masuk',
-            'breadcrumb'    => 'Stok Masuk',
-            'data_stok_masuk' => $this->stokMasukModel->selectAllStokMasuk(),
+            'title'         => 'Stok Keluar',
+            'breadcrumb'    => 'Stok Keluar',
+            'data_stok_keluar' => $this->stokKeluarModel->selectAllStokKeluar(),
         ];
-        return view('transaksi/stokmasuk/index', $data);
+        return view('transaksi/stokkeluar/index', $data);
     }
 
     // tambah data stok masuk
     public function create()
     {
         $data = [
-            'title'           => 'Tambah Data Stok Masuk',
-            'breadcrumb'      => 'Tambah Data Stok Masuk',
+            'title'           => 'Tambah Data Stok Keluar',
+            'breadcrumb'      => 'Tambah Data Stok Keluar',
             'data_produk'     => $this->produkModel->selectAllProduk(),
             'data_supplier'   => $this->suplyModel->selectAllSupplier(),
         ];
-        return view('transaksi/stokmasuk/create', $data);
+        return view('transaksi/stokkeluar/create', $data);
     }
 
     // save data stok masuk
@@ -37,17 +37,11 @@ class StokMasuk extends BaseController
         $rules = [
 
             'kode_produk' => [
+
                 'label'     => 'Kode Produk',
                 'rules'     => 'required|trim',
                 'errors'    => [
                     'required'      => 'Kode Produk harus diisi!'
-                ]
-            ],
-            'id_supplier' => [
-                'label'     => 'Supplier',
-                'rules'     => 'required|trim',
-                'errors'    => [
-                    'required'      => 'Pilih Supplier terlebih dahulu!'
                 ]
             ],
         ];
@@ -55,7 +49,7 @@ class StokMasuk extends BaseController
         // validation rules
         if (!$this->validate($rules)) {
 
-            return redirect()->to('/stokmasuk/create')->withInput();
+            return redirect()->to('/stokkeluar/create')->withInput();
         }
 
         // get data
@@ -64,28 +58,28 @@ class StokMasuk extends BaseController
             'id_produk'     => $this->request->getVar('id_produk'),
             'id_supplier'   => $this->request->getVar('id_supplier'),
             'id_user'       => session()->get('id'),
-            'typ'           => 'Masuk',
+            'type'           => 'Keluar',
             'detail'        => $this->request->getVar('detail'),
             'detail'        => $this->request->getVar('detail'),
             'qty'           => $this->request->getVar('qty'),
             'tanggal'       => $this->request->getVar('tgl'),
         ];
 
-        $this->stokMasukModel->saveData($data);
-        $this->produkModel->update_stok_masuk($data);
+        $this->stokKeluarModel->saveData($data);
+        $this->produkModel->update_stok_keluar($data);
 
         session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data stok baru </strong> telah ditambah & diupdate.
+        <strong>Data stok keluar </strong> telah ditambah & diupdate.
         <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
       </div>');
-        return redirect()->to('/stokmasuk');
+        return redirect()->to('/stokkeluar');
     }
 
     // delete data stok masuk
-    public function delete($id_stok_masuk)
+    public function delete($id_stok_keluar)
     {
 
-        $data_stok = $this->stokMasukModel->selectAllStokMasuk(['id_stok_masuk' => $id_stok_masuk]);
+        $data_stok = $this->stokKeluarModel->selectAllStokKeluar(['id_stok_keluar' => $id_stok_keluar]);
 
         $data = [
 
@@ -93,13 +87,14 @@ class StokMasuk extends BaseController
             'id_produk'   => $data_stok['id_produk'],
         ];
 
-        $this->produkModel->update_delete_stok_masuk($data);
-        $this->stokMasukModel->delete(['id_stok_masuk' => $id_stok_masuk]);
+        $this->produkModel->update_delete_stok_keluar($data);
+        $this->stokKeluarModel->delete(['id_stok_keluar' => $id_stok_keluar]);
+
         session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data stok masuk </strong> telah dihapus & diupdate.
+        <strong>Data stok keluar </strong> telah dihapus & diupdate.
         <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
       </div>');
 
-        return redirect()->to('/stokmasuk');
+        return redirect()->to('/stokkeluar');
     }
 }

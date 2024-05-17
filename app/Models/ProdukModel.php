@@ -43,6 +43,7 @@ class ProdukModel extends Model
     }
 
 
+    // stok masuk
     // update data stok from add stok data ( Tambah stok masuk)
     public function update_stok_masuk($data)
     {
@@ -63,6 +64,30 @@ class ProdukModel extends Model
         $id_produk = $data['id_produk'];
 
         $query = "UPDATE produk SET stok = stok - '$qty' WHERE id_produk = '$id_produk' ";
+
+        return $this->db->query($query);
+    }
+
+    // stok keluar
+    // update data stok from add stok data ( Tambah stok masuk)
+    public function update_stok_keluar($data)
+    {
+
+        $id_produk = $data['id_produk'];
+        $qty = $data['qty'];
+
+        $query = "UPDATE produk SET stok = stok - '$qty' WHERE id_produk = '$id_produk' ";
+
+        return $this->db->query($query);
+    }
+    // update data stok from add stok data ( Hapus  stok masuk)
+    public function update_delete_stok_keluar($data)
+    {
+
+        $qty = $data['qty'];
+        $id_produk = $data['id_produk'];
+
+        $query = "UPDATE produk SET stok = stok + '$qty' WHERE id_produk = '$id_produk' ";
 
         return $this->db->query($query);
     }
