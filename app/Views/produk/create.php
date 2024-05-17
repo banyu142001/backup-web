@@ -99,8 +99,4 @@
     </div>
 
 </div>
-
-<?= $this->include('/layout/modal/modal-delete'); ?>
-<?= $this->include('/layout/modal/modal-update'); ?>
-<!-- Modal -->
 <?= $this->endSection(); ?>

@@ -14,14 +14,7 @@ class Satuan extends BaseController
         $data = [
             'title'         => 'Satuan',
             'breadcrumb'    => 'Satuan',
-            'konf_delete'   => 'Hapus data Satuan',
-            'customers'     => $this->cusModel->selectAllCustomer(),
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
-
+            'data_satuan'        => $this->satuanModel->selectAllSatuan(),
         ];
         return view('satuan/index', $data);
     }

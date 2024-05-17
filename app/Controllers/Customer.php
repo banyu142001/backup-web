@@ -13,13 +13,7 @@ class Customer extends BaseController
         $data = [
             'title'         => 'Customer',
             'breadcrumb'    => 'Customer',
-            'konf_delete'   => 'Hapus data Customer',
             'customers'     => $this->cusModel->selectAllCustomer(),
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('customer/index', $data);
     }
@@ -30,13 +24,7 @@ class Customer extends BaseController
         $data = [
             'title'         => 'Tambah Data Customer',
             'breadcrumb'    => 'Customer / Tambah Data Customer',
-            'konf_delete'   => '',
             'customers'     => $this->cusModel->selectAllCustomer(),
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
-            'users'         => $this->userModel->selectAllUser(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('customer/create', $data);
     }
@@ -94,10 +82,6 @@ class Customer extends BaseController
             'title'         => 'Edit Data Customer',
             'breadcrumb'    => 'Customer / Edit Data Customer',
             'customers'     => $this->cusModel->selectAllCustomer(['id_customer' => $id_customer]),
-            'users'         => $this->userModel->selectAllUser(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
-            'data_produk'   => $this->produkModel->selectAllProduk(),
         ];
         return view('customer/edit', $data);
     }

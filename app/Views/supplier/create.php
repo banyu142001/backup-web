@@ -72,7 +72,5 @@
     </div>
 </div>
 </div>
-
-<?= $this->include('/layout/modal/modal-delete'); ?>
 <!-- Modal -->
 <?= $this->endSection(); ?>
