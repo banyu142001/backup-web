@@ -86,12 +86,12 @@
                                         <input type="text" name="harga" class="form-control fw-bold" value="<?= (old('harga') ? old('harga') : $produk_update['harga']) ?>" />
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="stok">Stok Produk</label>
                                     <div class="input-group input-group-outline mb-2">
                                         <input type="text" name="stok" class="form-control fw-bold" value="<?= (old('stok') ? old('stok') : $produk_update['stok']) ?>" />
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group mt-3">
                                     <a href="/produk" class="btn p-2 btn-info mx-2" name="submit" type="submit">Kembali</a>

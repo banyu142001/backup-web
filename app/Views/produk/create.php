@@ -85,12 +85,12 @@
                                         <input type="text" name="harga" class="form-control" value="<?= old('harga') ?>" placeholder="Rp . xxx" />
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="stok">Stok Produk</label>
                                     <div class="input-group input-group-outline mb-2">
                                         <input type="text" name="stok" class="form-control" value="<?= old('stok') ?>" placeholder=" - " />
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group mt-3">
                                     <a href="/produk" class="btn p-2 btn-info mx-2" name="submit" type="submit">Kembali</a>
