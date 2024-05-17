@@ -111,6 +111,17 @@ class Kategori extends BaseController
     {
 
         $this->katModel->delete(['id_kategori' => $id_kategori]);
+        $errors = $this->katModel->db->error();
+
+        if ($errors['code'] != 0) {
+
+            session()->setFlashdata('flash_del', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
+            <strong>Data Kategori tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
+            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+          </div>');
+            return redirect()->to('/kategori');
+        }
+
         session()->setFlashdata('flash_del', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
         <strong>Data Kategori</strong> telah dihapus.
         <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>

@@ -37,11 +37,17 @@ class StokMasuk extends BaseController
         $rules = [
 
             'kode_produk' => [
-
                 'label'     => 'Kode Produk',
                 'rules'     => 'required|trim',
                 'errors'    => [
                     'required'      => 'Kode Produk harus diisi!'
+                ]
+            ],
+            'id_supplier' => [
+                'label'     => 'Supplier',
+                'rules'     => 'required|trim',
+                'errors'    => [
+                    'required'      => 'Pilih Supplier terlebih dahulu!'
                 ]
             ],
         ];

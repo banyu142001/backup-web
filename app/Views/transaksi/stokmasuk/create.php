@@ -85,12 +85,15 @@
                     <div class="form-group mb-1">
                         <label for="supplier" class="fw-bolder">Supplier</label>
                         <div class="input-group input-group-outline">
-                            <select name="id_supplier" id="id_supplier" class="form-select px-3 fw-light">
+                            <select name="id_supplier" id="id_supplier" class="form-select px-3 fw-light <?= (validation_errors()) ? 'is-invalid' :  null ?> ">
                                 <option value=""> - pilih supplier - </option>
                                 <?php foreach ($data_supplier as $supplier) : ?>
                                     <option value="<?= $supplier['id_supplier'] ?>"> <?= $supplier['nama_supplier'] ?> </option>
                                 <?php endforeach ?>
                             </select>
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('id_supplier') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group mb-1">
