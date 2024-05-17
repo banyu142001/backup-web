@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white p-1 mx-5" href="">
+                <a class="nav-link text-white p-1 mx-5  <?= menu_stok_keluar($title) ?> " href="/stokkeluar">
                     <span class="nav-link-text ms-1">Stok Keluar</span>
                 </a>
             </li>
