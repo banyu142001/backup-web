@@ -66,15 +66,21 @@ class Auth extends BaseController
                 session()->set($login_session);
                 return redirect()->to('/home');
             } else {
-                session()->setFlashdata('flash', '<div class="alert alert-info alert-dismissible text-white" role="alert">
+                session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #ff6a88;
+                background-image: linear-gradient(90deg, #ff6a88 0%, #FF6A88 55%, #ff6a88 100%);
+                 ">
                 <span class="text-sm">Username / Password tidak sesuai!</span>
+                <span class="float-end mx-2  cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
                 </div>');
                 return redirect()->to('/auth');
             }
         } else {
 
-            session()->setFlashdata('flash', '<div class="alert alert-info alert-dismissible text-white" role="alert">
+            session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #ff6a88;
+                background-image: linear-gradient(90deg, #ff6a88 0%, #FF6A88 55%, #ff6a88 100%);
+                 ">
                 <span class="text-sm">Data user tidak ditemukan!</span>
+                <span class="float-end mx-2 cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
                 </div>');
             return redirect()->to('/auth');
         }
@@ -164,9 +170,11 @@ class Auth extends BaseController
         $this->userModel->saveRegUserData($data);
 
 
-        session()->setFlashdata('flash', '<div class="alert alert-success alert-dismissible text-white" role="alert">
-     <span class="text-sm">Registrasi berhasil ! silahkan login dengan username yang telah terdaftar. <a href="/auth">Login</a> </span>
-      </div>');
+        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #2fde7e;
+        background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
+        <span class="text-sm">👌Registrasi suksess ! silahkan login </span>
+        <span class="float-end mx-2 cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
+        </div>');
         return redirect()->to('/auth/register');
     }
 
@@ -182,9 +190,10 @@ class Auth extends BaseController
         session()->remove('foto');
 
 
-        session()->setFlashdata('flash', '<div class="alert alert-dismissible text-white" role="alert" style="background-color: #2fde7e;
+        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #2fde7e;
         background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
         <span class="text-sm">Anda berhasil logout ! se you 👋👋</span>
+        <span class="float-end mx-2 cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
         </div>');
 
         return redirect()->to('/auth');

@@ -79,3 +79,18 @@ abstract class BaseController extends Controller
         $this->stokKeluarModel = new StokKeluarModel();
     }
 }
+
+// CONTANTA ALERT
+define('ALERT_SUCCESS', 'style="background-color: #2fde7e;
+background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)"');
+
+define('ALERT_DANGER', ' style="background-color: #ff6a88;
+background-image: linear-gradient(90deg, #ff6a88 0%, #FF6A88 55%, #ff6a88 100%);
+ "');
+
+//  icon check
+define('icon_success', '<i class="fa fa-check-circle mx-2"></i>');
+//  icon warnign alert danger
+define('icon_warning', '<i class="fas fa-exclamation-circle mx-2"></i>');
+// icon close alert
+define('icon_close', ' <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>');

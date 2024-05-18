@@ -55,7 +55,7 @@
                                         </div>
 
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-primary btn-lg w-100 mt-2">
+                                            <button type="submit" class="btn bg-gradient-info btn-lg w-100 mt-2">
                                                 Register
                                             </button>
                                         </div>
@@ -64,7 +64,7 @@
                                 <div class="card-footer text-center pt-0 px-lg-2">
                                     <p class="text-sm mx-auto">
                                         Sudah punya akun ?
-                                        <a href="/auth" class="text-primary text-gradient font-weight-bold">Login</a>
+                                        <a href="/auth" class="text-info text-gradient font-weight-bold">Login</a>
                                     </p>
                                 </div>
                             </div>

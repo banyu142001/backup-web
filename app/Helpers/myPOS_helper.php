@@ -86,10 +86,6 @@ function menu_stok_keluar($title)
 // end of menu user
 
 
-
-
-
-
 // indo date format
 function indo_date($date)
 {
