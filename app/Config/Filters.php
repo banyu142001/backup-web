@@ -13,8 +13,6 @@ use CodeIgniter\Filters\PageCache;
 use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
 
-use App\Filters\CustomerFilter;
-use App\Filters\SupplierFilter;
 use App\Filters\SistemFilter;
 use App\Filters\FrontFilter;
 use App\Filters\LogoutFilter;
