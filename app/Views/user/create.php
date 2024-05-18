@@ -73,9 +73,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group mt-3">
-                                <a href="/user" class="btn p-2 btn-info mx-2" name="submit" type="submit">Kembali</a>
-                                <button class="btn p-2 btn-success" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                            <div class="form-group mt-4">
+                                <button class="btn p-2 mx-2 text-white rounded-2 shadow-none" name="submit" type="reset" <?= btn_info ?>>Reset</button>
+                                <button class="btn p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                             </div>
                         </div>
                     </div>

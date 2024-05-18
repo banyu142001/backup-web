@@ -49,9 +49,9 @@ class Kategori extends BaseController
 
         // insert data to Database
         $this->katModel->saveKategoriData($data);
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Kategori Baru</strong> telah ditambahkan.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <p style="font-size:14px" class="mb-0 d-inline" ><strong > ' . icon_success . ' Kategori Baru</strong> telah ditambahkan.</p>
+        ' . icon_close . '
       </div>');
         return redirect()->to('/kategori');
     }
@@ -74,9 +74,9 @@ class Kategori extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            session()->setFlashdata('flash_update_rule', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
-            <small>Nama Kategori harus diisi !! lakukan edit kembali.</small>
-            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+            session()->setFlashdata('flash_update_rule', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"  ' . ALERT_DANGER . '  >
+            <small>  ' . icon_warning . '<strong>Nama Kategori</strong> harus diisi !! lakukan edit kembali.</small>
+            ' . icon_close . '
           </div>');
             return redirect()->to('/kategori')->withInput();
         }
@@ -92,9 +92,9 @@ class Kategori extends BaseController
 
         // insert data to Database
         $this->katModel->saveUpdateData($data);
-        session()->setFlashdata('flash_update', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Kategori</strong> telah diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash_update', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"   ' . ALERT_SUCCESS . ' >
+        <strong>  ' . icon_success . ' Data Kategori</strong> telah diupdate.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/kategori');
     }
@@ -109,16 +109,16 @@ class Kategori extends BaseController
 
         if ($errors['code'] != 0) {
 
-            session()->setFlashdata('flash_del', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
-            <strong>Data Kategori tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
-            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+            session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"   ' . ALERT_DANGER . ' >
+            <strong>  ' . icon_warning . ' Data Kategori tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
+            ' . icon_close . '
           </div>');
             return redirect()->to('/kategori');
         }
 
-        session()->setFlashdata('flash_del', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Kategori</strong> telah dihapus.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"   ' . ALERT_SUCCESS . ' >
+        <strong>  ' . icon_success . ' Data Kategori</strong> telah dihapus.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/kategori');
     }

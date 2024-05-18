@@ -45,9 +45,9 @@
             </div>
             <div class="card rounded-1 ">
                 <div class="row gx-4 mt-3">
-                    <div class="col-auto">
-                        <div class="avatar avatar-xl position-relative">
-                            <i class="fa-solid fa-magnifying-glass-chart text-dark fs-1"></i>
+                    <div class="col-auto px-4">
+                        <div class="avatar rounded-2 position-relative" <?= bg_info ?>>
+                            <i class="fa-solid fa-magnifying-glass-chart text-white fs-4"></i>
                         </div>
                     </div>
                     <div class="col-auto my-auto">
@@ -107,10 +107,10 @@
                                                 <p class="text-sm text-center mb-0"><?= $produk['stok'] ?></p>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="/produk/edit/<?= $produk['id_produk'] ?>" class="text-success font-weight-bolder text-xs">
+                                                <a href="/produk/edit/<?= $produk['id_produk'] ?>" class="text-xs" <?= text_success ?>>
                                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                                 </a>
-                                                <a href="" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modalDelProduk<?= $produk['id_produk'] ?>">
+                                                <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelProduk<?= $produk['id_produk'] ?>">
                                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                                 </a>
                                             </td>

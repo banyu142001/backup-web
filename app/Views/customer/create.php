@@ -7,9 +7,9 @@
     </div>
     <div class="card card-body mx-3 mx-md-4 rounded-2 mt-n7">
         <div class="row gx-4 mb-2">
-            <div class="col-auto">
-                <div class="avatar avatar-xl position-relative">
-                    <i class="fa-solid fa-users-line text-dark fs-1"></i>
+            <div class="col-auto px-4">
+                <div class="avatar rounded-2 position-relative" <?= bg_danger ?>>
+                    <i class="fa-solid fa-users-line text-white fs-4"></i>
                 </div>
             </div>
             <div class="col-auto my-auto">
@@ -66,8 +66,8 @@
                             </div>
 
                             <div class="form-group mt-3">
-                                <a href="/customer" class="btn p-2 btn-info mx-2" name="submit" type="submit">Kembali</a>
-                                <button class="btn p-2 btn-success" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                                <button class="btn p-2 mx-2 text-white rounded-2 shadow-none" name="submit" type="reset" <?= btn_info ?>>Reset</button>
+                                <button class="btn p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                             </div>
                         </div>
                     </div>

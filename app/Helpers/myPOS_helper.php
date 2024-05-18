@@ -96,3 +96,58 @@ function indo_date($date)
 
     return $d . '/' . $m . '/' . $y;
 }
+
+// =======================================================================
+// CONSTANTA ALERT
+
+// alert success
+define('ALERT_SUCCESS', 'style="background-color: #2fde7e;
+background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)"');
+// alert danger
+define('ALERT_DANGER', ' style="background-color: #ff6a88;
+background-image: linear-gradient(90deg, #ff6a88 0%, #FF6A88 55%, #ff6a88 100%);
+ "');
+
+//  icon check
+define('icon_success', '<i class="fa fa-check-circle mx-2"></i>');
+//  icon warnign alert danger
+define('icon_warning', '<i class="fas fa-exclamation-circle mx-2"></i>');
+// icon close alert
+define('icon_close', ' <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>');
+
+// text success
+define('text_success', 'style="color: #00DFA2;"');
+// texr danger
+define('text_danger', 'style="color: #C73659;"');
+// texr info
+define('text_info', 'style="color: #1679AB;"');
+
+
+// button success
+define('btn_success', 'style="background-color: #2fde7e;
+background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)"');
+// button info
+define('btn_info', 'style="background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #0093e9 100%)"');
+// button success
+define('btn_success_search', 'style="background-color: #2fde7e;
+background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%); height: 39px;"');
+
+// bg icon info
+define('bg_info', 'style="background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #8ec5fc 100%)"');
+
+// bg icon danger
+define('bg_danger', 'style="background-color: #ff99ac;
+background-image: linear-gradient(90deg, #ff99ac 0%, #ff99ac 55%, #FF99AC 100%);
+"');
+
+// bg icon success
+define('bg_success', 'style="background-color: #d8d457;
+background-image: linear-gradient(45deg, #d8d457 0%, #d8d457 100%);
+"');
+
+// bg icon warning
+define('bg_warning', 'style="background-color: #f7ce68;
+background-image: linear-gradient(62deg, #f7ce68 0%, #F7CE68 100%);
+"');

@@ -90,9 +90,9 @@ class Produk extends BaseController
         // insert data to Database
         $this->produkModel->saveProdukData($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Produk Baru</strong> telah ditambahkan.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data Produk Baru</strong> telah ditambahkan.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/produk');
     }
@@ -193,9 +193,9 @@ class Produk extends BaseController
         // insert data to Database
         $this->produkModel->saveUpdateProdukData($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Produk</strong> telah diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data Produk</strong> telah diupdate.
+        ' . icon_close . ' 
       </div>');
         return redirect()->to('/produk');
     }
@@ -210,15 +210,16 @@ class Produk extends BaseController
         $errors = $this->produkModel->db->error();
         if ($errors['code'] != 0) {
 
-            session()->setFlashdata('flash', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Produk tidak dapat dihapus</strong>  (data produk ini sedang digunakan pada data stok masuk).
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+            session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . '  >
+        <strong>' . icon_warning . '  Data Produk tidak dapat dihapus</strong>  (data produk ini sedang digunakan pada data stok masuk).
+        ' . icon_close . ' 
       </div>');
             return redirect()->to('/produk');
         }
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Produk</strong> telah dihapus.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data Produk</strong> telah dihapus.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/produk');
     }

@@ -76,11 +76,9 @@ class Auth extends BaseController
             }
         } else {
 
-            session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #ff6a88;
-                background-image: linear-gradient(90deg, #ff6a88 0%, #FF6A88 55%, #ff6a88 100%);
-                 ">
+            session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' ">
                 <span class="text-sm">Data user tidak ditemukan!</span>
-                <span class="float-end mx-2 cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
+                ' . icon_close . '
                 </div>');
             return redirect()->to('/auth');
         }
@@ -170,10 +168,9 @@ class Auth extends BaseController
         $this->userModel->saveRegUserData($data);
 
 
-        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #2fde7e;
-        background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
+        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
         <span class="text-sm">👌Registrasi suksess ! silahkan login </span>
-        <span class="float-end mx-2 cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
+        ' . icon_close . '
         </div>');
         return redirect()->to('/auth/register');
     }
@@ -190,10 +187,9 @@ class Auth extends BaseController
         session()->remove('foto');
 
 
-        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #2fde7e;
-        background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)" >
+        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
         <span class="text-sm">Anda berhasil logout ! se you 👋👋</span>
-        <span class="float-end mx-2 cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
+          ' . icon_close . '
         </div>');
 
         return redirect()->to('/auth');

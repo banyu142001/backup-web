@@ -68,9 +68,9 @@ class StokKeluar extends BaseController
         $this->stokKeluarModel->saveData($data);
         $this->produkModel->update_stok_keluar($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data stok keluar </strong> telah ditambah & diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data stok keluar </strong> telah ditambah & diupdate.
+        ' . icon_close . ' 
       </div>');
         return redirect()->to('/stokkeluar');
     }
@@ -90,9 +90,9 @@ class StokKeluar extends BaseController
         $this->produkModel->update_delete_stok_keluar($data);
         $this->stokKeluarModel->delete(['id_stok_keluar' => $id_stok_keluar]);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data stok keluar </strong> telah dihapus & diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data stok keluar </strong> telah dihapus & diupdate.
+        ' . icon_close . ' 
       </div>');
 
         return redirect()->to('/stokkeluar');

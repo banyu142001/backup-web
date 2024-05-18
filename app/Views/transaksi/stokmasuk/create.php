@@ -4,9 +4,9 @@
 <div class="container-fluid px-2 px-md-4">
     <div class="card card-body mx-3 mx-md-4 rounded-1 mt-4">
         <div class="row gx-4 mb-2">
-            <div class="col-auto">
-                <div class="avatar avatar-xl position-relative">
-                    <i class="fas fa-folder-plus text-dark fs-1 "></i>
+            <div class="col-auto px-4">
+                <div class="avatar rounded-2 position-relative" <?= bg_warning ?>>
+                    <i class="fas fa-folder-plus text-white fs-4  "></i>
                 </div>
             </div>
             <div class="col-auto my-auto">
@@ -41,7 +41,7 @@
                             <div class="invalid-feedback">
                                 <?= validation_show_error('kode_produk') ?>
                             </div>
-                            <button type="button" class="btn btn-sm btn-primary px-1  input-group-text" style="height: 39px;" data-bs-toggle="modal" data-bs-target="#modalStok"><i class="fas fa-search text-white fs-5 mx-3"></i></button>
+                            <button type="button" class="btn btn-sm px-1 input-group-text" <?= btn_success_search ?> data-bs-toggle="modal" data-bs-target="#modalStok"><i class="fas fa-search text-white fs-5 mx-3"></i></button>
                         </div>
                     </div>
                     <div class="form-group mb-1">
@@ -103,8 +103,8 @@
                         </div>
                     </div>
                     <div class="form-group mt-4">
-                        <button class="btn rounded-1 me-2 btn-light" type="reset">Batal</button>
-                        <button class="btn rounded-1 btn-success" name="submit" type="submit">Simpan</button>
+                        <button class="btn p-2 mx-2 text-white rounded-2 shadow-none" name="submit" type="reset" <?= btn_info ?>>Reset</button>
+                        <button class="btn p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                     </div>
                 </div>
             </div>

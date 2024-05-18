@@ -50,9 +50,9 @@ class Satuan extends BaseController
 
         // insert data to Database
         $this->satuanModel->saveSatuanData($data);
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Satuan Baru</strong> telah ditambahkan.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <p style="font-size:14px" class="mb-0 d-inline" ><strong > ' . icon_success . ' Satuan Baru</strong> telah ditambahkan.</p>
+        ' . icon_close . '
       </div>');
         return redirect()->to('/satuan');
     }
@@ -75,9 +75,9 @@ class Satuan extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            session()->setFlashdata('flash_update_rule', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
-            <small>Nama Satuan harus diisi !! lakukan edit kembali.</small>
-            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+            session()->setFlashdata('flash_update_rule', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"  ' . ALERT_DANGER . ' >
+            <small> ' . icon_warning . ' <strong>Nama Satuan</strong> harus diisi !! lakukan edit kembali.</small>
+            ' . icon_close . '
           </div>');
             return redirect()->to('/satuan')->withInput();
         }
@@ -93,9 +93,9 @@ class Satuan extends BaseController
 
         // insert data to Database
         $this->satuanModel->saveUpdateData($data);
-        session()->setFlashdata('flash_update', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Satuan</strong> telah diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash_update', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data Satuan</strong> telah diupdate.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/satuan');
     }
@@ -110,16 +110,16 @@ class Satuan extends BaseController
 
         if ($errors['code'] != 0) {
 
-            session()->setFlashdata('flash_del', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
-            <strong>Data Satuan tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
-            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+            session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . ' >
+            <strong>' . icon_success . ' Data Satuan tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
+            ' . icon_close . '
           </div>');
             return redirect()->to('/satuan');
         }
 
-        session()->setFlashdata('flash_del', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Satuan </strong> telah dihapus.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data Satuan </strong> telah dihapus.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/satuan');
     }
