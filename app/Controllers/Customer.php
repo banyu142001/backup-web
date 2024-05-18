@@ -68,9 +68,9 @@ class Customer extends BaseController
 
         // insert data to Database
         $this->cusModel->saveCustomerData($data);
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Customer Baru</strong> telah ditambahkan.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data Customer Baru</strong> telah ditambahkan.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/customer');
     }
@@ -127,9 +127,9 @@ class Customer extends BaseController
         // insert data to Database
         $this->cusModel->saveUpdateCustomerData($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Customer</strong> telah diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . 'Data Customer</strong> telah diupdate.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/customer');
     }
@@ -140,9 +140,9 @@ class Customer extends BaseController
     {
 
         $this->cusModel->delete(['id_customer' => $id_custumer]);
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data Customer</strong> telah dihapus.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data Customer</strong> telah dihapus.
+      ' . icon_close . '
       </div>');
         return redirect()->to('/customer');
     }

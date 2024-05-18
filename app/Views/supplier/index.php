@@ -76,7 +76,7 @@
                                 <p class="text-sm font-weight-bolder mb-0"><?= $suply['deskripsi'] ?></p>
                             </td>
                             <td class="align-middle text-center">
-                                <a href="/supplier/edit/<?= $suply['id_supplier'] ?>" class="text-success font-weight-bolder text-xs">
+                                <a href="/supplier/edit/<?= $suply['id_supplier'] ?>" class="font-weight-bolder text-xs" style="color: #00DFA2;">
                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                 </a>
                                 <a href="" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modalDelSupply<?= $suply['id_supplier'] ?> ">
