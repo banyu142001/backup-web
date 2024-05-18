@@ -130,6 +130,10 @@ class Filters extends BaseFilters
                 'satuan',
                 'user',
                 'user/*',
+                'stokmasuk',
+                'stokmasuk/*',
+                'stokkeluar',
+                'stokkeluar/*'
             ],
         ],
 

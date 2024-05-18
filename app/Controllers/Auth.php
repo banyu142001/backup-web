@@ -66,18 +66,16 @@ class Auth extends BaseController
                 session()->set($login_session);
                 return redirect()->to('/home');
             } else {
-                session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" style="background-color: #ff6a88;
-                background-image: linear-gradient(90deg, #ff6a88 0%, #FF6A88 55%, #ff6a88 100%);
-                 ">
-                <span class="text-sm">Username / Password tidak sesuai!</span>
-                <span class="float-end mx-2  cursor-pointer text-dark" data-bs-dismiss="alert" aria-label="Close" ><i class="fa fa-close"></i></span>
+                session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' >
+                <span class="text-sm">' . icon_warning . 'Username / Password tidak sesuai!</span>
+                ' . icon_close . '
                 </div>');
                 return redirect()->to('/auth');
             }
         } else {
 
             session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' ">
-                <span class="text-sm">Data user tidak ditemukan!</span>
+                <span class="text-sm">' . icon_warning . ' Data user tidak ditemukan!</span>
                 ' . icon_close . '
                 </div>');
             return redirect()->to('/auth');
