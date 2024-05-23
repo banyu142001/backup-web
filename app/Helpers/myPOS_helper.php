@@ -83,7 +83,15 @@ function menu_stok_keluar($title)
         return $title =  'text-white active bg-gradient-primary';
     }
 }
-// end of menu user
+// menu penjualan
+function menu_penjualan($title)
+{
+    if ($title == 'Penjualan') {
+        // 
+        return $title =  'text-white active bg-gradient-primary';
+    }
+}
+// end of penjualan
 
 
 // indo date format
