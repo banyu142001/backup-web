@@ -132,6 +132,17 @@ background-image: linear-gradient(160deg, #0093E9 0%, #0093e9 100%)"');
 // button success
 define('btn_success_search', 'style="background-color: #2fde7e;
 background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%); height: 39px;"');
+// button success style
+define('btn_success_style', 'style="background-color: #2fde7e;
+background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%); height: 33px;"');
+// btn info add cart
+define('btn_cart', 'style="background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #0093e9 100%);
+--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .70rem; "');
+// btn info add cart
+define('btn_cart_warning', 'style="background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .70rem; "');
 
 // bg icon info
 define('bg_info', 'style="background-color: #8EC5FC;

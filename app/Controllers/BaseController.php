@@ -3,8 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\AuthModel;
+use App\Models\CartModel;
 use App\Models\CustomerModel;
 use App\Models\KategoriModel;
+use App\Models\PenjualanModel;
 use App\Models\ProdukModel;
 use App\Models\SatuanModel;
 use App\Models\StokKeluarModel;
@@ -65,7 +67,7 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
-    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel, $stokKeluarModel;
+    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel, $stokKeluarModel, $cartModel, $penjualanModel;
     public function __construct()
     {
         $this->suplyModel = new SupplierModel();
@@ -77,5 +79,7 @@ abstract class BaseController extends Controller
         $this->authModel = new AuthModel();
         $this->stokMasukModel = new StokMasukModel();
         $this->stokKeluarModel = new StokKeluarModel();
+        $this->cartModel = new CartModel();
+        $this->penjualanModel = new PenjualanModel();
     }
 }

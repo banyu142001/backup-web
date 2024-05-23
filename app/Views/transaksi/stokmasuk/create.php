@@ -118,7 +118,6 @@
             <div class="modal-header p-0 py-1 px-3">
                 <p class="modal-title fw-bolder mt-2">Pilih Produk</p>
                 <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-3 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
-                <!-- <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer"><i class="fas fa-times"></i></span> -->
             </div>
             <div class="modal-body table-responsive">
                 <table class="table table-borderles table-sm table-striped">
