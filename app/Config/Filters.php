@@ -131,7 +131,8 @@ class Filters extends BaseFilters
                 'stokmasuk',
                 'stokmasuk/*',
                 'stokkeluar',
-                'stokkeluar/*'
+                'stokkeluar/*',
+                'penjualan',
             ],
         ],
 
