@@ -40,4 +40,11 @@ class StokMasukModel extends Model
 
         return $this->save($data);
     }
+
+    // hitung semua data stok masuk
+    public function count_stok_masuk()
+    {
+
+        return $this->countAll();
+    }
 }

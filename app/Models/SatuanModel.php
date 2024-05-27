@@ -38,4 +38,11 @@ class SatuanModel extends Model
 
         return $this->save($data);
     }
+
+    // hitung semua data satuan
+    public function count_satuan()
+    {
+
+        return $this->countAll();
+    }
 }
