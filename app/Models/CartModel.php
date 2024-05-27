@@ -8,7 +8,7 @@ class CartModel extends Model
 {
     protected $table            = 'cart';
     protected $primaryKey       = 'id_cart';
-    protected $allowedFields    = ['id_produk', 'harga', 'qty', 'diskon', 'total', 'id_user'];
+    protected $allowedFields    = ['id_produk', 'harga_data_cart', 'qty_data_cart', 'diskon_data_cart', 'total_data_cart', 'id_user'];
     protected $useTimestamps = true;
 
     // get alll data cart
@@ -30,12 +30,19 @@ class CartModel extends Model
         return $this->save($data);
     }
 
+    // save update data cart
+    public function saveUpdate($data)
+    {
+
+        return $this->save($data);
+    }
+
     // method update data qty jika produk sama
     public function update_cart_qty($data)
     {
 
-        $sql = "UPDATE cart SET harga = '$data[harga]', 
-        qty = qty + '$data[qty]', total = '$data[harga]' * qty
+        $sql = "UPDATE cart SET harga_data_cart = '$data[harga_data_cart]', 
+        qty_data_cart = qty_data_cart + '$data[qty_data_cart]', total_data_cart = '$data[harga_data_cart]' * qty_data_cart
         WHERE id_produk = '$data[id_produk]' ";
 
         return $this->db->query($sql);

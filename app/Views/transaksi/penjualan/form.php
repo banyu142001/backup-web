@@ -63,35 +63,35 @@
                     <div class="row">
                         <input type="hidden" id="id_cart">
                         <div class="col-6">
-                            <input type="text" id="kode" class="form-control border form-control-sm" readonly>
+                            <input type="text" id="kode_cart" class="form-control border form-control-sm bg-light fw-bold" readonly>
                         </div>
                         <div class="col-6">
-                            <input type="text" id="nama" class="form-control border form-control-sm" readonly>
+                            <input type="text" id="nama_cart" class="form-control border form-control-sm bg-light fw-bold" readonly>
                         </div>
                     </div>
                 </div>
                 <div class="form-group mb-0">
                     <label for="harga" class="my-0">Harga</label>
-                    <input type="number" id="harga1" class="form-control border form-control-sm">
+                    <input type="number" id="harga_cart" class="form-control border form-control-sm">
                 </div>
                 <div class="form-group mb-0">
                     <label for="jumlah" class="my-0">Jumlah</label>
-                    <input type="number" id="jumlah" class="form-control border form-control-sm">
+                    <input type="number" id="jumlah_cart" class="form-control border form-control-sm">
                 </div>
                 <div class="form-group mb-0">
                     <label for="total1" class="my-0">Total sebelum Diskon</label>
-                    <input type="number" id="total1" class="form-control border form-control-sm">
+                    <input type="number" id="total1" class="form-control border form-control-sm fw-bold bg-light">
                 </div>
                 <div class="form-group mb-0">
                     <label for="diskon_produk" class="my-0">Diskon per Produk</label>
-                    <input type="number" id="diskon_produk" class="form-control border form-control-sm">
+                    <input type="number" id="diskon_cart" class="form-control border form-control-sm">
                 </div>
                 <div class="form-group mb-0">
                     <label for="total2" class="my-0">Total setelah Diskon</label>
-                    <input type="number" id="total2" class="form-control border form-control-sm">
+                    <input type="number" id="total2" class="form-control border form-control-sm fw-bold bg-light ">
                 </div>
                 <div class="form-group mb-0">
-                    <button class="btn btn-sm rounded-1 text-white w-100 mt-1" <?= btn_success ?> name="submit" type="submit">Simpan</button>
+                    <button id="simpan_update" class="btn btn-sm rounded-1 text-white w-100 mt-1" <?= btn_success ?>>Simpan</button>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@
 <script>
     $(document).ready(function() {
 
-        // jqyuery tamabh data cart belanja
+        // Jquery / ajax menambahakan data kedalam cart belanja
         $(document).on('click', '#select', function() {
 
             // ambil data dari button search 
@@ -117,30 +117,7 @@
             $('#stok').val(stok);
             $('#modalCart').modal('hide');
         })
-
-        // jquery update cart data
-        $(document).on('click', '#update_cart', function() {
-
-            // ambil data dari button update
-            const id_cart = $(this).data('id_cart');
-            const kode_produk = $(this).data('kode_produk');
-            const nama_produk = $(this).data('nama_produk');
-            const harga = $(this).data('harga');
-            const qty = $(this).data('qty');
-            const diskon = $(this).data('diskon');
-            const total = $(this).data('total');
-
-            // set value dari tiap inputan berdasarkan id
-            $('#id_cart').val(id_cart);
-            $('#kode').val(kode_produk);
-            $('#nama').val(nama_produk);
-            $('#harga1').val(harga);
-            $('#jumlah').val(qty);
-            $('#total1').val((harga * qty));
-            $('#diskon_produk').val(diskon);
-            $('#total2').val(total)
-        })
-
+        // ketika button tambah ditekan 
         $(document).on('click', '#cart', function() {
 
             // ambil data dari button
@@ -163,8 +140,8 @@
                     data: {
                         'cart': true,
                         'id_produk': id_produk,
-                        'harga': harga,
-                        'qty': qty
+                        'harga_data_cart': harga,
+                        'qty_data_cart': qty
                     },
                     dataType: 'json',
                     success: function(result) {
@@ -180,16 +157,13 @@
                         } else {
                             alert("Data gagal ditambhkan ke cart")
                         }
-
                     }
-
-
                 })
             }
-
         })
+        // -------------------------------------------------------------------------------------------
 
-        // delete cart ajax
+        // Jquery / ajax delete / hapus data dari cart belanja
         $(document).on('click', '#del_cart', function() {
             const id_cart = $(this).data('id_cart')
 
@@ -209,11 +183,105 @@
                         alert("Data cart gagal dihapus")
                     }
                 }
-
-
             })
+        })
+        // -------------------------------------------------------------------------------------------
+
+        // jquery edit data pada cart belanja
+        $(document).on('click', '#update_cart', function() {
+
+            // ambil data dari button update
+            const id_cart = $(this).data('id_cart');
+            const kode_produk = $(this).data('kode_produk');
+            const nama_produk = $(this).data('nama_produk');
+            const harga = $(this).data('harga');
+            const qty = $(this).data('qty');
+            const diskon = $(this).data('diskon');
+            const total = $(this).data('total');
+
+            // set nilai/value dari tiap inputan berdasarkan id
+            $('#id_cart').val(id_cart);
+            $('#kode_cart').val(kode_produk);
+            $('#nama_cart').val(nama_produk);
+            $('#harga_cart').val(harga);
+            $('#jumlah_cart').val(qty);
+            $('#total1').val((harga * qty));
+            $('#diskon_cart').val(diskon);
+            $('#total2').val(total)
+        })
+
+        // fungi kalkulasi pada modal edit secara realtime
+        function calculate_data_modal() {
+
+            // ambil data harga, diskon, dan qty
+            harga = $('#harga_cart').val()
+            jumlah = $('#jumlah_cart').val()
+            diskon = $('#diskon_cart').val()
+
+            total_sebelum_diskon = harga * jumlah
+            $('#total1').val(total_sebelum_diskon)
+
+            total = (harga - diskon) * jumlah
+            $('#total2').val(total)
+        }
+        // jalankan fungsi kalkulasi
+        $(document).on('keyup mouseup', '#harga_cart, #jumlah_cart, #diskon_cart', function() {
+
+            calculate_data_modal()
+        })
+        // -------------------------------------------------------------------------------------------
+
+        // jquery simpan data  update data pada cart belanja
+        $(document).on('click', '#simpan_update', function() {
+
+            // ambil data inputan dari modal edit
+            id_cart = $('#id_cart').val()
+            harga_cart = $('#harga_cart').val()
+            jumlah_cart = $('#jumlah_cart').val()
+            diskon_cart = $('#diskon_cart').val()
+            total2 = $('#total2').val()
+
+            // validasi data
+            if (harga_cart == 0) {
+                alert('Harga produk tidak boleh kosong !')
+                $('#harga_cart').focus()
+            } else if (jumlah_cart == 0) {
+                alert('Jumlah / QTY tidak boleh kosong !')
+                $('#jumlah_cart').focus()
+            } else {
+
+                // ajax untuk mengirimkan data ke controller penjualan 
+                $.ajax({
+
+                    type: 'POST',
+                    url: '<?= base_url('penjualan/update') ?>',
+                    data: {
+                        'simpan_update': true,
+                        'id_cart': id_cart,
+                        'harga_data_cart': harga_cart,
+                        'qty_data_cart': jumlah_cart,
+                        'diskon_data_cart': diskon_cart,
+                        'total_data_cart': total2,
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+
+                        if (result.success == true) {
+                            $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {})
+                            $('#modalUpdate').modal('hide');
+
+                        } else {
+
+                            alert('Data Cart tidak dapat diupdate !')
+                        }
+                    }
+
+                })
+
+            }
 
         })
+
 
 
     })

@@ -25,16 +25,16 @@ class Penjualan extends BaseController
     {
 
         $id_produk =  $this->request->getVar('id_produk');
-        $harga = $this->request->getVar('harga');
-        $qty = $this->request->getVar('qty');
+        $harga = $this->request->getVar('harga_data_cart');
+        $qty = $this->request->getVar('qty_data_cart');
 
         $data = [
 
             'id_produk' => $id_produk,
-            'harga' => $harga,
-            'qty' => $qty,
-            'total' => $harga * $qty,
-            'id_user'   => 1
+            'harga_data_cart' => $harga,
+            'qty_data_cart' => $qty,
+            'total_data_cart' => $harga * $qty,
+            'id_user'   => session()->get('id')
         ];
 
         //  ambil data produk berdasarkan id_produk
@@ -86,6 +86,37 @@ class Penjualan extends BaseController
             $params = ['success' => false];
         }
 
+        echo json_encode($params);
+    }
+
+    // method update data cart belanja
+    public function update()
+    {
+
+        // ambil yang dikirimkan melalui ajax
+        $id_cart = $this->request->getVar('id_cart');
+        $harga_cart = $this->request->getVar('harga_data_cart');
+        $qty_cart = $this->request->getVar('qty_data_cart');
+        $diskon_cart = $this->request->getVar('diskon_data_cart');
+        $total = $this->request->getVar('total_data_cart');
+
+        $data = [
+
+            'id_cart' => $id_cart,
+            'harga_data_cart' => $harga_cart,
+            'qty_data_cart' => $qty_cart,
+            'diskon_data_cart' => $diskon_cart,
+            'total_data_cart' => $total
+        ];
+
+        $this->cartModel->saveUpdate($data);
+
+        if ($this->penjualanModel->db->affectedRows() > 0) {
+
+            $params = ['success' => true];
+        } else {
+            $params = ['success' => false];
+        }
         echo json_encode($params);
     }
 }

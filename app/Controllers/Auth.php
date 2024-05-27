@@ -74,6 +74,7 @@ class Auth extends BaseController
             }
         } else {
 
+
             session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' ">
                 <span class="text-sm">' . icon_warning . ' Data user tidak ditemukan!</span>
                 ' . icon_close . '

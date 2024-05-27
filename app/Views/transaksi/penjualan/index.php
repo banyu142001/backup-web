@@ -15,7 +15,7 @@
                     <tr>
                         <th class="fw-normal">Kasir</th>
                         <td>
-                            <span class="text-xs">BAYU GURIUM</span>
+                            <span class="text-xs"><?= session()->get('nama') ?></span>
                         </td>
                     </tr>
                     <tr>

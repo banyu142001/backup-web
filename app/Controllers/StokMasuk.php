@@ -64,7 +64,7 @@ class StokMasuk extends BaseController
             'id_produk'     => $this->request->getVar('id_produk'),
             'id_supplier'   => $this->request->getVar('id_supplier'),
             'id_user'       => session()->get('id'),
-            'typ'           => 'Masuk',
+            'type'           => 'Masuk',
             'detail'        => $this->request->getVar('detail'),
             'detail'        => $this->request->getVar('detail'),
             'qty'           => $this->request->getVar('qty'),

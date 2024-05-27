@@ -22,19 +22,19 @@ class Cart extends Migration
                 'unsigned'          => true,
                 'null'              => true
             ],
-            'harga' => [
+            'harga_data_cart' => [
                 'type'              => 'INT',
                 'constraint'        => 11
             ],
-            'qty' => [
+            'qty_data_cart' => [
                 'type'              => 'INT',
                 'constraint'        => 11
             ],
-            'diskon' => [
+            'diskon_data_cart' => [
                 'type'              => 'INT',
                 'constraint'        => 11
             ],
-            'total' => [
+            'total_data_cart' => [
                 'type'              => 'INT',
                 'constraint'        => 11
             ],
