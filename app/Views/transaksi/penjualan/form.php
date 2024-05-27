@@ -1,10 +1,10 @@
-<!-- Modal tambah data cart -->
+<!-- Modal Pilih data produk ke dalam  cart belanja -->
 <div class="modal fade" id="modalCart" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg border-0 shadow-none position-relative ">
         <div class="modal-content rounded-1 shadow-none border-0">
             <div class="modal-header p-0 py-1 px-3">
                 <p class="modal-title fw-bolder mt-2">Pilih Produk</p>
-                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-3 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
+                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
             </div>
             <div class="modal-body table-responsive">
                 <table class="table table-borderles table-sm table-striped">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="form-group mb-0">
                     <label for="diskon_produk" class="my-0">Diskon per Produk</label>
-                    <input type="number" id="diskon_cart" class="form-control border form-control-sm">
+                    <input type="number" id="diskon_cart" class="form-control border form-control-sm" value="0">
                 </div>
                 <div class="form-group mb-0">
                     <label for="total2" class="my-0">Total setelah Diskon</label>
@@ -148,7 +148,7 @@
 
                         if (result.success == true) {
                             $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
-
+                                hitung()
                             })
                             $('#id_produk').val('')
                             $('#kode_produk').val('')
@@ -177,7 +177,9 @@
                 success: function(result) {
                     if (result.success == true) {
 
-                        $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {})
+                        $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
+                            hitung()
+                        })
 
                     } else {
                         alert("Data cart gagal dihapus")
@@ -267,7 +269,9 @@
                     success: function(result) {
 
                         if (result.success == true) {
-                            $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {})
+                            $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
+                                hitung()
+                            })
                             $('#modalUpdate').modal('hide');
 
                         } else {
@@ -275,14 +279,57 @@
                             alert('Data Cart tidak dapat diupdate !')
                         }
                     }
-
                 })
-
             }
-
         })
-
-
-
+        // -------------------------------------------------------------------------------------------
     })
+
+    // fungsi format rupiah
+    function formatRupiah(angka) {
+        var number_string = angka.toString(),
+            sisa = number_string.length % 3,
+            rupiah = number_string.substr(0, sisa),
+            ribuan = number_string.substr(sisa).match(/\d{3}/g);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        return 'Rp ' + rupiah;
+    }
+    // ------------------------------------------------  
+
+    function hitung() {
+        let sub_total = 0;
+        $('#tb_cart tr').each(function() {
+            sub_total += parseInt($(this).find('#total_cart').text());
+        });
+        isNaN(sub_total) ? $('#sub_total').val(0) : $('#sub_total').val(sub_total);
+
+        const diskon = parseInt($('#diskon_penjualan').val()); // Pastikan diskon dalam bentuk numerik
+        const grand_total = sub_total - diskon;
+
+        if (isNaN(grand_total)) {
+            $('#grand_total').val(0);
+            $('#grand_total2').text(0);
+        } else {
+            $('#grand_total').val(grand_total);
+            $('#grand_total2').text(formatRupiah(grand_total));
+        }
+
+        const cash = parseInt($('#cash').val()); // Pastikan cash dalam bentuk numerik
+        const kembalian = cash - grand_total;
+        $('#kembalian').val(kembalian >= 0 ? kembalian : 0); // Pastikan kembalian tidak negatif
+    }
+    $(document).on('keyup mouseup', '#diskon_penjualan, #cash', function() {
+        hitung()
+        formatRupiah()
+    })
+
+    $(document).ready(function() {
+        hitung()
+        formatRupiah()
+    });
 </script>

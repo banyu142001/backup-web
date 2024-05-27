@@ -9,7 +9,7 @@
                     <tr>
                         <th class="fw-normal">Tanggal</th>
                         <td>
-                            <input type="date" name="tgl" id="tgl" class="form-control border border-light form-control-sm">
+                            <input type="date" name="tgl" id="tgl" value="<?= date('Y-m-d') ?>" class="form-control border border-light form-control-sm">
                         </td>
                     </tr>
                     <tr>
@@ -76,8 +76,8 @@
                 </table>
                 <div class="row mb-2">
                     <div class="col-lg">
-                        <div class="box border px-1">
-                            <h1 class="text-end">Rp.0</h1>
+                        <div class="box border px-1" style="background-color: #FFFF;">
+                            <h1 class="text-end" id="grand_total2">0</h1>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                         <span class="text-xs">Sub Total</span>
                     </div>
                     <div class="col-7">
-                        <input type="text" name="total" id="total" class="form-control border border-light form-control-sm">
+                        <input type="number" name="sub_total" id="sub_total" class="form-control border border-light form-control-sm fw-bold" readonly>
                     </div>
                 </div>
                 <div class="row my-1 justify-content-center">
@@ -117,15 +117,15 @@
                         <span class="text-xs">Diskon</span>
                     </div>
                     <div class="col-7">
-                        <input type="text" value="0" name="diskon" id="diskon" class="form-control border border-light form-control-sm">
+                        <input type="number" value="0" name="diskon_penjualan" id="diskon_penjualan" class="form-control border border-light form-control-sm">
                     </div>
                 </div>
                 <div class="row my-1 justify-content-center">
                     <div class="col-3">
-                        <span class="text-xs">Harga</span>
+                        <span class="text-xs">Grand Total</span>
                     </div>
                     <div class="col-7">
-                        <input type="text" value="Rp.0" name="harga" id="harga" class="form-control border border-light form-control-sm">
+                        <input type="number" value="0" name="grand_total" id="grand_total" class="form-control border border-light form-control-sm fw-bold" readonly>
                     </div>
                 </div>
                 <div class="row my-1 justify-content-center">
@@ -133,7 +133,7 @@
                         <span class="text-xs">Cash</span>
                     </div>
                     <div class="col-7">
-                        <input type="text" value="Rp.0" name="cash" id="cash" class="form-control border border-light form-control-sm">
+                        <input type="number" value="0" name="cash" id="cash" class="form-control border border-light form-control-sm">
                     </div>
                 </div>
                 <div class="row my-1 justify-content-center">
@@ -141,7 +141,7 @@
                         <span class="text-xs">Kembalian</span>
                     </div>
                     <div class="col-7">
-                        <input type="text" value="Rp.0" name="kembalian" id="kembalian" class="form-control border border-light form-control-sm">
+                        <input type="number" value="0" name="kembalian" id="kembalian" class="form-control border border-light form-control-sm">
                     </div>
                 </div>
                 <div class="row my-1 justify-content-center">

@@ -68,10 +68,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" form-group mb-1">
-                        <label for="tgl" class="fw-bolder">Tanggal Pamasukan</label>
+                    <!--  -->
+                    <div class="form-group mb-1">
+                        <label for="qty" class="fw-bolder">Jumlah / Qty</label>
                         <div class="input-group input-group-outline">
-                            <input type="date" name="tgl" id="tgl" class="form-control">
+                            <input type="text" name="qty" id="qty" class="form-control" value="0">
                         </div>
                     </div>
                 </div>
@@ -79,7 +80,7 @@
                     <div class="form-group mb-1">
                         <label for="detail" class="fw-bolder">Detail</label>
                         <div class="input-group input-group-outline">
-                            <input type="text" name="detail" id="detail" class="form-control">
+                            <input type="text" name="detail" id="detail" class="form-control" placeholder="Stok Awal/Tambahan/dll">
                         </div>
                     </div>
                     <div class="form-group mb-1">
@@ -96,10 +97,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group mb-1">
-                        <label for="qty" class="fw-bolder">Jumlah / Qty</label>
+                    <div class=" form-group mb-1">
+                        <label for="tgl" class="fw-bolder">Tanggal Pamasukan</label>
                         <div class="input-group input-group-outline">
-                            <input type="text" name="qty" id="qty" class="form-control">
+                            <input type="date" name="tgl" id="tgl" value="<?= date('Y-m-d') ?>" class="form-control">
                         </div>
                     </div>
                     <div class="form-group mt-4">
