@@ -44,7 +44,7 @@
                     <div class="card-footer p-2 px-3">
                         <div class="row justify-content-end g-0">
                             <div class="col-6">
-                                <p class="my-0 text-end"> <i class="fas fa-download text-success"></i> <span class="fw-bold  text-end"><?= $stok_masuk ?></span> </p>
+                                <p class="my-0 text-end"> <i class="fas fa-download" <?= text_success ?>></i> <span class="fw-bold  text-end"><?= $stok_masuk ?></span> </p>
                             </div>
                             <div class="col-6">
                                 <p class="my-0 text-end"> <i class="fas fa-file-export text-danger"></i> <span class="fw-bold"><?= $stok_keluar ?></span> </p>
@@ -68,8 +68,8 @@
                     <div class="card-footer p-2 px-3">
                         <div class="row justify-content-end g-0">
                             <div class="col-6">
-                                <p class="my-0 text-end d-inline-block"> <i class="fas fa-user text-success"></i> <span class="fw-bold">11</span> </p>
-                                <p class="my-0 text-end d-inline-block"> <i class="fas fa-user text-success"></i> <span class="fw-bold">10</span> </p>
+                                <p class="my-0 text-end d-inline-block"> <i class="fa-solid fa-users-line" <?= text_success ?>></i> <span class="fw-bold">0</span> </p> |
+                                <p class="my-0 text-end d-inline-block"> <i class="fa-solid fa-truck-arrow-right" <?= text_success ?>></i> <span class="fw-bold">0</span> </p>
                             </div>
                         </div>
                     </div>
@@ -87,24 +87,30 @@
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
-                    <div class="card-footer p-2">
+                    <div class="card-footer p-2 px-3">
                         <p class="mb-0"><?= session()->get('email') ?></p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-lg-8 col-md-6 mt-4 mb-4">
-                <div class="card z-index-2 ">
+            <div class="col-lg-6 col-lg">
+                <h4 class="mb-4 animated slideInDown">
+                    <i class="fa-solid fa-store fa-2x"></i> Point Of Sale Management App
+                </h4>
+                <p class="mx-3 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio nesciunt neque aliquam error obcaecati nisi nulla voluptas doloribus adipisci facilis.</p>
+            </div>
+            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+                <div class="card z-index-2 rounded-2">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                        <div class="bg-gradient-info rounded-2 shadow-info border-radius-lg py-3 pe-1">
                             <div class="chart">
                                 <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <h6 class="mb-0 ">Website Views</h6>
+                        <h6 class="mb-0 ">Laporan Penjualan</h6>
                         <p class="text-sm ">Last Campaign Performance</p>
                         <hr class="dark horizontal">
                         <div class="d-flex ">
