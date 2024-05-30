@@ -9,7 +9,7 @@
                     <tr>
                         <th class="fw-normal">Tanggal</th>
                         <td>
-                            <input type="date" name="tgl" id="tgl" value="<?= date('Y-m-d') ?>" class="form-control border border-light form-control-sm">
+                            <input type="date" name="tanggal" id="tanggal" value="<?= date('Y-m-d') ?>" class="form-control border border-light form-control-sm">
                         </td>
                     </tr>
                     <tr>
@@ -21,8 +21,8 @@
                     <tr>
                         <th class="fw-normal">Customer</th>
                         <td>
-                            <select name="customer" id="customer" class="form-select border border-light form-select-sm px-2">
-                                <option value="Umum">Umum</option>
+                            <select name="id_customer" id="id_customer" class="form-select border border-light form-select-sm px-2">
+                                <option value="">Umum</option>
                                 <?php foreach ($data_customer as $data) : ?>
                                     <option value="<?= $data['id_customer'] ?>"><?= $data['nama_customer'] ?></option>
                                 <?php endforeach ?>
@@ -149,7 +149,7 @@
                         <span class="text-xs">Nota</span>
                     </div>
                     <div class="col-7">
-                        <textarea name="nota" class="form-control form-control-sm border" id="nota" cols="30" rows="2"></textarea>
+                        <textarea name="nota" id="nota" class="form-control form-control-sm border" cols="30" rows="2"></textarea>
                     </div>
                 </div>
                 <div class="row my-1 justify-content-center">
@@ -157,7 +157,7 @@
                         <button class="btn btn-sm btn-outline-primary mt-2 rounded-2" name="submit" type="submit">Clear</button>
                     </div>
                     <div class="col-lg-7 col-lg">
-                        <button class="btn w-100 mt-2 rounded-2 text-white" name="submit" type="submit" <?= btn_success ?>>Simpan Transaksi </button>
+                        <button class="btn w-100 mt-2 rounded-2 text-white" id="simpan_transaksi" <?= btn_success ?>>Simpan Transaksi </button>
                     </div>
                 </div>
             </div>

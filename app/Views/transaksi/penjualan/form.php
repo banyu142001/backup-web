@@ -98,6 +98,8 @@
     </div>
 </div>
 </div>
+
+
 <script>
     $(document).ready(function() {
 
@@ -233,7 +235,7 @@
         })
         // -------------------------------------------------------------------------------------------
 
-        // jquery simpan data  update data pada cart belanja
+        // jquery simpan update data pada cart belanja
         $(document).on('click', '#simpan_update', function() {
 
             // ambil data inputan dari modal edit
@@ -301,6 +303,7 @@
     }
     // ------------------------------------------------  
 
+    // fungsi hitung transaksi penjualan
     function hitung() {
         let sub_total = 0;
         $('#tb_cart tr').each(function() {
@@ -327,9 +330,65 @@
         hitung()
         formatRupiah()
     })
-
+    // menjalankan fungsi hitung dan formatRupiah
     $(document).ready(function() {
         hitung()
         formatRupiah()
     });
+    // ------------------------------------------------  
+
+    // Jquery Simpan proses transaksi penjualan
+    $(document).on('click', '#simpan_transaksi', function() {
+
+        // ambil semua inputan yang akan di INSERT ke dalam tabel penjualan
+        const id_customer = $('#id_customer').val()
+        const sub_total = $('#sub_total').val()
+        const diskon_penjualan = $('#diskon_penjualan').val()
+        const grand_total = $('#grand_total').val()
+        const cash = $('#cash').val()
+        const kembalian = $('#kembalian').val()
+        const nota = $('#nota').val()
+        const tanggal = $('#tanggal').val()
+
+        // validasi inputan
+        if (sub_total < 1) {
+
+            alert('Silahkan pilih produk !')
+        } else if (cash < 1) {
+            alert('Nominal / Cash belum di input !')
+            $('#cash').focus()
+        } else {
+
+            // jalankan ajax
+            $.ajax({
+                type: 'POST',
+                url: '<?= base_url('/penjualan/save_payment') ?> ',
+                data: {
+                    'simpan_transaksi': true,
+                    'id_customer': id_customer,
+                    'sub_total': sub_total,
+                    'diskon': diskon_penjualan,
+                    'grand_total': grand_total,
+                    'cash': cash,
+                    'kembalian': kembalian,
+                    'nota': nota,
+                    'tanggal': tanggal
+                },
+                dataType: 'json',
+                success: function(result) {
+
+                    if (result.success == true) {
+
+                        alert('Transaksi Berhasil !')
+                    } else {
+                        alert('Transaksi Gagal !')
+
+                    }
+                    location.href = '<?= base_url('penjualan') ?>'
+                }
+            })
+        }
+
+
+    })
 </script>

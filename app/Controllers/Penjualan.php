@@ -20,7 +20,72 @@ class Penjualan extends BaseController
         return view('transaksi/penjualan/index', $data);
     }
 
-    //  method save data ke cart belanja
+    // method simpan data transaksi penjualan
+    public function save_payment()
+    {
+        // ambil data yang dikirim dari ajax
+        $invoice_code = $this->penjualanModel->generateInvoiceCode();
+
+        $invoice        = $invoice_code;
+        $id_customer    = $this->request->getVar('id_customer');
+        $total_harga    = $this->request->getVar('sub_total');
+        $diskon         = $this->request->getVar('diskon');
+        $harga_bayar    = $this->request->getVar('grand_total');
+        $cash           = $this->request->getVar('cash');
+        $kembalian      = $this->request->getVar('kembalian');
+        $nota           = $this->request->getVar('nota');
+        $tanggal        = $this->request->getVar('tanggal');
+        $id_user        = session()->get('id');
+
+        // siapkan data unutk disimpan
+        $data = [
+
+            'invoice'       => $invoice,
+            'id_customer'   => $id_customer,
+            'total_harga'   => $total_harga,
+            'diskon'        => $diskon,
+            'harga_bayar'   => $harga_bayar,
+            'cash'          => $cash,
+            'kembalian'     => $kembalian,
+            'nota'          => $nota,
+            'tanggal'       => $tanggal,
+            'id_user'       => $id_user,
+        ];
+
+        // simpan data ke dalam tabel penjualan
+        $id_penjualan =  $this->penjualanModel->save_payment_sale($data);
+
+        // ambil data dari tabel cart (agar dapat kita simpan kedalam tabel detai penjualan)
+        $data_cart = $this->cartModel->getAllCart();
+        $row = [];
+        foreach ($data_cart as $cart) {
+
+            array_push($row, [
+                'id_penjualan_detail'   => $id_penjualan,
+                'id_produk_detail'      => $cart['id_produk'],
+                'harga_detail'          => $cart['harga_data_cart'],
+                'qty_detail'            => $cart['qty_data_cart'],
+                'diskon_detail'         => $cart['diskon_data_cart'],
+                'total_detail'          => $cart['total_data_cart']
+            ]);
+            $this->penjualanModel->save_detail_penjualan($row);
+        }
+
+
+        if ($this->cartModel->db->affectedRows() > 0) {
+            $this->cartModel->truncate();
+            $params = ['success' => true];
+        } else {
+            $params = ['success' => false];
+        }
+
+        echo json_encode($params);
+    }
+
+
+
+
+    //  method simpan data ke cart belanja
     public function save()
     {
 
@@ -59,6 +124,7 @@ class Penjualan extends BaseController
 
         echo json_encode($params);
     }
+    // ---------------------------------
 
     // method laod data cart
     public function load_cart()
@@ -70,8 +136,9 @@ class Penjualan extends BaseController
         ];
         return view('transaksi/penjualan/data_cart', $data);
     }
+    // ---------------------------------
 
-    // delete data cart
+    // method hapus data cart belanja
     public function deleteCart()
     {
 
@@ -88,6 +155,7 @@ class Penjualan extends BaseController
 
         echo json_encode($params);
     }
+    // ---------------------------------
 
     // method update data cart belanja
     public function update()
@@ -119,4 +187,5 @@ class Penjualan extends BaseController
         }
         echo json_encode($params);
     }
+    // ---------------------------------
 }

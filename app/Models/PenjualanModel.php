@@ -8,9 +8,10 @@ class PenjualanModel extends Model
 {
     protected $table            = 'penjualan';
     protected $primaryKey       = 'id_penjualan';
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id_penjualan', 'invoice', 'id_customer', 'total_harga', 'diskon', 'harga_bayar', 'cash', 'kembalian', 'nota', 'tanggal', 'id_user'];
     protected $useTimestamps = true;
 
+    // invoice kode
     public function generateInvoiceCode()
     {
         // Mendapatkan tanggal hari ini
@@ -43,5 +44,22 @@ class PenjualanModel extends Model
         $invoice_code = 'MP' . $today . $next_invoice_number;
 
         return $invoice_code;
+    }
+    // ------------------------------------------------------
+
+    // mentod Insert data Penjualan
+    public function save_payment_sale($data)
+    {
+
+        $this->save($data);
+
+        return $this->insertID();
+    }
+    // method INSERT data ke tabel detail_penjualan
+    public function save_detail_penjualan($data)
+    {
+        $builder = $this->db->table('detail_penjualan');
+
+        return $builder->insertBatch($data);
     }
 }
