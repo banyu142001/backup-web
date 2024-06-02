@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-start">
-                <img class="img-fluid rounded animated zoomIn" src="/assets/img/hero.jpg" alt="" />
+                <img class="img-fluid rounded animated zoomIn" src="/assets/img/POS.png" alt="" />
             </div>
         </div>
     </div>
