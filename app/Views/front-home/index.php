@@ -20,8 +20,8 @@
                     </button>
                 </div>
             </div>
-            <div class="col-lg-6 text-center text-lg-start">
-                <img class="img-fluid rounded animated zoomIn" src="/assets/img/POS.png" alt="" />
+            <div class="col-lg-6 text-center text-lg-start position-relative ">
+                <img class="img-fluid rounded animated zoomIn" src="/assets/img/heero-pos.png" alt="" />
             </div>
         </div>
     </div>
