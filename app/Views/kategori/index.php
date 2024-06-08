@@ -142,6 +142,7 @@
                 <div class="modal-content rounded-1 border-0 shadow-none">
                     <div class="modal-header p-2">
                         <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Kategori</h1>
+                        <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
                     </div>
                     <div class="modal-body p-3 my-0">
                         <p>Data Kategori <strong><?= $kat['nama_kategori'] ?></strong> akan dihapus?</p>
@@ -162,7 +163,7 @@
                 <div class="modal-content rounded-1 border-0 shadow-none">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Data Kategori</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
                     </div>
                     <form action="/kategori/update/<?= $kat['id_kategori'] ?>" method="post">
                         <?= csrf_field() ?>
@@ -171,7 +172,7 @@
                                 <label for="kategori_update">NAMA KATEGORI</label>
                                 <div class="input-group input-group-outline">
                                     <input type="hidden" name="id_kategori" value="<?= $kat['id_kategori'] ?>">
-                                    <input type="text" name="kategori_update" id="kategori_update" class="form-control fw-bold text-uppercase" value="<?= $kat['nama_kategori'] ?> " />
+                                    <input type="text" name="kategori_update" id="kategori_update" class="form-control fw-bold" value="<?= $kat['nama_kategori'] ?> " />
                                 </div>
                             </div>
                         </div>

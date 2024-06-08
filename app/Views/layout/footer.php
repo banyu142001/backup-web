@@ -1,7 +1,5 @@
 </main>
 
-
-
 <!-- footer -->
 <div class="fixed-plugin">
     <div class="card shadow-lg">

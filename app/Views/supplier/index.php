@@ -35,7 +35,7 @@
 
         </div>
         <div class="table-responsive p-0">
-            <table class="table align-items-center justify-content-center mb-0" id="">
+            <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
                     <tr>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7">
@@ -97,6 +97,7 @@
             <div class="modal-content rounded-1 border-0 shadow-none">
                 <div class="modal-header p-2">
                     <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Supplier</h1>
+                    <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
                 </div>
                 <div class="modal-body p-3 my-0">
                     <p>Data <strong><?= $suply['nama_supplier'] ?></strong> akan dihapus?</p>

@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="table-responsive p-0">
-            <table class="table align-items-center justify-content-center mb-0" id="">
+            <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
                     <tr>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-8">
