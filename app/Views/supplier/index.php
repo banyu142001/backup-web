@@ -7,9 +7,9 @@
     </div>
     <div class="card card-body mx-3 mx-md-4 rounded-2 mt-n6">
         <div class="row gx-4 mb-2">
-            <div class="col-auto">
-                <div class="avatar avatar-xl position-relative">
-                    <i class="fa-solid fa-truck-arrow-right text-dark fs-1"></i>
+            <div class="col-auto px-4">
+                <div class="avatar rounded-2 position-relative" <?= bg_info ?>>
+                    <i class="fa-solid fa-truck-arrow-right text-white fs-4"></i>
                 </div>
             </div>
             <div class="col-auto my-auto">
@@ -32,6 +32,7 @@
                     <?= session()->getFlashdata('flash'); ?>
                 <?php endif; ?>
             </div>
+
         </div>
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0" id="">
@@ -66,19 +67,19 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bolder mb-0"><?= $suply['no_telephone'] ?></p>
+                                <p class="text-sm mb-0"><?= $suply['no_telephone'] ?></p>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bolder mb-0"><?= $suply['alamat'] ?></p>
+                                <p class="text-sm mb-0"><?= $suply['alamat'] ?></p>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bolder mb-0"><?= $suply['deskripsi'] ?></p>
+                                <p class="text-sm mb-0"><?= $suply['deskripsi'] ?></p>
                             </td>
                             <td class="align-middle text-center">
-                                <a href="/supplier/edit/<?= $suply['id_supplier'] ?>" class="text-success font-weight-bolder text-xs">
+                                <a href="/supplier/edit/<?= $suply['id_supplier'] ?>" class="text-xs" <?= text_success ?>>
                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                 </a>
-                                <a href="" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modalDelSupply<?= $suply['id_supplier'] ?> ">
+                                <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelSupply<?= $suply['id_supplier'] ?> ">
                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                 </a>
                             </td>

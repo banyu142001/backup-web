@@ -4,9 +4,9 @@
 <div class="container-fluid px-2 px-md-4">
     <div class="card card-body mx-3 mx-md-4 rounded-1 border-0 shadow-0 mt-4">
         <div class="row gx-4 mb-2">
-            <div class="col-auto">
-                <div class="avatar avatar-xl position-relative">
-                    <i class="fas fa-share-square text-dark fs-1 "></i>
+            <div class="col-auto px-4">
+                <div class="avatar rounded-2 position-relative" <?= bg_info ?>>
+                    <i class="fas fa-share-square tex-white fs-4"></i>
                 </div>
             </div>
             <div class="col-auto my-auto">
@@ -75,10 +75,10 @@
                                 <p class="mb-0 text-sm"><?= indo_date($stok['tanggal']) ?></p>
                             </td>
                             <td class="align-middle text-center">
-                                <a href="" class="text-success text-xs" data-bs-toggle="modal" data-bs-target="#modalDetail<?= $stok['id_stok_keluar'] ?>">
+                                <a href="" class="text-xs" <?= text_success ?> data-bs-toggle="modal" data-bs-target="#modalDetail<?= $stok['id_stok_keluar'] ?>">
                                     <i class="fas fa-eye mx-1"></i> Detail
                                 </a>
-                                <a href="/stokkeluar/delete/<?= $stok['id_stok_keluar'] . '/' . $stok['id_produk']  ?>" class="text-primary font-weight-bold text-xs">
+                                <a href="/stokkeluar/delete/<?= $stok['id_stok_keluar'] . '/' . $stok['id_produk']  ?>" class="text-xs" <?= text_danger ?>>
                                     <i class="fas fa-trash mx-1"></i> Delete
                                 </a>
                             </td>

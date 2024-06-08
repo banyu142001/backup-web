@@ -38,4 +38,10 @@ class KategoriModel extends Model
 
         return $this->save($data);
     }
+    // hitung semua data kategori
+    public function count_kategori()
+    {
+
+        return $this->countAll();
+    }
 }

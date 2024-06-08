@@ -46,8 +46,8 @@
             <div class="card my-1 rounded-1 ">
                 <div class="row gx-4 mt-3">
                     <div class="col-auto px-4">
-                        <div class="avatar avatar-xl position-relative">
-                            <i class="fa-solid fa-magnifying-glass-chart text-dark fs-1"></i>
+                        <div class="avatar rounded-2 position-relative" <?= bg_danger ?>>
+                            <i class="fas fa-tags text-white fs-4 "></i>
                         </div>
                     </div>
                     <div class="col-auto my-auto">
@@ -62,8 +62,8 @@
                     </div>
                 </div>
                 <div class="card-body px-2 pb-1">
-                    <div class="row">
-                        <div class="col-lg-6">
+                    <div class="row justify-content-around ">
+                        <div class="col-lg-7 border-bottom">
 
                             <?php if (session()->getFlashdata('flash_del')) : ?>
                                 <?= session()->getFlashdata('flash_del') ?>
@@ -78,7 +78,7 @@
                             <?php endif ?>
 
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
+                                <table class="table table-sm align-items-center mb-0">
                                     <thead>
                                         <tr>
                                             <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -91,13 +91,13 @@
                                         <?php foreach ($kategori as $kat) : ?>
                                             <tr>
                                                 <td>
-                                                    <h6 class="mb-0 mx-3 text-sm text-uppercase"><?= $kat['nama_kategori'] ?></h6>
+                                                    <p class="mb-0 mx-3 text-capitalize"><?= $kat['nama_kategori'] ?></p>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <a href="/kategori/<?= $kat['id_kategori'] ?>" class="text-success font-weight-bolder text-xs" data-bs-toggle="modal" data-bs-target="#modalUpdateKategori<?= $kat['id_kategori'] ?> ">
+                                                    <a href="/kategori/<?= $kat['id_kategori'] ?>" class="text-xs" <?= text_success ?> data-bs-toggle="modal" data-bs-target="#modalUpdateKategori<?= $kat['id_kategori'] ?> ">
                                                         <i class="material-icons text-sm mx-1">edit</i> Edit
                                                     </a>
-                                                    <a href="" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modalDelKategori<?= $kat['id_kategori'] ?> ">
+                                                    <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelKategori<?= $kat['id_kategori'] ?> ">
                                                         <i class="material-icons text-sm mx-1">delete</i> Delete
                                                     </a>
                                                 </td>
@@ -107,28 +107,24 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="rounded-2 my-4 mt-5 border">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                    <div class="bg-gradient-info rounded-2 pt-1">
-                                        <h6 class="text-white text-capitalize ps-3 mt-1 pb-2">Tambah Data Kategori</h6>
-                                    </div>
-                                </div>
+                        <div class="col-lg-4">
+                            <div class="rounded-0">
                                 <div class="card-body rounded-0 px-3 pb-2">
                                     <?php if (session()->getFlashdata('flash')) : ?>
                                         <?= session()->getFlashdata('flash') ?>
                                     <?php endif ?>
+                                    <p class="text-uppercase">Tambah data kategori baru</p>
                                     <form action="/kategori/save" method="post">
                                         <div class="form-group">
-                                            <label for="kategori" class=" fw-bold ">NAMA KATEGORI BARU</label>
-                                            <div class="input-group input-group-outline">
+                                            <label for="kategori">Nama Kategori</label>
+                                            <div class="input-group input-group-outline p-0">
                                                 <input type="text" name="kategori" class="form-control <?= (validation_errors()) ? 'is-invalid' : '' ?> " placeholder="Nama Kategori" value="<?= old('kategori') ?>" />
                                                 <div class="invalid-feedback">
                                                     <?= validation_show_error('kategori') ?>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn my-1 mt-2 p-2 btn-info" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                                        <button class="btn mt-2 p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                                     </form>
                                 </div>
                             </div>
@@ -181,7 +177,7 @@
                         </div>
                         <div class="modal-footer">
                             <a href="" class="btn text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
-                            <button class="btn p-2 btn-success" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                            <button class="btn p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                         </div>
                     </form>
                 </div>

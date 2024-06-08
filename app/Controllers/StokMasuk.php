@@ -64,7 +64,7 @@ class StokMasuk extends BaseController
             'id_produk'     => $this->request->getVar('id_produk'),
             'id_supplier'   => $this->request->getVar('id_supplier'),
             'id_user'       => session()->get('id'),
-            'typ'           => 'Masuk',
+            'type'           => 'Masuk',
             'detail'        => $this->request->getVar('detail'),
             'detail'        => $this->request->getVar('detail'),
             'qty'           => $this->request->getVar('qty'),
@@ -74,9 +74,9 @@ class StokMasuk extends BaseController
         $this->stokMasukModel->saveData($data);
         $this->produkModel->update_stok_masuk($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data stok baru </strong> telah ditambah & diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong> ' . icon_success . ' Data stok baru </strong> telah ditambah & diupdate.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/stokmasuk');
     }
@@ -95,9 +95,10 @@ class StokMasuk extends BaseController
 
         $this->produkModel->update_delete_stok_masuk($data);
         $this->stokMasukModel->delete(['id_stok_masuk' => $id_stok_masuk]);
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data stok masuk </strong> telah dihapus & diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . 'Data stok masuk </strong> telah dihapus & diupdate.
+        ' . icon_close . '
       </div>');
 
         return redirect()->to('/stokmasuk');

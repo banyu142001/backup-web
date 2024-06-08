@@ -4,9 +4,9 @@
 <div class="container-fluid px-2 px-md-4">
     <div class="card card-body mx-3 mx-md-4 rounded-1 mt-4">
         <div class="row gx-4 mb-2">
-            <div class="col-auto">
-                <div class="avatar avatar-xl position-relative">
-                    <i class="fas fa-folder-plus text-dark fs-1 "></i>
+            <div class="col-auto px-4">
+                <div class="avatar rounded-2 position-relative" <?= bg_warning ?>>
+                    <i class="fas fa-folder-plus text-white fs-4  "></i>
                 </div>
             </div>
             <div class="col-auto my-auto">
@@ -41,7 +41,7 @@
                             <div class="invalid-feedback">
                                 <?= validation_show_error('kode_produk') ?>
                             </div>
-                            <button type="button" class="btn btn-sm btn-primary px-1  input-group-text" style="height: 39px;" data-bs-toggle="modal" data-bs-target="#modalStok"><i class="fas fa-search text-white fs-5 mx-3"></i></button>
+                            <button type="button" class="btn btn-sm px-1 input-group-text" <?= btn_success_search ?> data-bs-toggle="modal" data-bs-target="#modalStok"><i class="fas fa-search text-white fs-5 mx-3"></i></button>
                         </div>
                     </div>
                     <div class="form-group mb-1">
@@ -68,10 +68,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" form-group mb-1">
-                        <label for="tgl" class="fw-bolder">Tanggal Pamasukan</label>
+                    <!--  -->
+                    <div class="form-group mb-1">
+                        <label for="qty" class="fw-bolder">Jumlah / Qty</label>
                         <div class="input-group input-group-outline">
-                            <input type="date" name="tgl" id="tgl" class="form-control">
+                            <input type="text" name="qty" id="qty" class="form-control" value="0">
                         </div>
                     </div>
                 </div>
@@ -79,7 +80,7 @@
                     <div class="form-group mb-1">
                         <label for="detail" class="fw-bolder">Detail</label>
                         <div class="input-group input-group-outline">
-                            <input type="text" name="detail" id="detail" class="form-control">
+                            <input type="text" name="detail" id="detail" class="form-control" placeholder="Stok Awal/Tambahan/dll">
                         </div>
                     </div>
                     <div class="form-group mb-1">
@@ -96,15 +97,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group mb-1">
-                        <label for="qty" class="fw-bolder">Jumlah / Qty</label>
+                    <div class=" form-group mb-1">
+                        <label for="tgl" class="fw-bolder">Tanggal Pamasukan</label>
                         <div class="input-group input-group-outline">
-                            <input type="text" name="qty" id="qty" class="form-control">
+                            <input type="date" name="tgl" id="tgl" value="<?= date('Y-m-d') ?>" class="form-control">
                         </div>
                     </div>
                     <div class="form-group mt-4">
-                        <button class="btn rounded-1 me-2 btn-light" type="reset">Batal</button>
-                        <button class="btn rounded-1 btn-success" name="submit" type="submit">Simpan</button>
+                        <button class="btn p-2 mx-2 text-white rounded-2 shadow-none" name="submit" type="reset" <?= btn_info ?>>Reset</button>
+                        <button class="btn p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                     </div>
                 </div>
             </div>
@@ -118,7 +119,6 @@
             <div class="modal-header p-0 py-1 px-3">
                 <p class="modal-title fw-bolder mt-2">Pilih Produk</p>
                 <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-3 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
-                <!-- <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer"><i class="fas fa-times"></i></span> -->
             </div>
             <div class="modal-body table-responsive">
                 <table class="table table-borderles table-sm table-striped">

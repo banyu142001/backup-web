@@ -66,15 +66,18 @@ class Auth extends BaseController
                 session()->set($login_session);
                 return redirect()->to('/home');
             } else {
-                session()->setFlashdata('flash', '<div class="alert alert-info alert-dismissible text-white" role="alert">
-                <span class="text-sm">Username / Password tidak sesuai!</span>
+                session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' >
+                <span class="text-sm">' . icon_warning . 'Username / Password tidak sesuai!</span>
+                ' . icon_close . '
                 </div>');
                 return redirect()->to('/auth');
             }
         } else {
 
-            session()->setFlashdata('flash', '<div class="alert alert-info alert-dismissible text-white" role="alert">
-                <span class="text-sm">Data user tidak ditemukan!</span>
+
+            session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' ">
+                <span class="text-sm">' . icon_warning . ' Data user tidak ditemukan!</span>
+                ' . icon_close . '
                 </div>');
             return redirect()->to('/auth');
         }
@@ -164,9 +167,10 @@ class Auth extends BaseController
         $this->userModel->saveRegUserData($data);
 
 
-        session()->setFlashdata('flash', '<div class="alert alert-success alert-dismissible text-white" role="alert">
-     <span class="text-sm">Registrasi berhasil ! silahkan login dengan username yang telah terdaftar. <a href="/auth">Login</a> </span>
-      </div>');
+        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
+        <span class="text-sm">👌Registrasi suksess ! silahkan login </span>
+        ' . icon_close . '
+        </div>');
         return redirect()->to('/auth/register');
     }
 
@@ -182,8 +186,9 @@ class Auth extends BaseController
         session()->remove('foto');
 
 
-        session()->setFlashdata('flash', '<div class="alert alert-success alert-dismissible text-white" role="alert">
+        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
         <span class="text-sm">Anda berhasil logout ! se you 👋👋</span>
+          ' . icon_close . '
         </div>');
 
         return redirect()->to('/auth');

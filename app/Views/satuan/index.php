@@ -46,8 +46,8 @@
             <div class="card my-1 rounded-1 ">
                 <div class="row gx-4 mt-3">
                     <div class="col-auto px-4">
-                        <div class="avatar avatar-xl position-relative">
-                            <i class="fa-solid fa-magnifying-glass-chart text-dark fs-1"></i>
+                        <div class="avatar rounded-2 position-relative" <?= bg_success ?>>
+                            <i class="fas fa-box-open text-white fs-4"></i>
                         </div>
                     </div>
                     <div class="col-auto my-auto">
@@ -62,8 +62,8 @@
                     </div>
                 </div>
                 <div class="card-body px-2 pb-1">
-                    <div class="row">
-                        <div class="col-lg-6">
+                    <div class="row justify-content-around ">
+                        <div class="col-lg-7 border-bottom">
                             <?php if (session()->getFlashdata('flash_del')) : ?>
                                 <?= session()->getFlashdata('flash_del') ?>
                             <?php endif ?>
@@ -74,7 +74,7 @@
                                 <?= session()->getFlashdata('flash_update_rule') ?>
                             <?php endif ?>
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
+                                <table class="table table-sm align-items-center mb-0">
                                     <thead>
                                         <tr>
                                             <th class="text-uppercase text-secondary  text-xxs font-weight-bolder opacity-7">
@@ -87,13 +87,13 @@
                                         <?php foreach ($data_satuan as $satuan) : ?>
                                             <tr>
                                                 <td>
-                                                    <h6 class="mb-0 mx-3 text-sm text-uppercase"><?= $satuan['nama_satuan'] ?></h6>
+                                                    <p class="mb-0 mx-3 text-capitalize"><?= $satuan['nama_satuan'] ?></p>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <a href="" class="text-success font-weight-bolder text-xs" data-bs-toggle="modal" data-bs-target="#modalUpdateSatuan<?= $satuan['id_satuan'] ?> ">
+                                                    <a href="" class="text-xs" <?= text_success ?> data-bs-toggle="modal" data-bs-target="#modalUpdateSatuan<?= $satuan['id_satuan'] ?> ">
                                                         <i class="material-icons text-sm mx-1">edit</i> Edit
                                                     </a>
-                                                    <a href="" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modalDelSatuan<?= $satuan['id_satuan'] ?>">
+                                                    <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelSatuan<?= $satuan['id_satuan'] ?>">
                                                         <i class="material-icons text-sm mx-1">delete</i> Delete
                                                     </a>
                                                 </td>
@@ -103,20 +103,16 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="rounded-2 my-4 mt-5 border">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                    <div class="bg-gradient-secondary rounded-2 pt-1">
-                                        <h6 class="text-white text-capitalize ps-3 mt-1 pb-2">Tambah Data Satuan</h6>
-                                    </div>
-                                </div>
+                        <div class="col-lg-4">
+                            <div class="rounded-0">
                                 <div class="card-body rounded-0 px-3 pb-2">
                                     <?php if (session()->getFlashdata('flash')) : ?>
                                         <?= session()->getFlashdata('flash') ?>
                                     <?php endif ?>
+                                    <p class="text-uppercase">Tambah data satuan baru</p>
                                     <form action="/satuan/save" method="post">
                                         <div class="form-group">
-                                            <label for="satuan" class=" fw-bold ">NAMA SATUAN BARU</label>
+                                            <label for="satuan">Nama Satuan Baru</label>
                                             <div class="input-group input-group-outline">
                                                 <input type="text" name="satuan" class="form-control <?= (validation_errors()) ? 'is-invalid' : '' ?> " placeholder="Nama satuan" value="<?= old('satuan') ?>" />
                                                 <div class="invalid-feedback">
@@ -124,7 +120,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn my-1 mt-2 p-2 btn-secondary" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                                        <button class="btn mt-2 p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                                     </form>
                                 </div>
                             </div>
@@ -153,6 +149,7 @@
             </div>
         </div>
     <?php endforeach; ?>
+
     <!-- MODAL UPDATE SATUAN -->
     <?php foreach ($data_satuan as $satuan) : ?>
         <div class="modal fade" id="modalUpdateSatuan<?= $satuan['id_satuan'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -175,7 +172,7 @@
                         </div>
                         <div class="modal-footer">
                             <a href="" class="btn text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
-                            <button class="btn p-2 btn-success" name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
+                            <button class="btn p-2 text-white rounded-2 shadow-none" <?= btn_success ?> name="submit" type="submit"><i class="fa-solid fa-floppy-disk mx-1"></i> Simpan</button>
                         </div>
                     </form>
                 </div>

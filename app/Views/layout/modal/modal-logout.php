@@ -7,7 +7,7 @@
                 </div>
                 <div class="modal-footer p-2">
                     <a href="" class="badge text-dark bg-light  p-2" data-bs-dismiss="modal">Batal</a>
-                    <a href="/auth/logout" class="badge text-white bg-info p-2"> <i class="fa-solid fa-right-from-bracket mx-1"></i> Keluar</a>
+                    <a href="/auth/logout" class="badge text-white p-2" <?= btn_info ?>> <i class="fa-solid fa-right-from-bracket mx-1"></i> Keluar</a>
                 </div>
             </div>
         </div>

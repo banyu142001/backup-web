@@ -91,4 +91,11 @@ class ProdukModel extends Model
 
         return $this->db->query($query);
     }
+
+    // hitung semua data produk
+    public function count_produk()
+    {
+
+        return $this->countAll();
+    }
 }

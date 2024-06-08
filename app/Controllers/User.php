@@ -104,9 +104,9 @@ class User extends BaseController
         // insert data to Database
         $this->userModel->saveUserData($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data User</strong> telah ditambahkan.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data User</strong> telah ditambahkan.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/user');
     }
@@ -204,9 +204,9 @@ class User extends BaseController
         // insert data to Database
         $this->userModel->saveUpdateData($data);
 
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data User</strong> telah diupdate.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . 'Data User</strong> telah diupdate.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/user');
     }
@@ -219,9 +219,9 @@ class User extends BaseController
     {
 
         $this->userModel->delete(['id' => $id]);
-        session()->setFlashdata('flash', '<div class="alert alert-success text-white alert-dismissible fade show p-2 px-3" role="alert">
-        <strong>Data User</strong> telah dihapus.
-        <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . '>
+        <strong>' . icon_success . 'Data User</strong> telah dihapus.
+        ' . icon_close . '
       </div>');
         return redirect()->to('/user');
     }

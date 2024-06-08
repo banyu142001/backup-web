@@ -50,18 +50,20 @@
                                             <p class="text-xs text-secondary mb-0"><?= $user['email'] ?></p>
                                         </td>
                                         <td class="align-middle text-center text-sm text-center">
-                                            <span class="badge badge-sm p-2 bg-gradient-<?= ($user['level'] == 1) ? 'success' : 'secondary' ?> "><?= ($user['level'] == 1) ? 'Admin' : 'Kasir' ?></span>
+                                            <span class="badge badge-sm p-2" <?= ($user['level'] == 1) ? btn_success : btn_info ?>>
+                                                <?= ($user['level'] == 1) ? 'Admin' : 'Kasir' ?>
+                                            </span>
                                         </td>
                                         <td class="align-middle text-center">
                                             <?php if ($user['level'] == 1) : ?>
-                                                <a href="/user/edit/<?= $user['id'] ?>" class="text-success font-weight-bold text-xs">
+                                                <a href="/user/edit/<?= $user['id'] ?>" class="text-xs" <?= text_success ?>>
                                                     <i class="material-icons text-sm mx-1 mt-1">edit</i> Edit
                                                 </a>
                                             <?php else : ?>
-                                                <a href="/user/edit/<?= $user['id'] ?>" class="text-success font-weight-bold text-xs">
+                                                <a href="/user/edit/<?= $user['id'] ?>" class="text-xs" <?= text_success ?>>
                                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                                 </a>
-                                                <a href="" class="text-primary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modalDelete<?= $user['id'] ?> ">
+                                                <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelete<?= $user['id'] ?> ">
                                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                                 </a>
                                             <?php endif ?>
