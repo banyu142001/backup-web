@@ -130,6 +130,7 @@
             </div>
         </div>
     </div>
+
     <!-- MODAL HAPUS DATA SATUAN -->
     <?php foreach ($data_satuan as $satuan) : ?>
         <div class="modal fade" id="modalDelSatuan<?= $satuan['id_satuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,6 +138,7 @@
                 <div class="modal-content rounded-1 border-0 shadow-none ">
                     <div class="modal-header p-2">
                         <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Satuan</h1>
+                        <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
                     </div>
                     <div class="modal-body p-3 my-0">
                         <p>Data Satuan <strong><?= $satuan['nama_satuan'] ?></strong> akan dihapus?</p>
@@ -157,7 +159,7 @@
                 <div class="modal-content rounded-1 border-0 shadow-none">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Data Satuan</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
                     </div>
                     <form action="/satuan/update/<?= $satuan['id_satuan'] ?>" method="post">
                         <?= csrf_field() ?>
@@ -166,7 +168,7 @@
                                 <label for="kategori_update">NAMA SATUAN</label>
                                 <div class="input-group input-group-outline">
                                     <input type="hidden" name="id_satuan" value="<?= $satuan['id_satuan'] ?>">
-                                    <input type="text" name="satuan_update" id="satuan_update" class="form-control fw-bold text-uppercase" value="<?= $satuan['nama_satuan'] ?> " />
+                                    <input type="text" name="satuan_update" id="satuan_update" class="form-control fw-bold" value="<?= $satuan['nama_satuan'] ?> " />
                                 </div>
                             </div>
                         </div>

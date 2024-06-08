@@ -65,10 +65,11 @@ class Kategori extends BaseController
 
             'kategori_update'       => [
                 'label'             => 'Kategori',
-                'rules'             => 'required|trim|max_length[100]',
+                'rules'             => 'required|trim|max_length[100]|is_unique[kategori.nama_kategori]',
                 'errors' => [
                     'required'      => '{field} harus diisi',
-                    'max_length'    => '{field} maksimal 100 karakter'
+                    'max_length'    => '{field} maksimal 100 karakter',
+                    'is_unique'   => '{field} sudah tersedia',
                 ]
             ]
         ];

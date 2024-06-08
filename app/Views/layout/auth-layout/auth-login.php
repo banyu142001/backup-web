@@ -42,7 +42,7 @@
                             </span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-center" id="navigation">
-                            <ul class="navbar-nav">
+                            <ul class="navbar-nav ms-auto">
                                 <li class="nav-item <?= ($auth_title == 'myPos - Beranda') ? 'fw-bold' : '' ?> ">
                                     <a class="nav-link me-3" href="/">
                                         <i class="fa-solid fa-gauge  <?= ($auth_title == 'myPos - Beranda') ? '' : 'opacity-6' ?> text-dark me-1"></i>

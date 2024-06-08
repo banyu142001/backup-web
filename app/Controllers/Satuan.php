@@ -66,10 +66,11 @@ class Satuan extends BaseController
 
             'satuan_update'       => [
                 'label'             => 'Nama Satuan',
-                'rules'             => 'required|trim|max_length[100]',
+                'rules'             => 'required|trim|max_length[100]|is_unique[satuan.nama_satuan]',
                 'errors' => [
                     'required'      => '{field} harus diisi',
-                    'max_length'    => '{field} maksimal 100 karakter'
+                    'max_length'    => '{field} maksimal 100 karakter',
+                    'is_unique'   =>  '{field} sudah tersedia',
                 ]
             ]
         ];

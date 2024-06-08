@@ -10,7 +10,7 @@
                     <div class="bg-secondary opacity-2  px-2 p-2 rounded-1">
                         <div class="row">
                             <div class="col-3 text-center">
-                                <i class="fa-solid fa-user px-2 p-1 bg-white rounded-2 "></i>
+                                <i class="fas fa-cookie-bite px-2 p-1 bg-white rounded-2"></i>
                             </div>
                             <div class="col-6 text-center text-white">
                                 <small>Makanan</small>
@@ -60,9 +60,6 @@
                             </p>
                         </div>
                     </div>
-                    <!-- <div class="col my-auto">
-                        <a href="/produk/create" class="btn bg-gradient-dark btn-sm mx-3 mb-0 float-end"><i class="material-icons text-sm">add</i> Tambah produk</a>
-                    </div> -->
                     <div class="col my-auto">
                         <a href="/produk/create" class="mx-4 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
                     </div>
@@ -73,10 +70,10 @@
                             <?= session()->getFlashdata('flash') ?>
                         <?php endif; ?>
                         <div class="table-responsive">
-                            <table class="table table-bordered table-sm table-striped" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-sm table-striped" id="dataTable">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7">Kode Produk</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bold      opacity-7">Kode Produk</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7">Nama Produk</th>
                                         <th class="text-uppercase text-secondary text-xxs text-center font-weight-bold opacity-7">Kategori</th>
                                         <th class="text-uppercase text-secondary text-xxs text-center font-weight-bold opacity-7">Satuan</th>
@@ -133,6 +130,7 @@
                 <div class="modal-content rounded-1 border-0 shadow-none ">
                     <div class="modal-header p-2">
                         <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Produk</h1>
+                        <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
                     </div>
                     <div class="modal-body p-3 my-0">
                         <p>Data Produk <strong><?= $produk['nama_produk'] ?></strong> akan dihapus?</p>
