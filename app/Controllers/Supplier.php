@@ -146,15 +146,9 @@ class Supplier extends BaseController
         $errors = $this->suplyModel->db->error();
 
         if ($errors['code'] != 0) {
-<<<<<<< HEAD
-            session()->setFlashdata('flash', '<div class="alert alert-danger text-white alert-dismissible fade show p-2 px-3" role="alert">
-            <strong>Data supplier tidak dapat dihapus. </strong> (data supplier ini sedang digunakan padadata stok masuk).
-            <span data-bs-dismiss="alert" aria-label="Close" class="cursor-pointer float-end fs-6"><i class="fa-solid fa-xmark"></i></span>
-=======
             session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . ' >
             <strong>' . icon_warning . ' Data supplier tidak dapat dihapus. </strong> (data supplier ini sedang digunakan pada data stok masuk).
             ' . icon_close . '
->>>>>>> fitur1
           </div>');
             return redirect()->to('/supplier');
         }
