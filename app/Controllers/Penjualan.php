@@ -138,7 +138,7 @@ class Penjualan extends BaseController
     }
     // ---------------------------------
 
-    // method hapus data cart belanja
+    // method hapus data dari cart belanja
     public function deleteCart()
     {
 
@@ -161,13 +161,14 @@ class Penjualan extends BaseController
     public function update()
     {
 
-        // ambil yang dikirimkan melalui ajax
-        $id_cart = $this->request->getVar('id_cart');
-        $harga_cart = $this->request->getVar('harga_data_cart');
-        $qty_cart = $this->request->getVar('qty_data_cart');
-        $diskon_cart = $this->request->getVar('diskon_data_cart');
-        $total = $this->request->getVar('total_data_cart');
+        // ambil data yang dikirimkan melalui ajax
+        $id_cart       = $this->request->getVar('id_cart');
+        $harga_cart    = $this->request->getVar('harga_data_cart');
+        $qty_cart      = $this->request->getVar('qty_data_cart');
+        $diskon_cart   = $this->request->getVar('diskon_data_cart');
+        $total         = $this->request->getVar('total_data_cart');
 
+        // siapkan data unutk diinsert ke dalam tabel (cart)
         $data = [
 
             'id_cart' => $id_cart,

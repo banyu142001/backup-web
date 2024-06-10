@@ -1,4 +1,4 @@
-<!-- Modal Pilih data produk ke dalam  cart belanja -->
+<!-- Modal Pilih data produk unutk ditambahkan ke dalam  cart belanja -->
 <div class="modal fade" id="modalCart" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg border-0 shadow-none position-relative ">
         <div class="modal-content rounded-1 shadow-none border-0">
@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<!-- modal update cart -->
+<!-- modal update/edit data cart cart -->
 <div class="modal fade" id="modalUpdate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm border-0 shadow-none position-relative ">
         <div class="modal-content rounded-1 shadow-none border-0">
@@ -100,6 +100,7 @@
 </div>
 
 
+<!-- PROSES AJAX -->
 <script>
     $(document).ready(function() {
 
@@ -112,14 +113,14 @@
             const harga = $(this).data('harga');
             const stok = $(this).data('stok');
 
-            // set value dari tiap inputan berdasarkan id
+            // set value dari tiap inputan berdasarkan (id)
             $('#id_produk').val(id_produk);
             $('#kode_produk').val(kode_produk);
             $('#harga').val(harga);
             $('#stok').val(stok);
             $('#modalCart').modal('hide');
         })
-        // ketika button tambah ditekan 
+        // ketika button tambah  ditekan 
         $(document).on('click', '#cart', function() {
 
             // ambil data dari button
@@ -127,6 +128,8 @@
             const harga = $('#harga').val()
             const stok = $('#stok').val()
             const qty = $('#qty').val()
+
+            // validasi data produk
 
             if (id_produk == '') {
                 alert("Produk belum dipilih")
@@ -194,7 +197,7 @@
         // jquery edit data pada cart belanja
         $(document).on('click', '#update_cart', function() {
 
-            // ambil data dari button update
+            // ambil data dari button update dan isi value tiap inputan berdasarkan  (ID) pada form
             const id_cart = $(this).data('id_cart');
             const kode_produk = $(this).data('kode_produk');
             const nama_produk = $(this).data('nama_produk');
@@ -214,7 +217,7 @@
             $('#total2').val(total)
         })
 
-        // fungi kalkulasi pada modal edit secara realtime
+        // fungsi kalkulasi pada modal edit secara (realtime)
         function calculate_data_modal() {
 
             // ambil data harga, diskon, dan qty
@@ -245,7 +248,7 @@
             diskon_cart = $('#diskon_cart').val()
             total2 = $('#total2').val()
 
-            // validasi data
+            // validasi data edit data cart
             if (harga_cart == 0) {
                 alert('Harga produk tidak boleh kosong !')
                 $('#harga_cart').focus()
