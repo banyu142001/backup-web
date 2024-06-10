@@ -13,8 +13,7 @@ class Penjualan extends BaseController
             'invoice'        => $this->penjualanModel->generateInvoiceCode(),
             'data_produk'    => $this->produkModel->selectAllProduk(),
             'data_customer'  => $this->cusModel->selectAllCustomer(),
-            'data_cart'     => $this->cartModel->getAllCart()
-
+            'data_cart'     => $this->cartModel->getAllCart(),
 
         ];
         return view('transaksi/penjualan/index', $data);
@@ -81,8 +80,6 @@ class Penjualan extends BaseController
 
         echo json_encode($params);
     }
-
-
 
 
     //  method simpan data ke cart belanja
@@ -187,6 +184,23 @@ class Penjualan extends BaseController
             $params = ['success' => false];
         }
         echo json_encode($params);
+    }
+
+    // ---------------------------------
+
+    // method cetak sruk belanja
+    public function cetak($id)
+    {
+        $data = [
+
+            'title'          => 'Print Struk',
+            'breadcrumb'     => 'Print',
+            'penjualan'      => $this->penjualanModel->getAllPenjualan(['id_penjualan' => $id]),
+            'detail'         => $this->detailPenjualanModel->getAllDetail(['id_detail' => $id]),
+            'cart'           => $this->cartModel->getAllCart()
+
+        ];
+        return view('transaksi/penjualan/struk', $data);
     }
     // ---------------------------------
 }

@@ -6,6 +6,7 @@ use App\Models\AuthModel;
 use App\Models\CartModel;
 use App\Models\CustomerModel;
 use App\Models\KategoriModel;
+use App\Models\PenjualanDetailModel;
 use App\Models\PenjualanModel;
 use App\Models\ProdukModel;
 use App\Models\SatuanModel;
@@ -67,7 +68,7 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
-    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel, $stokKeluarModel, $cartModel, $penjualanModel;
+    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel, $stokKeluarModel, $cartModel, $penjualanModel, $detailPenjualanModel;
     public function __construct()
     {
         $this->suplyModel = new SupplierModel();
@@ -81,5 +82,6 @@ abstract class BaseController extends Controller
         $this->stokKeluarModel = new StokKeluarModel();
         $this->cartModel = new CartModel();
         $this->penjualanModel = new PenjualanModel();
+        $this->detailPenjualanModel = new PenjualanDetailModel();
     }
 }
