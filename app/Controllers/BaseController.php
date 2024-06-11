@@ -82,6 +82,5 @@ abstract class BaseController extends Controller
         $this->stokKeluarModel = new StokKeluarModel();
         $this->cartModel = new CartModel();
         $this->penjualanModel = new PenjualanModel();
-        $this->detailPenjualanModel = new PenjualanDetailModel();
     }
 }
