@@ -65,4 +65,9 @@ class PenjualanModel extends Model
 
     // method megambil data (customer dan data user)
 
+    public function getAllPenjualan(){
+
+        
+    }
+
 }
