@@ -196,11 +196,10 @@ class Penjualan extends BaseController
             'title'          => 'Print Struk',
             'breadcrumb'     => 'Print',
             'penjualan'      => $this->penjualanModel->getAllPenjualan(['id_penjualan' => $id]),
-            'detail'         => $this->detailPenjualanModel->getAllDetail(['id_detail' => $id]),
-            'cart'           => $this->cartModel->getAllCart()
+            'detail'         => $this->detailPenjualanModel->getDetailData(['id_penjualan_detail' => $id]),
 
         ];
-        return view('transaksi/penjualan/struk', $data);
+        return view('transaksi/penjualan/print', $data);
     }
     // ---------------------------------
 }
