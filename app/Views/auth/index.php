@@ -7,18 +7,14 @@
             <div class="container my-auto">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
-                        <div class="card z-index-0 fadeIn3 fadeInBottom rounded-2">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-info rounded-2 border-radius-lg py-2 pe-1 text-center">
-                                    <h4 class="text-white font-weight-bolder text-center mb-0"> <i class="fa-solid fa-store text-white"></i> Login</h4>
-                                </div>
-                            </div>
+                        <div class="card z-index-0 fadeIn3 fadeInBottom rounded-1 border-0 border-top border-5">
+                            <h4 class="my-0 border text-center mt-3 mx-auto rounded-circle" style="width: 90px;height: 90px;"><i class="fa-solid fa-store mt-3"></i> <br> Login</h4>
                             <div class="card-body">
                                 <?php if (session()->getFlashdata('flash')) : ?>
                                     <?= session()->getFlashdata('flash') ?>
                                 <?php endif; ?>
-                                <form action=" /auth/login" method="post" role="form" class="text-start">
-                                    <div class="input-group input-group-outline my-3">
+                                <form action=" /auth/login" method="post" role="form" class="text-start my-0">
+                                    <div class="input-group input-group-outline my-3 mb-4">
                                         <input type="text" name="username" class="form-control <?= (validation_errors()) ? 'is-invalid' : '' ?>" placeholder="Username">
                                         <div class="invalid-feedback">
                                             <?= validation_show_error('username') ?>
@@ -31,7 +27,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2  shadow-none ">Login</button>
+                                        <button type="submit" class="btn bg-info text-white w-100 my-4 mb-2  shadow-none ">Login</button>
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         Belum punya akun?

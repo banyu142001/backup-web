@@ -8,13 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
-    <?= dd($detail) ?>
+<body onload="window.print()">
+
     <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 100vh;">
             <div class="col-lg-4 col-lg">
                 <div class="border p-2 my-2  text-center">
-                    <h6 class="fw-bold m-0">myPOS <span class="text-primary">Store</span></h6>
+                    <h5 class="fw-bold m-0">myPOS <span class="text-primary">Store</span></h5>
                     <p class="border- border-bottom"> <small class="text-muted">Jalan Stain Amalatu RT 10/ RW 17</small></p>
                     <table class="table table-sm text-start table-borderless">
                         <tr>
