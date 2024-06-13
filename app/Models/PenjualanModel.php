@@ -63,7 +63,7 @@ class PenjualanModel extends Model
         return $builder->insertBatch($data);
     }
 
-    // method megambil data (customer dan data user)
+    // method megambil data (Penjualan, customer dan data user)
 
     public function getAllPenjualan($id_penjualan = false)
     {
@@ -101,6 +101,6 @@ class PenjualanDetailModel extends Model
             return $this->join('produk', 'detail_penjualan.id_produk_detail = produk.id_produk')->findAll();
         }
 
-        return $this->join('produk', 'detail_penjualan.id_produk_detail = produk.id_produk')->where(['detail_penjualan.id_penjualan_detail' => $id_detail])->first();
+        return $this->join('produk', 'detail_penjualan.id_produk_detail = produk.id_produk')->where(['detail_penjualan.id_penjualan_detail' => $id_detail])->findAll();
     }
 }

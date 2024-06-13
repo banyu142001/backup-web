@@ -133,7 +133,7 @@
 
             if (id_produk == '') {
                 alert("Produk belum dipilih")
-            } else if (stok < 1) {
+            } else if (stok < 1 || qty > stok) {
                 alert("Stok produk tidak mencukupi")
                 $('#id_produk').val('')
                 $('#kode_produk').val('')
@@ -383,6 +383,7 @@
                     if (result.success == true) {
 
                         alert('Transaksi Berhasil !')
+                        window.open('<?= base_url('/penjualan/cetak/') ?>' + result.id_penjualan, '_blank')
                     } else {
                         alert('Transaksi Gagal !')
 

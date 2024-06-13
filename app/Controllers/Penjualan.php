@@ -67,13 +67,14 @@ class Penjualan extends BaseController
                 'diskon_detail'         => $cart['diskon_data_cart'],
                 'total_detail'          => $cart['total_data_cart']
             ]);
-            $this->penjualanModel->save_detail_penjualan($row);
         }
+
+        $this->penjualanModel->save_detail_penjualan($row);
 
 
         if ($this->cartModel->db->affectedRows() > 0) {
             $this->cartModel->truncate();
-            $params = ['success' => true];
+            $params = ['success' => true, "id_penjualan" => $id_penjualan];
         } else {
             $params = ['success' => false];
         }
@@ -196,7 +197,7 @@ class Penjualan extends BaseController
             'title'          => 'Print Struk',
             'breadcrumb'     => 'Print',
             'penjualan'      => $this->penjualanModel->getAllPenjualan(['id_penjualan' => $id]),
-            'detail'         => $this->detailPenjualanModel->getDetailData(['id_penjualan_detail' => $id]),
+            'data_detail'    => $this->detailPenjualanModel->getDetailData(['id_penjualan_detail' => $id]),
 
         ];
         return view('transaksi/penjualan/print', $data);
