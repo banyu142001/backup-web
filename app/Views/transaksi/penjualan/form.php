@@ -133,10 +133,16 @@
 
             if (id_produk == '') {
                 alert("Produk belum dipilih")
-            } else if (stok < 1 || qty > stok) {
+            } else if (stok < 1) {
                 alert("Stok produk tidak mencukupi")
                 $('#id_produk').val('')
                 $('#kode_produk').val('')
+
+            } else if (stok < qty) {
+                alert("Stok produk tidak mencukupi")
+                $('#id_produk').val('')
+                $('#kode_produk').val('')
+
             } else {
 
                 $.ajax({
