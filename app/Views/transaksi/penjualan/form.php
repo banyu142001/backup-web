@@ -104,7 +104,7 @@
 <script>
     $(document).ready(function() {
 
-        // Jquery / ajax menambahakan data kedalam cart belanja
+        // Jquery / ajax menambahakan data ke dalam cart belanja
         $(document).on('click', '#select', function() {
 
             // ambil data dari button search 
@@ -119,7 +119,33 @@
             $('#harga').val(harga);
             $('#stok').val(stok);
             $('#modalCart').modal('hide');
+
+
+            get_cart_qty()
         })
+
+        // fungsi validasi qty pada tabel cart
+        function get_cart_qty() {
+
+            $('#tb_cart tr').each(function() {
+
+                var qty_cart = $(this).find('td').eq(2).html()
+
+                if (qty_cart != null) {
+
+                    $('#qty_cart').val(qty_cart)
+                } else {
+                    $('#qty_cart').val(0)
+                }
+
+            })
+        }
+
+
+
+
+
+
         // ketika button tambah  ditekan 
         $(document).on('click', '#cart', function() {
 
@@ -135,13 +161,9 @@
                 alert("Produk belum dipilih")
             } else if (stok < 1) {
                 alert("Stok produk tidak mencukupi")
-                $('#id_produk').val('')
-                $('#kode_produk').val('')
-
-            } else if (stok < qty) {
+            } else if (parseInt(qty) > parseInt(stok)) {
                 alert("Stok produk tidak mencukupi")
-                $('#id_produk').val('')
-                $('#kode_produk').val('')
+                $('#qty').focus()
 
             } else {
 

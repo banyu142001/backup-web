@@ -42,6 +42,7 @@
                                 <input type="hidden" id="id_produk">
                                 <input type="hidden" id="harga">
                                 <input type="hidden" id="stok">
+                                <input type="hidden" id="qty_cart">
                                 <input type="text" class="form-control form-control-sm fw-bold border" name="kode_produk" id="kode_produk" placeholder="Pilih produk">
                                 <button type="button" class="btn btn-sm input-group-text" <?= btn_success_style ?> data-bs-toggle="modal" data-bs-target="#modalCart"><i class="fas fa-search text-white mx-3 align-items-center d-flex" style="font-size: 17px; margin-top: -3px;"></i></button>
                             </div>
