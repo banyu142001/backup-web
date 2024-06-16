@@ -83,7 +83,7 @@
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm text-success font-weight-bolder mb-0 text-capitalize"><?= (session()->get('level') == 1) ? 'Admin' : 'Kasir' ?></p>
-                            <h4 class="mb-0"><?= session()->get('nama') ?></h4>
+                            <h4 class="mb-0 text-capitalize"><?= session()->get('nama') ?></h4>
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
