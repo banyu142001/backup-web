@@ -74,9 +74,19 @@
                     <label for="harga" class="my-0">Harga</label>
                     <input type="number" id="harga_cart" class="form-control border form-control-sm">
                 </div>
-                <div class="form-group mb-0">
-                    <label for="jumlah" class="my-0">Jumlah</label>
-                    <input type="number" id="jumlah_cart" class="form-control border form-control-sm">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group mb-0">
+                            <label for="jumlah" class="my-0">Jumlah</label>
+                            <input type="number" id="jumlah_cart" class="form-control border form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group mb-0">
+                            <label for="jumlah" class="my-0">Stok</label>
+                            <input type="number" id="stok_produk" class="form-control border form-control-sm" readonly>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group mb-0">
                     <label for="total1" class="my-0">Total sebelum Diskon</label>
@@ -121,29 +131,27 @@
             $('#modalCart').modal('hide');
 
 
-            get_cart_qty()
+            get_cart_qty(kode_produk)
         })
 
         // fungsi validasi qty pada tabel cart
-        function get_cart_qty() {
+        function get_cart_qty(kode_produk) {
 
             $('#tb_cart tr').each(function() {
 
-                var qty_cart = $(this).find('td').eq(2).html()
+                // let qty_cart = $(this).find('td').eq(2).html()
+
+                let qty_cart = $('#tb_cart td.kode_produk:contains("' + kode_produk + '")').parent().find('td').eq(3).html()
 
                 if (qty_cart != null) {
 
-                    $('#qty_cart').val(qty_cart)
+                    $('#qty_cart').val(qty_cart);
                 } else {
-                    $('#qty_cart').val(0)
+                    $('#qty_cart').val(0);
                 }
 
             })
         }
-
-
-
-
 
 
         // ketika button tambah  ditekan 
@@ -154,17 +162,14 @@
             const harga = $('#harga').val()
             const stok = $('#stok').val()
             const qty = $('#qty').val()
+            const qty_cart = $('#qty_cart').val()
 
             // validasi data produk
 
             if (id_produk == '') {
                 alert("Produk belum dipilih")
-            } else if (stok < 1) {
+            } else if (stok < 1 || parseInt(stok) < (parseInt(qty_cart) + parseInt(qty))) {
                 alert("Stok produk tidak mencukupi")
-            } else if (parseInt(qty) > parseInt(stok)) {
-                alert("Stok produk tidak mencukupi")
-                $('#qty').focus()
-
             } else {
 
                 $.ajax({
@@ -222,12 +227,13 @@
         })
         // -------------------------------------------------------------------------------------------
 
-        // jquery edit data pada cart belanja
+        // jquery ketika edit data cart belanja
         $(document).on('click', '#update_cart', function() {
 
             // ambil data dari button update dan isi value tiap inputan berdasarkan  (ID) pada form
             const id_cart = $(this).data('id_cart');
             const kode_produk = $(this).data('kode_produk');
+            const stok_produk = $(this).data('stok');
             const nama_produk = $(this).data('nama_produk');
             const harga = $(this).data('harga');
             const qty = $(this).data('qty');
@@ -240,6 +246,7 @@
             $('#nama_cart').val(nama_produk);
             $('#harga_cart').val(harga);
             $('#jumlah_cart').val(qty);
+            $('#stok_produk').val(stok_produk);
             $('#total1').val((harga * qty));
             $('#diskon_cart').val(diskon);
             $('#total2').val(total)
@@ -272,16 +279,22 @@
             // ambil data inputan dari modal edit
             id_cart = $('#id_cart').val()
             harga_cart = $('#harga_cart').val()
-            jumlah_cart = $('#jumlah_cart').val()
+            let jumlah_cart = $('#jumlah_cart').val()
             diskon_cart = $('#diskon_cart').val()
             total2 = $('#total2').val()
+            let stok_produk = $('#stok_produk').val()
 
             // validasi data edit data cart
             if (harga_cart == 0) {
                 alert('Harga produk tidak boleh kosong !')
                 $('#harga_cart').focus()
+
             } else if (jumlah_cart == 0) {
                 alert('Jumlah / QTY tidak boleh kosong !')
+                $('#jumlah_cart').focus()
+
+            } else if (parseInt(jumlah_cart) > parseInt(stok_produk)) {
+                alert('Stok produk tidak mecukupi !')
                 $('#jumlah_cart').focus()
             } else {
 
