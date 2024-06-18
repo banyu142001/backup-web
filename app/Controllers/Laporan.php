@@ -11,9 +11,9 @@ class Laporan extends BaseController
     public function penjualan()
     {
         $data = [
-            'title'         => 'Laporan-Penjualan',
-            'breadcrumb'    => 'laporan penjualan',
-            'data_penjualan' => $this->penjualanModel->getAllPenjualan(),
+            'title'                 => 'Laporan-Penjualan',
+            'breadcrumb'            => 'laporan penjualan',
+            'data_penjualan'        => $this->penjualanModel->getAllPenjualan(),
         ];
 
         return view('laporan/penjualan', $data);

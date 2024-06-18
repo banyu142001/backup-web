@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use OCILob;
 
 class PenjualanModel extends Model
 {
@@ -72,6 +73,7 @@ class PenjualanModel extends Model
 
             return $this->join('customer', 'penjualan.id_customer = customer.id_customer', 'left')
                 ->join('user', 'penjualan.id_user = user.id')
+                ->orderBy('id_penjualan', 'DESC')
                 ->findAll();
         }
 
