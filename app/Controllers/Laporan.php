@@ -13,8 +13,9 @@ class Laporan extends BaseController
         $data = [
             'title'         => 'Laporan-Penjualan',
             'breadcrumb'    => 'laporan penjualan',
-            'data_stok_masuk' => $this->stokMasukModel->selectAllStokMasuk(),
+            'data_penjualan' => $this->penjualanModel->getAllPenjualan(),
         ];
+
         return view('laporan/penjualan', $data);
     }
 }
