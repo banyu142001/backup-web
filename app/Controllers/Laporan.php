@@ -18,4 +18,12 @@ class Laporan extends BaseController
 
         return view('laporan/penjualan', $data);
     }
+
+    public function detail_penjualan($id_detail)
+    {
+
+        $data = $this->detailPenjualanModel->getDetailData(['id_penjualan_detail' => $id_detail]);
+
+        echo json_encode($data);
+    }
 }

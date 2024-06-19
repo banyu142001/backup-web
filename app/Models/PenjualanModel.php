@@ -84,7 +84,7 @@ class PenjualanModel extends Model
 }
 
 
-// Model penjualan Detail
+// Model detail penjualan
 class PenjualanDetailModel extends Model
 {
     protected $table            = 'detail_penjualan';
