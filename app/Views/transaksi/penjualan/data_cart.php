@@ -2,7 +2,7 @@
     <tr>
         <td class="fw-normal kode_produk p-2" style="font-size:13px;"> <strong><?= $cart['kode_produk'] ?></strong></td>
         <td class="fw-normal p-2" style="font-size:15px;"><?= $cart['nama_produk'] ?></td>
-        <td class="fw-normal p-2" style="font-size:14px;"><?= number_format($cart['harga_data_cart']) ?></td>
+        <td class="fw-normal p-2" style="font-size:14px;"><?= $cart['harga_data_cart'] ?></td>
         <td class="fw-normal p-2" style="font-size:14px;"><?= $cart['qty_data_cart'] ?></td>
         <td class="fw-normal p-2" style="font-size:14px;"><?= $cart['diskon_data_cart'] ?></td>
         <td class="fw-normal p-2" style="font-size:14px;" id="total_cart"><?= $cart['total_data_cart'] ?></td>

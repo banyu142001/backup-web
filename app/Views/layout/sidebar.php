@@ -74,7 +74,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Laporan | <i class="fa-solid fa-flag"></i></h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white p-1 mx-5 " href="#">
+                <a class="nav-link text-white p-1 mx-5 <?= menu_laporan_penjualan($title) ?> " href="/laporan/penjualan">
                     <span class="nav-link-text ms-1">Penjualan</span>
                 </a>
             </li>

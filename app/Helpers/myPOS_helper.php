@@ -93,6 +93,16 @@ function menu_penjualan($title)
 }
 // end of penjualan
 
+// menu laporan penjualan
+function menu_laporan_penjualan($title)
+{
+    if ($title == 'Laporan-Penjualan') {
+        // 
+        return $title =  'text-white active bg-gradient-primary';
+    }
+}
+// end of penjualan
+
 
 // indo date format
 function indo_date($date)
