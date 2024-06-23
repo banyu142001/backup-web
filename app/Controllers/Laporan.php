@@ -26,4 +26,18 @@ class Laporan extends BaseController
 
         echo json_encode($data);
     }
+
+    // method delete/hapus data laporan penjualan
+    public function delete($id_penjualan)
+    {
+
+        $this->penjualanModel->delete(['id_penjualan' => $id_penjualan]);
+
+        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
+        <strong>' . icon_success . ' Data laporan penjualan</strong> telah dihapus.
+      ' . icon_close . '
+      </div>');
+
+        return redirect()->to('/laporan/penjualan');
+    }
 }
