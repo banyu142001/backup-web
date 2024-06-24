@@ -11,10 +11,14 @@ class Satuan extends BaseController
 
     public function index()
     {
+
+        // load model SatuanModel
+        $satuanModel = $this->loadModel('SatuanModel');
+
         $data = [
             'title'         => 'Satuan',
             'breadcrumb'    => 'Satuan',
-            'data_satuan'        => $this->satuanModel->selectAllSatuan(),
+            'data_satuan'        => $satuanModel->selectAllSatuan(),
         ];
         return view('satuan/index', $data);
     }
@@ -22,6 +26,8 @@ class Satuan extends BaseController
     // save satuan
     public function save()
     {
+        // load model SatuanModel
+        $satuanModel = $this->loadModel('SatuanModel');
 
         // set rules and validate
         $rules = [
@@ -49,7 +55,8 @@ class Satuan extends BaseController
             ];
 
         // insert data to Database
-        $this->satuanModel->saveSatuanData($data);
+        $satuanModel->save($data);
+
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <p style="font-size:14px" class="mb-0 d-inline" ><strong > ' . icon_success . ' Satuan Baru</strong> telah ditambahkan.</p>
         ' . icon_close . '
@@ -60,6 +67,8 @@ class Satuan extends BaseController
     // update data satuan
     public function update($id_satuan)
     {
+        // load model SatuanModel
+        $satuanModel = $this->loadModel('SatuanModel');
 
         // set rules and validate
         $rules = [
@@ -93,7 +102,8 @@ class Satuan extends BaseController
             ];
 
         // insert data to Database
-        $this->satuanModel->saveUpdateData($data);
+        $satuanModel->save($data);
+
         session()->setFlashdata('flash_update', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data Satuan</strong> telah diupdate.
         ' . icon_close . '
@@ -105,9 +115,11 @@ class Satuan extends BaseController
     // delete method
     public function delete($id_satuan)
     {
+        // load model SatuanModel
+        $satuanModel = $this->loadModel('SatuanModel');
 
-        $this->satuanModel->delete(['id_satuan' => $id_satuan]);
-        $errors = $this->satuanModel->db->error();
+        $satuanModel->delete(['id_satuan' => $id_satuan]);
+        $errors = $satuanModel->db->error();
 
         if ($errors['code'] != 0) {
 

@@ -9,10 +9,14 @@ class Produk extends BaseController
 {
     public function index()
     {
+
+        // load model ProdukModel
+        $produkModel =  $this->loadModel('ProdukModel');
+
         $data = [
             'title'         => 'Produk',
             'breadcrumb'    => 'Produk',
-            'data_produk'   => $this->produkModel->selectAllProduk(),
+            'data_produk'   => $produkModel->selectAllProduk(),
 
         ];
         return view('produk/index', $data);
@@ -21,19 +25,26 @@ class Produk extends BaseController
     //create produk data
     public function create()
     {
+        // load model ProdukModel, KategoriModel dan SatuanModel
+        $produkModel  =  $this->loadModel('ProdukModel');
+        $kategoriModel =  $this->loadModel('KategoriModel');
+        $satuanModel  =  $this->loadModel('SatuanModel');
+
         $data = [
             'title'         => 'Tambah Data Produk',
             'breadcrumb'    => 'Produk / Tambah Data Produk',
-            'data_produk'   => $this->produkModel->selectAllProduk(),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
+            'kategori'      => $kategoriModel->selectAllKategori(),
+            'satuan'        => $satuanModel->selectAllSatuan(),
+            // 'data_produk'   => $produkModel->selectAllProduk(),
         ];
         return view('produk/create', $data);
     }
 
-    // save produk
+    // insert data produk / save produk
     public function save()
     {
+        // load model ProdukModel
+        $produkModel =  $this->loadModel('ProdukModel');
 
         // set rules and validate
         $rules = [
@@ -88,7 +99,7 @@ class Produk extends BaseController
             ];
 
         // insert data to Database
-        $this->produkModel->saveProdukData($data);
+        $produkModel->saveProdukData($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data Produk Baru</strong> telah ditambahkan.
@@ -97,15 +108,20 @@ class Produk extends BaseController
         return redirect()->to('/produk');
     }
 
-    // edit produk data
+    // edit data produk
     public function edit($id_produk)
     {
+        // load model ProdukModel, KategoriModel dan SatuanModel
+        $produkModel  =  $this->loadModel('ProdukModel');
+        $kategoriModel =  $this->loadModel('KategoriModel');
+        $satuanModel  =  $this->loadModel('SatuanModel');
+
         $data = [
             'title'         => 'Edit Data Produk',
             'breadcrumb'    => 'Produk / Edit Data Produk',
-            'produk_update' => $this->produkModel->selectAllProduk(['id_produk' => $id_produk]),
-            'kategori'      => $this->katModel->selectAllKategori(),
-            'satuan'        => $this->satuanModel->selectAllSatuan(),
+            'produk_update' => $produkModel->selectAllProduk(['id_produk' => $id_produk]),
+            'kategori'      => $kategoriModel->selectAllKategori(),
+            'satuan'        => $satuanModel->selectAllSatuan(),
 
         ];
         return view('produk/edit', $data);
@@ -114,8 +130,10 @@ class Produk extends BaseController
     // update data produk
     public function update($id_produk)
     {
+        // load model ProdukModel
+        $produkModel  =  $this->loadModel('ProdukModel');
 
-        $data_produk = $this->produkModel->selectAllProduk(['id_produk' => $id_produk]);
+        $data_produk = $produkModel->selectAllProduk(['id_produk' => $id_produk]);
 
         $kode_produk = $this->request->getVar('kode_produk');
         $nama_produk = $this->request->getVar('nama_produk');
@@ -191,7 +209,7 @@ class Produk extends BaseController
             ];
 
         // insert data to Database
-        $this->produkModel->saveUpdateProdukData($data);
+        $produkModel->saveUpdateProdukData($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data Produk</strong> telah diupdate.
@@ -204,10 +222,12 @@ class Produk extends BaseController
     // delete method
     public function delete($id_produk)
     {
+        // load model ProdukModel
+        $produkModel  =  $this->loadModel('ProdukModel');
 
-        $this->produkModel->delete(['id_produk' => $id_produk]);
+        $produkModel->delete(['id_produk' => $id_produk]);
 
-        $errors = $this->produkModel->db->error();
+        $errors = $produkModel->db->error();
         if ($errors['code'] != 0) {
 
             session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . '  >

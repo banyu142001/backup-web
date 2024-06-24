@@ -13,11 +13,9 @@ class AuthModel extends Model
     // Dates
     protected $useTimestamps = true;
 
-
-    // select dat auser
+    // select data user
     public function userDataAuth($username)
     {
-
         return $this->where(['username' => $username])->first();
     }
 }

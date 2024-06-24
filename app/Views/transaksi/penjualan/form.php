@@ -187,7 +187,7 @@
                         if (result.success == true) {
                             $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
                                 hitung()
-                            })
+                        })
                             $('#id_produk').val('')
                             $('#kode_produk').val('')
                             $('#qty').val(1)

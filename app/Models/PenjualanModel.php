@@ -98,19 +98,7 @@ class PenjualanModel extends Model
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// =====================================================================
 // Model detail penjualan
 class PenjualanDetailModel extends Model
 {

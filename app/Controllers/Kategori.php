@@ -10,10 +10,13 @@ class Kategori extends BaseController
 
     public function index()
     {
+        // load model KategoriModel
+        $kategoriModel  =  $this->loadModel('KategoriModel');
+
         $data = [
             'title'         => 'Kategori',
             'breadcrumb'    => 'Kategori',
-            'kategori'      => $this->katModel->selectAllKategori(),
+            'kategori'      => $kategoriModel->selectAllKategori(),
         ];
         return view('kategori/index', $data);
     }
@@ -21,6 +24,8 @@ class Kategori extends BaseController
     // save kategori
     public function save()
     {
+        // load model KategoriModel
+        $kategoriModel  =  $this->loadModel('KategoriModel');
 
         // set rules and validate
         $rules = [
@@ -48,17 +53,21 @@ class Kategori extends BaseController
             ];
 
         // insert data to Database
-        $this->katModel->saveKategoriData($data);
+        $kategoriModel->saveKategoriData($data);
+
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <p style="font-size:14px" class="mb-0 d-inline" ><strong > ' . icon_success . ' Kategori Baru</strong> telah ditambahkan.</p>
         ' . icon_close . '
       </div>');
+
         return redirect()->to('/kategori');
     }
 
     // update data kategori
     public function update($id_kategori)
     {
+        // load model KategoriModel
+        $kategoriModel  =  $this->loadModel('KategoriModel');
 
         // set rules and validate
         $rules = [
@@ -76,7 +85,7 @@ class Kategori extends BaseController
 
         if (!$this->validate($rules)) {
             session()->setFlashdata('flash_update_rule', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"  ' . ALERT_DANGER . '  >
-            <small>  ' . icon_warning . '<strong>Nama Kategori</strong> harus diisi !! lakukan edit kembali.</small>
+            <small>  ' . icon_warning . '<strong>Oopss !!</strong> periksa kembali inputan anda !</small>
             ' . icon_close . '
           </div>');
             return redirect()->to('/kategori')->withInput();
@@ -92,11 +101,13 @@ class Kategori extends BaseController
             ];
 
         // insert data to Database
-        $this->katModel->saveUpdateData($data);
+        $kategoriModel->saveUpdateData($data);
+
         session()->setFlashdata('flash_update', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"   ' . ALERT_SUCCESS . ' >
         <strong>  ' . icon_success . ' Data Kategori</strong> telah diupdate.
         ' . icon_close . '
       </div>');
+
         return redirect()->to('/kategori');
     }
 
@@ -104,9 +115,11 @@ class Kategori extends BaseController
     // delete method
     public function delete($id_kategori)
     {
+        // load model KategoriModel
+        $kategoriModel  =  $this->loadModel('KategoriModel');
 
-        $this->katModel->delete(['id_kategori' => $id_kategori]);
-        $errors = $this->katModel->db->error();
+        $kategoriModel->delete(['id_kategori' => $id_kategori]);
+        $errors = $kategoriModel->db->error();
 
         if ($errors['code'] != 0) {
 
@@ -114,6 +127,7 @@ class Kategori extends BaseController
             <strong>  ' . icon_warning . ' Data Kategori tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
             ' . icon_close . '
           </div>');
+
             return redirect()->to('/kategori');
         }
 
@@ -121,6 +135,7 @@ class Kategori extends BaseController
         <strong>  ' . icon_success . ' Data Kategori</strong> telah dihapus.
         ' . icon_close . '
       </div>');
+
         return redirect()->to('/kategori');
     }
 }
