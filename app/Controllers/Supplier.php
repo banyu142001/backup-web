@@ -3,16 +3,19 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\SupplierModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Supplier extends BaseController
 {
+
     public function index()
     {
+
         $data = [
             'title'         => 'Supplier',
             'breadcrumb'    => 'Supplier',
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
+            'suppliers'     => $this->suplyModel->selectAllSupplier()
         ];
         return view('supplier/index', $data);
     }
@@ -79,6 +82,7 @@ class Supplier extends BaseController
     // edit supplier data
     public function edit($id_supplier)
     {
+
         $data = [
             'title'         => 'Edit Data Supplier',
             'breadcrumb'    => 'Supplier / Edit Data Supplier',
@@ -141,6 +145,7 @@ class Supplier extends BaseController
     // delete method
     public function delete($id_supplier)
     {
+
 
         $this->suplyModel->delete(['id_supplier' => $id_supplier]);
         $errors = $this->suplyModel->db->error();
