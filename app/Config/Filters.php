@@ -133,6 +133,8 @@ class Filters extends BaseFilters
                 'stokkeluar',
                 'stokkeluar/*',
                 'penjualan',
+                'laporan',
+                'laporan/*'
             ],
         ],
 

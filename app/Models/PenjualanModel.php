@@ -81,7 +81,34 @@ class PenjualanModel extends Model
             ->join('user', 'penjualan.id_user = user.id')
             ->where(['id_penjualan' => $id_penjualan])->first();
     }
+
+    // method menghitung produk terlaris
+
+    public function getProdukTerlaris()
+    {
+        $builder = $this->db->table('detail_penjualan dp');
+        $builder->select('dp.id_produk_detail, p.nama_produk, SUM(dp.qty_detail) AS total_jumlah');
+        $builder->join('produk p', 'dp.id_produk_detail = p.id_produk');
+        $builder->groupBy('dp.id_produk_detail');
+        $builder->orderBy('total_jumlah', 'DESC');
+        $builder->limit(5);
+        $query = $builder->get();
+
+        return $query->getResultArray();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Model detail penjualan

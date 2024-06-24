@@ -203,4 +203,5 @@ class Penjualan extends BaseController
         return view('transaksi/penjualan/print', $data);
     }
     // ---------------------------------
+
 }

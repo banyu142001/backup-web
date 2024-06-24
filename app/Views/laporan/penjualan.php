@@ -21,6 +21,13 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg">
+                <?php if (session()->getFlashdata('flash')) : ?>
+                    <?= session()->getFlashdata('flash'); ?>
+                <?php endif; ?>
+            </div>
+        </div>
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
@@ -76,12 +83,11 @@
                                         </a>
 
                                         <a id="detail" class="btn btn-sm p-0 px-2  rounded-1 mx-1 cursor-pointer my-0 border hover " <?= text_success ?> data-bs-toggle="modal" data-bs-target="#detailModal" data-invoice="<?= $penjualan['invoice'] ?>" data-tanggal="<?= indo_date($penjualan['tanggal']) ?>" data-waktu=" <?= date('H:i', strtotime($penjualan['created_at'])) ?>" data-total_harga=" <?= number_format($penjualan['total_harga']) ?>" data-diskon="<?= number_format($penjualan['diskon']) ?>" data-harga_bayar=" <?= number_format($penjualan['harga_bayar']) ?>" data-cash=" <?= number_format($penjualan['cash']) ?>" data-kembalian=" <?= number_format($penjualan['kembalian']) ?>" data-nota=" <?= $penjualan['nota'] ?>" data-customer=" <?= ($penjualan['id_customer'] == 0) ? 'Umum' : $penjualan['nama_customer'] ?>" data-id_penjualan="<?= $penjualan['id_penjualan'] ?>">
-
                                             <div class=" far fa-edit">
                                             </div>
                                         </a>
 
-                                        <a id="del_cart" class="btn btn-sm  p-0 px-2 rounded-1 cursor-pointer my-0 border" class=" text-xs " <?= text_danger ?>>
+                                        <a href="/laporan/delete/<?= $penjualan['id_penjualan'] ?>" class="btn btn-sm  p-0 px-2 rounded-1 cursor-pointer my-0 border" class=" text-xs " <?= text_danger ?>>
                                             <div class=" fas fa-trash"></div>
                                         </a>
                                     </div>
