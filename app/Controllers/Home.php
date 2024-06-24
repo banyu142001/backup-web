@@ -14,7 +14,8 @@ class Home extends BaseController
             'satuan'     => $this->satuanModel->count_satuan(),
             'kategori'   => $this->katModel->count_kategori(),
             'stok_masuk' => $this->stokMasukModel->count_stok_masuk(),
-            'stok_keluar' => $this->stokKeluarModel->count_stok_keluar()
+            'stok_keluar' => $this->stokKeluarModel->count_stok_keluar(),
+            'produk_terlaris' => $this->penjualanModel->getProdukTerlaris(),
 
         ];
         return view('home/index', $data);

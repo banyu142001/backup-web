@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\AuthModel;
 use App\Models\CartModel;
 use App\Models\CustomerModel;
+use App\Models\HomeModel;
 use App\Models\KategoriModel;
 use App\Models\PenjualanDetailModel;
 use App\Models\PenjualanModel;
@@ -68,7 +69,7 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
-    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel, $stokKeluarModel, $cartModel, $penjualanModel, $detailPenjualanModel;
+    protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel, $stokKeluarModel, $cartModel, $penjualanModel, $detailPenjualanModel, $homeModel;
     public function __construct()
     {
         $this->suplyModel = new SupplierModel();
