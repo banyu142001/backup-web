@@ -26,6 +26,7 @@ class Laporan extends BaseController
         return view('laporan/penjualan', $data);
     }
 
+
     public function detail_penjualan($id_detail)
     {
         // load model Detail Penjualan
