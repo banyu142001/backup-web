@@ -78,19 +78,7 @@
 <!-- Bootstrap core JavaScript-->
 <script src="/assets/vendor/jquery/jquery.min.js"></script>
 
-<!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    });
-</script>
-
+<script src="/assets/DataTables/datatables.min.css"></script>
 
 
 <!-- Core plugin JavaScript-->
@@ -101,10 +89,18 @@
 <!-- Page level custom scripts -->
 <script src="/assets/js/demo/datatables-demo.js"></script>
 
+
 <!--   Core JS Files   -->
 <script src="/assets/js/core/popper.min.js"></script>
 <script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="/assets/js/plugins/chartjs.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#myTable").DataTable();
+    });
+</script>
 
 
 <script>
@@ -116,7 +112,6 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
-
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

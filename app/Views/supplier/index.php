@@ -2,7 +2,7 @@
 
 <?= $this->section('main'); ?>
 <div class="container-fluid px-2 px-md-4">
-    <div class="page-header min-height-150 border-radius-xl rounded-2 mt-2" style="background-image: url('/assets/img/');">
+    <div class="page-header min-height-150 border-radius-xl rounded-2 mt-2" style="background-image: url('/assets/img/bg-1.jpg');">
         <span class="mask  bg-gradient-primary  opacity-2"></span>
     </div>
     <div class="card card-body mx-3 mx-md-4 rounded-2 mt-n6">
