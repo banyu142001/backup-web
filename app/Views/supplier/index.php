@@ -95,12 +95,9 @@
     <div class="modal fade" id="modalDelSupply<?= $suply['id_supplier'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content rounded-1 border-0 shadow-none">
-                <div class="modal-header p-2">
-                    <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Supplier</h1>
-                    <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
-                </div>
-                <div class="modal-body p-3 my-0">
-                    <p>Data <strong><?= $suply['nama_supplier'] ?></strong> akan dihapus?</p>
+                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-0"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
+                <div class="modal-body py-2 my-0">
+                    <p class="p-0 mt-3">Data <strong><?= $suply['nama_supplier'] ?></strong> akan dihapus?</p>
                 </div>
                 <div class="modal-footer p-2">
                     <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal"> Batal</a>
