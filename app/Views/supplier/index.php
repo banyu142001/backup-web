@@ -2,7 +2,7 @@
 
 <?= $this->section('main'); ?>
 <div class="container-fluid px-2 px-md-4">
-    <div class="page-header min-height-150 border-radius-xl rounded-2 mt-2" style="background-image: url('/assets/img/bg-1.jpg');">
+    <div class="page-header min-height-150 border-radius-xl rounded-2 mt-2">
         <span class="mask  bg-gradient-primary  opacity-2"></span>
     </div>
     <div class="card card-body mx-3 mx-md-4 rounded-2 mt-n6">
@@ -35,6 +35,7 @@
 
         </div>
         <div class="table-responsive p-0">
+            <button id="deleteButton" class="btn btn-danger">Delete</button>
             <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
                     <tr>
@@ -108,5 +109,49 @@
     </div>
 <?php endforeach; ?>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#deleteButton').click(function() {
+            Swal.fire({
+                title: 'Apakah anda yakin ?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Lakukan aksi penghapusan, misalnya dengan AJAX atau form submission
+                    $.ajax({
+                        url: '/path/to/delete', // Sesuaikan dengan URL penghapusan Anda
+                        type: 'POST',
+                        data: {
+                            // Data yang ingin dikirim, misalnya ID item yang akan dihapus
+                            id: 123
+                        },
+                        success: function(response) {
+                            // Tangani respons sukses, misalnya dengan menampilkan pesan atau merefresh halaman
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            );
+                        },
+                        error: function(error) {
+                            // Tangani kesalahan
+                            Swal.fire(
+                                'Error!',
+                                'There was an error deleting your file.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+
 
 <?= $this->endSection(); ?>
