@@ -71,7 +71,7 @@
                             <div id="flash_3" data-flash_3="<?= session()->getFlashdata('flash_3') ?>"></div>
 
                             <div class="table-responsive p-0">
-                                <table class="table table-sm align-items-center mb-0">
+                                <table class="table table-sm align-items-center mb-0" id="myTable">
                                     <thead>
                                         <tr>
                                             <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">

@@ -118,7 +118,7 @@
                 <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-1 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
             </div>
             <div class="modal-body table-responsive">
-                <table class="table table-borderles table-sm table-striped">
+                <table class="table table-borderles table-sm table-striped" id="myTable">
                     <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-7">Kode Produk</th>
