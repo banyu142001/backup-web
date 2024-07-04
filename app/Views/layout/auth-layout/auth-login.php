@@ -5,8 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        <?= $auth_title; ?>
+        my-pos
     </title>
+
+    <!-- my CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
@@ -16,6 +20,13 @@
     <link href="/assets/fontawesome/fontawesome-1/css/all.min.css" rel="stylesheet" />
     <link href="/assets/fontawesome/fontawesome-2/css/all.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
@@ -92,6 +103,42 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
+    </script>
+
+    <script>
+        const flash_4 = $('#flash_4').data('flash_4');
+        const flash_6 = $('#flash_6').data('flash_6');
+
+
+        // popup flash Auth.
+        if (flash_4) {
+
+            Swal.fire({
+                icon: "error",
+                text: flash_4,
+                showConfirmButton: false,
+                timer: 5000,
+                customClass: {
+                    popup: 'custom-swal-popup',
+                    icon: 'custom-icon',
+                }
+            });
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cek flashdata berhasil login
+            <?php if (session()->getFlashdata('flash_6')) : ?>
+                Swal.fire({
+                    position: 'top-end',
+                    text: '<?= session()->getFlashdata('flash_6'); ?>',
+                    showConfirmButton: false,
+                    timer: 7000,
+                    width: '400px',
+                });
+            <?php endif; ?>
+        });
     </script>
 </body>
 

@@ -5,14 +5,17 @@
     <div class="section min-vh-85 position-relative  transform-scale-md-9">
         <div class="page-header  align-items-start min-vh-100">
             <div class="container my-auto">
+
+                <!-- alert sistem -->
+                <div id="flash_4" data-flash_4="<?= session()->getFlashdata('flash_4') ?>"></div>
+                <div id="flash_6" data-flash_6="<?= session()->getFlashdata('flash_6') ?>"></div>
+
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom rounded-1 border-0 border-top border-5">
                             <h4 class="my-0 border text-center mt-3 mx-auto rounded-circle" style="width: 90px;height: 90px;"><i class="fa-solid fa-store mt-3"></i> <br> Login</h4>
                             <div class="card-body">
-                                <?php if (session()->getFlashdata('flash')) : ?>
-                                    <?= session()->getFlashdata('flash') ?>
-                                <?php endif; ?>
+
                                 <form action=" /auth/login" method="post" role="form" class="text-start my-0">
                                     <div class="input-group input-group-outline my-3 mb-4">
                                         <input type="text" name="username" class="form-control <?= (validation_errors()) ? 'is-invalid' : '' ?>" placeholder="Username">

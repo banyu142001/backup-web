@@ -96,6 +96,141 @@
 <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="/assets/js/plugins/chartjs.min.js"></script>
+
+<!-- Sweet alert -->
+<script>
+    const flash = $('#flash').data('flash');
+    const flash_2 = $('#flash_2').data('flash_2');
+    const flash_3 = $('#flash_3').data('flash_3');
+    const flash_4 = $('#flash_4').data('flash_4');
+
+
+    // alert CRUD sistem
+    if (flash) {
+
+        Swal.fire({
+            icon: "success",
+            text: flash,
+            showConfirmButton: false,
+            timer: 4500,
+            customClass: {
+                icon: 'custom-icon'
+            }
+
+        });
+    }
+
+    if (flash_2) {
+
+        Swal.fire({
+            icon: "warning",
+            text: flash_2,
+            showConfirmButton: false,
+            timer: 5000,
+            customClass: {
+                icon: 'custom-icon'
+            }
+        });
+    }
+
+    // popup flash kategori & satuan
+    if (flash_3) {
+
+        Swal.fire({
+            icon: "warning",
+            text: flash_3,
+            showConfirmButton: false,
+            timer: 5000,
+            customClass: {
+                icon: 'custom-icon'
+            }
+        });
+    }
+    // popup flash Auth.
+    if (flash_3) {
+
+        Swal.fire({
+            icon: "warning",
+            text: flash_3,
+            showConfirmButton: false,
+            timer: 5000
+        });
+    }
+
+    // alert delete data
+    $(document).on('click', '#btn-hapus', function(e) {
+        e.preventDefault();
+        const href = $(this).attr('href');
+        Swal.fire({
+            icon: 'warning',
+            text: "Apakah anda yakin ?",
+            showCancelButton: true,
+            confirmButtonColor: "#38bd5e",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, hapus!",
+            width: '400px',
+            customClass: {
+                confirmButton: 'custom-confirm-button-delete',
+                cancelButton: 'custom-cancel-button-delete',
+                icon: 'custom-icon'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                window.location = href
+
+            }
+        });
+    })
+
+    // alert logout
+    $(document).on('click', '#btn-logout', function(e) {
+        e.preventDefault();
+        const href = $(this).attr('href');
+        Swal.fire({
+            text: 'Klik KELUAR Anda akan keluar dari sistem',
+            showCancelButton: true,
+            confirmButtonColor: "#014ffd",
+            confirmButtonText: '<i class="fa-solid fa-right-from-bracket mx-1"></i> Keluar',
+            width: '450px',
+            customClass: {
+                confirmButton: 'custom-confirm-button', // Kelas untuk tombol konfirmasi
+                cancelButton: 'custom-cancel-button' // Kelas untuk tombol batal
+            }
+            // position: 'center',
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                window.location = href
+
+            }
+        });
+    })
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cek flashdata berhasil login
+        <?php if (session()->getFlashdata('flash_5')) : ?>
+            Swal.fire({
+
+                icon: 'success',
+                title: '<?= session()->getFlashdata('flash_5'); ?>',
+                text: 'Selamat datang di Point Of Sale Management App',
+                showConfirmButton: false,
+                timer: 5000,
+                customClass: {
+                    popup: 'welcome-popup',
+                }
+
+            });
+        <?php endif; ?>
+    });
+</script>
+
+<!-- =================================== -->
+
+
 <script>
     $(document).ready(function() {
         $("#myTable").DataTable();

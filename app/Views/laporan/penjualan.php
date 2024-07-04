@@ -87,7 +87,7 @@
                                             </div>
                                         </a>
 
-                                        <a href="/laporan/delete/<?= $penjualan['id_penjualan'] ?>" class="btn btn-sm  p-0 px-2 rounded-1 cursor-pointer my-0 border" class=" text-xs " <?= text_danger ?>>
+                                        <a href="/laporan/delete/<?= $penjualan['id_penjualan'] ?>" class="btn btn-sm  p-0 px-2 rounded-1 cursor-pointer my-0 border" class=" text-xs " <?= text_danger ?> id="btn-hapus">
                                             <div class=" fas fa-trash"></div>
                                         </a>
                                     </div>

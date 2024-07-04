@@ -79,10 +79,7 @@ class Supplier extends BaseController
         // insert data to Database
         $supplierModel->saveSupplierData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Supplier Baru</strong> telah ditambahkan.
-         ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data Supplier Baru telah ditambahkan');
         return redirect()->to('/supplier');
     }
 
@@ -145,10 +142,7 @@ class Supplier extends BaseController
         // insert data to Database
         $supplierModel->saveUpdateSupplierData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Supplier</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data Supplier Baru telah diupdate');
         return redirect()->to('/supplier');
     }
 
@@ -163,17 +157,11 @@ class Supplier extends BaseController
         $errors = $supplierModel->db->error();
 
         if ($errors['code'] != 0) {
-            session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . ' >
-            <strong>' . icon_warning . ' Data supplier tidak dapat dihapus. </strong> (data supplier ini sedang digunakan pada data stok masuk).
-            ' . icon_close . '
-          </div>');
+            session()->setFlashdata('flash_2', 'Data tidak dapat dihapus.(Data supplier ini sedang digunakan pada data stok masuk)');
             return redirect()->to('/supplier');
         }
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-            <strong>' . icon_success . ' Data Supplier</strong> telah dihapus.
-            ' . icon_close . '
-          </div>');
+        session()->setFlashdata('flash', 'Data Supplier telah dihapus');
         return redirect()->to('/supplier');
     }
 }

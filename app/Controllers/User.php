@@ -110,10 +110,7 @@ class User extends BaseController
         // insert data to Database
         $userModel->saveUserData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data User</strong> telah ditambahkan.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data User telah ditambakan');
         return redirect()->to('/user');
     }
 
@@ -215,10 +212,7 @@ class User extends BaseController
         // insert data to Database
         $userModel->saveUpdateData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . 'Data User</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data User telah diupdate');
         return redirect()->to('/user');
     }
 
@@ -232,10 +226,7 @@ class User extends BaseController
         $userModel = $this->loadModel('UserModel');
 
         $userModel->delete(['id' => $id]);
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . '>
-        <strong>' . icon_success . 'Data User</strong> telah dihapus.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data User telah dihapus');
         return redirect()->to('/user');
     }
 }

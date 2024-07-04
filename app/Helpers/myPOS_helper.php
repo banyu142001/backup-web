@@ -142,11 +142,9 @@ define('text_info', 'style="color: #1679AB;"');
 
 
 // button success
-define('btn_success', 'style="background-color: #2fde7e;
-background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%)"');
+define('btn_success', 'style="background-color: #6dff4f;"');
 // button info
-define('btn_info', 'style="background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #0093e9 100%)"');
+define('btn_info', 'style="background-color: #014ffd"');
 // button success
 define('btn_success_search', 'style="background-color: #2fde7e;
 background-image: linear-gradient(45deg, #2fde7e 94%, #cccccc 100%); height: 39px;"');

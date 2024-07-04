@@ -66,22 +66,18 @@ class Auth extends BaseController
                     'foto'       => $userData['foto'],
                 ];
 
+
                 session()->set($login_session);
+                session()->setFlashdata('flash_5', 'Berhasil Login');
                 return redirect()->to('/home');
             } else {
-                session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' >
-                <span class="text-sm">' . icon_warning . 'Username / Password tidak sesuai!</span>
-                ' . icon_close . '
-                </div>');
+                session()->setFlashdata('flash_4', 'Username & Password tidak sesuai');
                 return redirect()->to('/auth');
             }
         } else {
 
 
-            session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' ">
-                <span class="text-sm">' . icon_warning . ' Data user tidak ditemukan!</span>
-                ' . icon_close . '
-                </div>');
+            session()->setFlashdata('flash_4', 'Data User tidak ditemukan ');
             return redirect()->to('/auth');
         }
     }
@@ -192,10 +188,7 @@ class Auth extends BaseController
         session()->remove('foto');
 
 
-        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
-        <span class="text-sm">Anda berhasil logout ! se you 👋👋</span>
-          ' . icon_close . '
-        </div>');
+        session()->setFlashdata('flash_6', 'Anda berhasil logout! sampai jumpa lagi');
 
         return redirect()->to('/auth');
     }

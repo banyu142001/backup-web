@@ -23,13 +23,11 @@
                 <a href="/stokkeluar/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg">
-                <?php if (session()->getFlashdata('flash')) : ?>
-                    <?= session()->getFlashdata('flash'); ?>
-                <?php endif; ?>
-            </div>
-        </div>
+
+        <!-- alert sistem -->
+        <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+
+
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
@@ -78,7 +76,7 @@
                                 <a href="" class="text-xs" <?= text_success ?> data-bs-toggle="modal" data-bs-target="#modalDetail<?= $stok['id_stok_keluar'] ?>">
                                     <i class="fas fa-eye mx-1"></i> Detail
                                 </a>
-                                <a href="/stokkeluar/delete/<?= $stok['id_stok_keluar'] . '/' . $stok['id_produk']  ?>" class="text-xs" <?= text_danger ?>>
+                                <a href="/stokkeluar/delete/<?= $stok['id_stok_keluar'] . '/' . $stok['id_produk']  ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                     <i class="fas fa-trash mx-1"></i> Delete
                                 </a>
                             </td>

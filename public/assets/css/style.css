@@ -1,0 +1,26 @@
+/* popup sweetalert style */
+.custom-confirm-button {
+  padding: 5px;
+  width: 100px;
+  margin-left: 200px;
+}
+
+.custom-cancel-button {
+  padding: 5px;
+}
+
+.custom-icon {
+  font-size: 10px;
+}
+
+.custom-confirm-button-delete {
+  padding: 5px;
+}
+
+.custom-cancel-button-delete {
+  padding: 5px;
+}
+
+.custom-swal-popup {
+  width: 400px;
+}

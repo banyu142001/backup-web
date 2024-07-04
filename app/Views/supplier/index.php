@@ -26,16 +26,12 @@
                 <a href="/supplier/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg">
-                <?php if (session()->getFlashdata('flash')) : ?>
-                    <?= session()->getFlashdata('flash'); ?>
-                <?php endif; ?>
-            </div>
 
-        </div>
+        <!-- alert sistem -->
+        <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+        <div id="flash_2" data-flash_2="<?= session()->getFlashdata('flash_2') ?>"></div>
+
         <div class="table-responsive p-0">
-            <button id="deleteButton" class="btn btn-danger">Delete</button>
             <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
                     <tr>
@@ -80,7 +76,7 @@
                                 <a href="/supplier/edit/<?= $suply['id_supplier'] ?>" class="text-xs" <?= text_success ?>>
                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                 </a>
-                                <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelSupply<?= $suply['id_supplier'] ?> ">
+                                <a href="/supplier/delete/<?= $suply['id_supplier'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                 </a>
                             </td>
@@ -91,67 +87,6 @@
         </div>
     </div>
 </div>
-<!-- MODAL HAPUS DATA SUPPLIERS -->
-<?php foreach ($suppliers as $suply) : ?>
-    <div class="modal fade" id="modalDelSupply<?= $suply['id_supplier'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content rounded-1 border-0 shadow-none">
-                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-0"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
-                <div class="modal-body py-2 my-0">
-                    <p class="p-0 mt-3">Data <strong><?= $suply['nama_supplier'] ?></strong> akan dihapus?</p>
-                </div>
-                <div class="modal-footer p-2">
-                    <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal"> Batal</a>
-                    <a href="/supplier/delete/<?= $suply['id_supplier'] ?>" class="badge text-white bg-danger p-2"> <i class="fa-solid fa-trash mx-1"></i> Hapus</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php endforeach; ?>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('#deleteButton').click(function() {
-            Swal.fire({
-                title: 'Apakah anda yakin ?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Lakukan aksi penghapusan, misalnya dengan AJAX atau form submission
-                    $.ajax({
-                        url: '/path/to/delete', // Sesuaikan dengan URL penghapusan Anda
-                        type: 'POST',
-                        data: {
-                            // Data yang ingin dikirim, misalnya ID item yang akan dihapus
-                            id: 123
-                        },
-                        success: function(response) {
-                            // Tangani respons sukses, misalnya dengan menampilkan pesan atau merefresh halaman
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            );
-                        },
-                        error: function(error) {
-                            // Tangani kesalahan
-                            Swal.fire(
-                                'Error!',
-                                'There was an error deleting your file.',
-                                'error'
-                            );
-                        }
-                    });
-                }
-            });
-        });
-    });
-</script>
-
 
 <?= $this->endSection(); ?>

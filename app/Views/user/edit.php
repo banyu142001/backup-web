@@ -2,6 +2,7 @@
 
 <?= $this->section('main'); ?>
 <div class="container-fluid mt-2">
+
     <div class="row">
         <div class="col-lg-12">
             <h5 class="mx-2">Edit & Update data user</h5>

@@ -18,9 +18,12 @@
                     </div>
                 </div>
                 <div class="card-body px-3 pb-2">
-                    <?php if (session()->getFlashdata('flash')) : ?>
-                        <?= session()->getFlashdata('flash'); ?>
-                    <?php endif; ?>
+
+
+                    <!-- sweet alert -->
+                    <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+
+
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                             <thead>
@@ -63,7 +66,7 @@
                                                 <a href="/user/edit/<?= $user['id'] ?>" class="text-xs" <?= text_success ?>>
                                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                                 </a>
-                                                <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelete<?= $user['id'] ?> ">
+                                                <a href="/user/delete/<?= $user['id'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                                 </a>
                                             <?php endif ?>

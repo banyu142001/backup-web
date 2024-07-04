@@ -78,10 +78,7 @@ class Customer extends BaseController
         // insert data to Database
         $customerModel->saveCustomerData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Customer Baru</strong> telah ditambahkan.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data Customer Baru telah ditambahkan');
         return redirect()->to('/customer');
     }
 
@@ -142,10 +139,7 @@ class Customer extends BaseController
         // insert data to Database
         $customerModel->saveUpdateCustomerData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . 'Data Customer</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data Customer telah diupdate');
         return redirect()->to('/customer');
     }
 
@@ -157,10 +151,7 @@ class Customer extends BaseController
         $customerModel =  $this->loadModel('CustomerModel');
 
         $customerModel->delete(['id_customer' => $id_custumer]);
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Customer</strong> telah dihapus.
-      ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data Customer telah dihapus');
         return redirect()->to('/customer');
     }
 }

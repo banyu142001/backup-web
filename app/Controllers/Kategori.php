@@ -55,10 +55,7 @@ class Kategori extends BaseController
         // insert data to Database
         $kategoriModel->saveKategoriData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <p style="font-size:14px" class="mb-0 d-inline" ><strong > ' . icon_success . ' Kategori Baru</strong> telah ditambahkan.</p>
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data Kategori Baru telah ditambakan');
 
         return redirect()->to('/kategori');
     }
@@ -84,10 +81,7 @@ class Kategori extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            session()->setFlashdata('flash_update_rule', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"  ' . ALERT_DANGER . '  >
-            <small>  ' . icon_warning . '<strong>Oopss !!</strong> periksa kembali inputan anda !</small>
-            ' . icon_close . '
-          </div>');
+            session()->setFlashdata('flash_3', 'Perikasa kembali inputan anda! (Inputan tidak boleh kosong, Data inputan tidak boleh sama) ');
             return redirect()->to('/kategori')->withInput();
         }
 
@@ -103,10 +97,7 @@ class Kategori extends BaseController
         // insert data to Database
         $kategoriModel->saveUpdateData($data);
 
-        session()->setFlashdata('flash_update', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"   ' . ALERT_SUCCESS . ' >
-        <strong>  ' . icon_success . ' Data Kategori</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data kategori telah diupdate');
 
         return redirect()->to('/kategori');
     }
@@ -123,18 +114,12 @@ class Kategori extends BaseController
 
         if ($errors['code'] != 0) {
 
-            session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"   ' . ALERT_DANGER . ' >
-            <strong>  ' . icon_warning . ' Data Kategori tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
-            ' . icon_close . '
-          </div>');
+            session()->setFlashdata('flash_2', 'Data tidak dapat dihapus (Data kategori ini sedang digunakan pada data master');
 
             return redirect()->to('/kategori');
         }
 
-        session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"   ' . ALERT_SUCCESS . ' >
-        <strong>  ' . icon_success . ' Data Kategori</strong> telah dihapus.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data Kategori telah dihapus');
 
         return redirect()->to('/kategori');
     }

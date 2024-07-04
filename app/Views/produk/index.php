@@ -2,7 +2,6 @@
 
 <?= $this->section('main'); ?>
 <div class="container-fluid px-2 px-md-4">
-
     <div class="row">
         <div class="col-12">
             <div class="row">
@@ -66,9 +65,12 @@
                 </div>
                 <div class="row my-1 px-3">
                     <div class="col-lg">
-                        <?php if (session()->getFlashdata('flash')) : ?>
-                            <?= session()->getFlashdata('flash') ?>
-                        <?php endif; ?>
+
+                        <!-- alert sistem -->
+                        <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+                        <div id="flash_2" data-flash_2="<?= session()->getFlashdata('flash_2') ?>"></div>
+
+
                         <div class="table-responsive">
                             <table class="table table-bordered table-sm table-striped" id="dataTable">
                                 <thead>
@@ -107,7 +109,7 @@
                                                 <a href="/produk/edit/<?= $produk['id_produk'] ?>" class="text-xs" <?= text_success ?>>
                                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                                 </a>
-                                                <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelProduk<?= $produk['id_produk'] ?>">
+                                                <a href="/produk/delete/<?= $produk['id_produk'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                                 </a>
                                             </td>
@@ -123,25 +125,5 @@
 
         </div>
     </div>
-    <!-- MODAL HAPUS DATA PRODUK -->
-    <?php foreach ($data_produk as $produk) : ?>
-        <div class="modal fade" id="modalDelProduk<?= $produk['id_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content rounded-1 border-0 shadow-none ">
-                    <div class="modal-header p-2">
-                        <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Produk</h1>
-                        <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
-                    </div>
-                    <div class="modal-body p-3 my-0">
-                        <p>Data Produk <strong><?= $produk['nama_produk'] ?></strong> akan dihapus?</p>
-                    </div>
-                    <div class="modal-footer p-2">
-                        <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
-                        <a href="/produk/delete/<?= $produk['id_produk'] ?>" class="badge text-white bg-danger p-2"> <i class="fa-solid fa-trash mx-1"></i> Hapus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
 </div>
 <?= $this->endSection(); ?>

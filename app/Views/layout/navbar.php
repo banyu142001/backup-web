@@ -36,8 +36,8 @@
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center">
-                    <a href="/auth/logout" class="nav-link text-danger font-weight-bold px-0" data-bs-toggle="modal" data-bs-target="#modalLogout">
-                        <i class="fa fa-sign-out me-sm-1 mx-2"></i>
+                    <a href="/auth/logout" class="nav-link text-danger font-weight-bold px-0" id="btn-logout">
+                        <i class=" fa fa-sign-out me-sm-1 mx-2"></i>
                         <span class="d-sm-inline d-none">Logout</span>
                     </a>
                 </li>
