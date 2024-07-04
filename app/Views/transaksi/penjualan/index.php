@@ -156,7 +156,7 @@
                 </div>
                 <div class="row my-1 justify-content-center">
                     <div class="col-lg-3 col-lg">
-                        <button class="btn btn-sm btn-outline-primary mt-2 rounded-2" name="submit" type="submit">Clear</button>
+                        <button class="btn btn-sm btn-outline-info mt-2 rounded-2" name="submit" type="submit">Clear</button>
                     </div>
                     <div class="col-lg-7 col-lg">
                         <button class="btn w-100 mt-2 rounded-2 text-white" id="simpan_transaksi" <?= btn_success ?>>Simpan Transaksi </button>

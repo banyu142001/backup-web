@@ -45,10 +45,7 @@ class Laporan extends BaseController
 
         $penjualanModel->delete(['id_penjualan' => $id_penjualan]);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data laporan penjualan</strong> telah dihapus.
-      ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data laporan penjualan telah dihapus');
 
         return redirect()->to('/laporan/penjualan');
     }

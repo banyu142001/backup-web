@@ -21,13 +21,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg">
-                <?php if (session()->getFlashdata('flash')) : ?>
-                    <?= session()->getFlashdata('flash'); ?>
-                <?php endif; ?>
-            </div>
-        </div>
+
+        <!-- alert sistem -->
+        <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>

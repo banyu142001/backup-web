@@ -167,9 +167,29 @@
             // validasi data produk
 
             if (id_produk == '') {
-                alert("Produk belum dipilih")
+
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Silahkan pilih produk',
+                    width: '300px',
+                    timer: 1000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
+
             } else if (stok < 1 || parseInt(stok) < (parseInt(qty_cart) + parseInt(qty))) {
-                alert("Stok produk tidak mencukupi")
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Stok produk tidak mencukupi',
+                    width: '300px',
+                    timer: 1000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
             } else {
 
                 $.ajax({
@@ -185,15 +205,36 @@
                     success: function(result) {
 
                         if (result.success == true) {
+
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'warning',
+                                text: 'Data berhasil ditambah ke cart ',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
+
                             $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
                                 hitung()
-                        })
+                            })
                             $('#id_produk').val('')
                             $('#kode_produk').val('')
                             $('#qty').val(1)
 
                         } else {
-                            alert("Data gagal ditambhkan ke cart")
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'warning',
+                                text: 'Data gagal ditambah ke cart ',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
                         }
                     }
                 })
@@ -214,7 +255,16 @@
                 },
                 success: function(result) {
                     if (result.success == true) {
-
+                        Swal.fire({
+                            showConfirmButton: false,
+                            icon: 'warning',
+                            text: 'Data berhasil dihapus',
+                            width: '300px',
+                            timer: 1000,
+                            customClass: {
+                                icon: 'custom-icon',
+                            }
+                        });
                         $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
                             hitung()
                         })
@@ -315,6 +365,16 @@
                     success: function(result) {
 
                         if (result.success == true) {
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'warning',
+                                text: 'Data berhasil diupdate ',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
                             $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
                                 hitung()
                             })
@@ -322,7 +382,16 @@
 
                         } else {
 
-                            alert('Data Cart tidak dapat diupdate !')
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'warning',
+                                text: 'Data gagal diupdate',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
                         }
                     }
                 })
@@ -397,9 +466,27 @@
         // validasi inputan
         if (sub_total < 1) {
 
-            alert('Silahkan pilih produk !')
+            Swal.fire({
+                showConfirmButton: false,
+                icon: 'warning',
+                text: 'Silahkan pilih produk ',
+                width: '300px',
+                timer: 1000,
+                customClass: {
+                    icon: 'custom-icon',
+                }
+            });
         } else if (cash < 1) {
-            alert('Nominal / Cash belum di input !')
+            Swal.fire({
+                showConfirmButton: false,
+                icon: 'warning',
+                text: 'Nominal / Cash belum diinput',
+                width: '300px',
+                timer: 2000,
+                customClass: {
+                    icon: 'custom-icon',
+                }
+            });
             $('#cash').focus()
         } else {
 
@@ -423,12 +510,9 @@
 
                     if (result.success == true) {
 
-                        alert('Transaksi Berhasil !')
                         window.open('<?= base_url('/penjualan/cetak/') ?>' + result.id_penjualan, '_blank')
-                    } else {
-                        alert('Transaksi Gagal !')
-
                     }
+
                     location.href = '<?= base_url('penjualan') ?>'
                 }
             })
