@@ -98,7 +98,7 @@
                 <h4 class="mb-4 animated slideInDown">
                     <i class="fa-solid fa-store fa-2x"></i> Point Of Sale Management App
                 </h4>
-                <p class="mx-3 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio nesciunt neque aliquam error obcaecati nisi nulla voluptas doloribus adipisci facilis.</p>
+                <p class="mx-3 ">Aplikasi POS kami tidak hanya menyederhanakan transaksi penjualan, tetapi juga meningkatkan interaksi dengan pelanggan melalui manajemen data pelanggan yang terintegrasi. Dengan fokus pada pengalaman pengguna yang unggul, kami memberikan alat yang diperlukan untuk memahami preferensi pelanggan dan meningkatkan loyalitas mereka. </p>
             </div>
             <div class="col-lg-6 col-md-6 mt-4 mb-4">
                 <div class="card z-index-2 rounded-2">
@@ -111,7 +111,7 @@
                     </div>
                     <div class="card-body">
                         <h6 class="mb-0 ">Laporan Penjualan</h6>
-                        <p class="text-sm ">Last Campaign Performance</p>
+                        <p class="text-sm ">Report produk terlaris</p>
                         <hr class="dark horizontal">
                         <div class="d-flex ">
                             <i class="material-icons text-sm my-auto me-1">schedule</i>

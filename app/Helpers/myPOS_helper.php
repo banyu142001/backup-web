@@ -138,7 +138,7 @@ define('text_success', 'style="color: #00DFA2;"');
 // texr danger
 define('text_danger', 'style="color: #C73659;"');
 // texr info
-define('text_info', 'style="color: #1679AB;"');
+define('text_info', 'style="color:  #014ffd;"');
 
 
 // button success

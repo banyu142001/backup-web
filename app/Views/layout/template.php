@@ -9,8 +9,6 @@
 <!-- content -->
 <?= $this->renderSection('main'); ?>
 
-<!-- modal logout -->
-<?= $this->include('layout/modal/modal-logout'); ?>
 
 <!-- Navbar -->
 <?= $this->include('layout/footer'); ?>

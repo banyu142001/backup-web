@@ -34,7 +34,7 @@
     <!-- Nepcha Analytics (nepcha.com) -->
 </head>
 
-<body>
+<body class="bg-gray-100">
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">

@@ -117,7 +117,7 @@ class Auth extends BaseController
                 'errors' => [
                     'required'    => '{field} harus diisi',
                     'min_length'  => '{field} minimal 3 karakter',
-                    'is_unique'   => '{field} sudah terdaftar ! pilih kombinasi {field} yang lain',
+                    'is_unique'   => '{field} sudah terdaftar !',
                     'max_length'  => '{field} maksimal 10 karakter'
                 ]
             ],
