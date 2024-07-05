@@ -131,7 +131,7 @@
             // Cek flashdata berhasil login
             <?php if (session()->getFlashdata('flash_6')) : ?>
                 Swal.fire({
-                    position: 'top-end',
+                    icon: 'success',
                     text: '<?= session()->getFlashdata('flash_6'); ?>',
                     showConfirmButton: false,
                     timer: 7000,

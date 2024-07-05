@@ -26,4 +26,10 @@ class PenjualanDetailModel extends Model
 
         return $this->join('produk', 'detail_penjualan.id_produk_detail = produk.id_produk')->where(['detail_penjualan.id_penjualan_detail' => $id_detail])->findAll();
     }
+
+    public function count_detail_penjualan()
+    {
+
+        return $this->countAll();
+    }
 }
