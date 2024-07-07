@@ -9,18 +9,18 @@
                     <i class="fas fa-folder-plus text-white fs-4  "></i>
                 </div>
             </div>
-            <div class="col-auto my-auto">
+            <div class="col-auto col-6 my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        Data Stok Masuk / Barang Masuk
+                        Data Stok Masuk
                     </h5>
                     <p class="mb-0 font-weight-normal text-sm">
                         Point Of Sale Management
                     </p>
                 </div>
             </div>
-            <div class="col my-auto">
-                <a href="/stokmasuk/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
+            <div class="col-lg my-auto">
+                <a href="/stokmasuk/create" class="mx-3 mt-lg-2 mt-2 text-info mb-0 float-lg-end float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
 

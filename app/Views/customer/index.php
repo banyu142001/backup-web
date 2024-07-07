@@ -13,7 +13,7 @@
                     <i class="fa-solid fa-users-line text-white fs-4"></i>
                 </div>
             </div>
-            <div class="col-auto my-auto">
+            <div class="col-lg-auto col-6 my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
                         Data Customer
@@ -23,8 +23,8 @@
                     </p>
                 </div>
             </div>
-            <div class="col my-auto">
-                <a href="/customer/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
+            <div class="col-lg my-auto">
+                <a href="/customer/create" class="mx-3 mt-lg-2 mt-3 text-info mb-0 float-lg-end float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
 

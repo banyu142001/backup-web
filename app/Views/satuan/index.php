@@ -6,42 +6,43 @@
     <div class="row">
         <div class="col-12">
             <div class="row">
-                <div class="col-lg-2 mb-1">
+                <div class="col-lg-2 col-4 mb-1">
                     <div class="bg-secondary opacity-2  px-2 p-2 rounded-1">
                         <div class="row">
                             <div class="col-3 text-center">
-                                <i class="fa-solid fa-user px-2 p-1 bg-white rounded-2 "></i>
+                                <i class="fas fa-cookie-bite px-2 p-1 bg-white rounded-2"></i>
                             </div>
                             <div class="col-6 text-center text-white">
-                                <small>Makanan</small>
+                                <small class="mx-lg-2 mx-2">Makanan</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 mb-1">
+                <div class="col-lg-2 col-4 mb-1">
                     <div class="bg-secondary opacity-2  px-2 p-2 rounded-1">
                         <div class="row">
                             <div class="col-3 text-center">
-                                <i class="fa-solid fa-user px-2 p-1 bg-white rounded-2 "></i>
+                                <i class="fas fa-cookie-bite px-2 p-1 bg-white rounded-2"></i>
                             </div>
                             <div class="col-6 text-center text-white">
-                                <small>Makanan</small>
+                                <small class="mx-lg-2 mx-2">Makanan</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 mb-1">
+                <div class="col-lg-2 col-4 mb-1">
                     <div class="bg-secondary opacity-2  px-2 p-2 rounded-1">
                         <div class="row">
                             <div class="col-3 text-center">
-                                <i class="fa-solid fa-user px-2 p-1 bg-white rounded-2 "></i>
+                                <i class="fas fa-cookie-bite px-2 p-1 bg-white rounded-2"></i>
                             </div>
                             <div class="col-6 text-center text-white">
-                                <small>Makanan</small>
+                                <small class="mx-lg-2 mx-2">Makanan</small>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="card my-1 rounded-1 ">
                 <div class="row gx-4 mt-3">

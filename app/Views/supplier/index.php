@@ -6,24 +6,25 @@
         <span class="mask  bg-gradient-primary  opacity-2"></span>
     </div>
     <div class="card card-body mx-3 mx-md-4 rounded-2 mt-n6">
+
         <div class="row gx-4 mb-2">
             <div class="col-auto px-4">
                 <div class="avatar rounded-2 position-relative" <?= bg_info ?>>
                     <i class="fa-solid fa-truck-arrow-right text-white fs-4"></i>
                 </div>
             </div>
-            <div class="col-auto my-auto">
+            <div class="col-auto col-6 my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
                         Data Suppliers
                     </h5>
-                    <p class="mb-0 font-weight-normal text-sm">
+                    <p class="mb-0  font-weight-normal text-sm">
                         Point Of Sale Management
                     </p>
                 </div>
             </div>
-            <div class="col my-auto">
-                <a href="/supplier/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
+            <div class="col-lg my-auto">
+                <a href="/supplier/create" class="mx-4 mt-lg-2 mt-3 text-info float-lg-end float-end mb-0 fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
 

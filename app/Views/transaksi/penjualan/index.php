@@ -87,11 +87,11 @@
     </div>
     <div class="card px-0 py-1 rounded-1 border-0 mt-2">
         <div class="row mx-1">
-            <div class="col-lg-7 col-lg">
+            <div class="col-lg-7 col-lg table-responsive">
                 <table class="table table-sm table-striped">
                     <thead>
                         <tr>
-                            <th class="fw-normal p-2" style="font-size: 14px;">Kd Produk</th>
+                            <th class="fw-normal p-2" style="font-size: 14px;">Produk</th>
                             <th class="fw-normal p-2" style="font-size: 14px;">Nama Produk</th>
                             <th class="fw-normal p-2" style="font-size: 14px;">Harga</th>
                             <th class="fw-normal p-2" style="font-size: 14px;">Jumlah</th>
