@@ -78,6 +78,12 @@
                                         Register
                                     </a>
                                 </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link me-3 bg-success text-white rounded p-1 mt-1" href="https://wa.me/6282239659774" target="_blank">
+                                        <i class="fab fa-whatsapp text-white me-1"></i>
+                                        Whatsapp
+                                    </a>
+                                </li>
 
                             </ul>
                         </div>

@@ -78,11 +78,6 @@
                     <span class="nav-link-text ms-1">Penjualan</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-white p-1 mx-5" href="">
-                    <span class="nav-link-text ms-1">Stok</span>
-                </a>
-            </li>
             <?php if (session()->get('level') == 1) : ?>
                 <li class="nav-item">
                     <a class="nav-link <?= menu_user($title) ?>" href=" /user">
