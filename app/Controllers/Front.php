@@ -15,4 +15,14 @@ class Front extends BaseController
         ];
         return view('front-home/index', $data);
     }
+
+    public function tentang()
+    {
+
+        $data = [
+            'auth_title' => 'Tentang',
+
+        ];
+        return view('front-home/tentang', $data);
+    }
 }

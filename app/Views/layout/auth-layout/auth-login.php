@@ -60,9 +60,9 @@
                                         Beranda
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-4" href="#overview">
-                                        <i class="fa-solid fa-circle-info opacity-6 text-dark me-1 "></i>
+                                <li class="nav-item <?= ($auth_title == 'Tentang') ? 'fw-bold' : '' ?> ">
+                                    <a class="nav-link me-4" href="/front/tentang">
+                                        <i class="fa-solid fa-circle-info <?= ($auth_title == 'Tentang') ? '' : 'opacity-6' ?>"></i>
                                         Tentang
                                     </a>
                                 </li>
