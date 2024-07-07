@@ -194,10 +194,9 @@
             confirmButtonText: '<i class="fa-solid fa-right-from-bracket mx-1"></i> Keluar',
             width: '450px',
             customClass: {
-                confirmButton: 'custom-confirm-button', // Kelas untuk tombol konfirmasi
-                cancelButton: 'custom-cancel-button' // Kelas untuk tombol batal
+                confirmButton: 'custom-confirm-button',
+                cancelButton: 'custom-cancel-button'
             }
-            // position: 'center',
         }).then((result) => {
             if (result.isConfirmed) {
 
