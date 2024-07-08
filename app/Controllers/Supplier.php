@@ -22,21 +22,18 @@ class Supplier extends BaseController
         return view('supplier/index', $data);
     }
 
-    // create new supplier data / tambah data supplier
+    // create new supplier data / tambah data supplier baru
     public function create()
     {
-        // load model SupplierModel
-        $supplierModel =  $this->loadModel('SupplierModel');
 
         $data = [
             'title'         => 'Tambah Data Supplier',
             'breadcrumb'    => 'Supplier / Tambah Data Supplier',
-            'suppliers'     =>  $supplierModel->selectAllSupplier(),
         ];
         return view('supplier/create', $data);
     }
 
-    // simpan data supplier baru / save supplier data
+    // save new suppliers data / simpan data baru supplier
     public function save()
     {
         // load model SupplierModel
@@ -66,7 +63,7 @@ class Supplier extends BaseController
             return redirect()->to('/supplier/create')->withInput();
         }
 
-        // get data from form input
+        // prepare data
         $data =
             [
                 'nama_supplier' => $this->request->getVar('nama_supplier'),
@@ -83,7 +80,7 @@ class Supplier extends BaseController
         return redirect()->to('/supplier');
     }
 
-    // ubah data supplier / edit supplier data
+    // Edit suppliers data / edit data supplier
     public function edit($id_supplier)
     {
         // load model SupplierModel
@@ -128,7 +125,7 @@ class Supplier extends BaseController
             return redirect()->to('/supplier/edit/' . $this->request->getVar('id_supplier'))->withInput();
         }
 
-        // get data from form input
+        // get and prepare data
         $data =
             [
                 'id_supplier'   => $id_supplier,
@@ -147,7 +144,7 @@ class Supplier extends BaseController
     }
 
 
-    // hapus data supllier / delete supplier
+    //delete supplier / hapus data supllier
     public function delete($id_supplier)
     {
         // load model SupplierModel

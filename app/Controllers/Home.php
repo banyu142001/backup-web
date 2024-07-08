@@ -15,7 +15,6 @@ class Home extends BaseController
         $penjualanModel =  $this->loadModel('PenjualanModel');
         $penjualanDetailModel = $this->loadModel('PenjualanDetailModel');
 
-
         $data = [
 
             'title'      => 'Dashboard',

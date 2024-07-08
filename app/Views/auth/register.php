@@ -21,6 +21,7 @@
                                                     <a href="/auth" class="text-info text-gradient font-weight-bold">Login</a>
                                                 </p>
                                             </div>
+                                            <!-- alert -->
                                             <?php if (session()->getFlashdata('flash')) : ?>
                                                 <?= session()->getFlashdata('flash') ?>
                                             <?php endif ?>

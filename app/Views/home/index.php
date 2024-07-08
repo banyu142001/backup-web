@@ -13,7 +13,6 @@
                         <div class="text-end pt-1">
                             <p class="text-sm mb-0 text-capitalize">Data Produk</p>
                             <h4 class="mb-0"> <?= $produk ?></h4>
-
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
@@ -128,12 +127,9 @@
             <div class="row align-items-center justify-content-lg-between">
                 <div class="col-lg-6 mb-lg-0 mb-4">
                     <div class="copyright text-center text-sm text-muted text-lg-start">
-                        © <script>
-                            document.write(new Date().getFullYear())
-                        </script>,
-                        made with <i class="fa fa-heart"></i> by
-                        <a href="" class="font-weight-bold" target="_blank">Bayu Gurium</a>
-                        for a better web.
+                        <footer>
+                            <small>&copy; 2024 <a href="" <?= text_info ?>>Bayu Gurium</a>. All rights reserved.</small><br>
+                        </footer>
                     </div>
                 </div>
 

@@ -31,7 +31,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-    <!-- Nepcha Analytics (nepcha.com) -->
 </head>
 
 <body class="bg-gray-100">
@@ -45,7 +44,7 @@
                             <i class="fa-solid fa-store"></i>
                             Point Of Sale
                         </a>
-                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler shadow-none ms-2 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon mt-2">
                                 <span class="navbar-toggler-bar bar1"></span>
                                 <span class="navbar-toggler-bar bar2"></span>
@@ -54,29 +53,17 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-center" id="navigation">
                             <ul class="navbar-nav ms-auto">
-                                <li class="nav-item <?= ($auth_title == 'myPos - Beranda') ? 'fw-bold' : '' ?> ">
-                                    <a class="nav-link me-3" href="/">
-                                        <i class="fa-solid fa-gauge  <?= ($auth_title == 'myPos - Beranda') ? '' : 'opacity-6' ?> text-dark me-1"></i>
-                                        Beranda
-                                    </a>
+                                <li class="nav-item">
+                                    <a class="nav-link me-3 <?= ($auth_title) == 'Beranda' ? 'fw-bold' : '' ?> " href="/">Beranda</a>
                                 </li>
-                                <li class="nav-item <?= ($auth_title == 'Tentang') ? 'fw-bold' : '' ?> ">
-                                    <a class="nav-link me-4" href="/front/tentang">
-                                        <i class="fa-solid fa-circle-info <?= ($auth_title == 'Tentang') ? '' : 'opacity-6' ?>"></i>
-                                        Tentang
-                                    </a>
+                                <li class="nav-item">
+                                    <a class="nav-link me-4 <?= ($auth_title == 'Tentang') ? 'fw-bold' : '' ?> " href="/front/tentang">Tentang</a>
                                 </li>
-                                <li class="nav-item <?= ($auth_title == 'myPos - Login') ? 'fw-bold' : '' ?> ">
-                                    <a class="nav-link me-3" href="/auth">
-                                        <i class="fas fa-key <?= ($auth_title == 'myPos - Login') ? '' : 'opacity-6' ?> text-dark me-1"></i>
-                                        Login
-                                    </a>
+                                <li class="nav-item">
+                                    <a class="nav-link me-3  <?= ($auth_title == 'Login') ? 'fw-bold' : '' ?> " href="/auth">Login</a>
                                 </li>
-                                <li class="nav-item <?= ($auth_title == 'myPos - Register') ? 'fw-bold' : '' ?> ">
-                                    <a class="nav-link me-3 " href="/auth/register">
-                                        <i class="fas fa-user-circle <?= ($auth_title == 'myPos - Register') ? '' : 'opacity-6' ?> text-dark me-1"></i>
-                                        Register
-                                    </a>
+                                <li class="nav-item">
+                                    <a class="nav-link me-3  <?= ($auth_title == 'Register') ? 'fw-bold' : '' ?> " href="/auth/register"> Register</a>
                                 </li>
                                 <li class="nav-item ">
                                     <a class="nav-link me-3 bg-success text-white rounded p-1 mt-1" href="https://wa.me/6282239659774" target="_blank">
@@ -114,6 +101,7 @@
     <script>
         const flash_4 = $('#flash_4').data('flash_4');
         const flash_6 = $('#flash_6').data('flash_6');
+        const flash_7 = $('#flash_7').data('flash_7');
 
 
         // popup flash Auth.
@@ -144,6 +132,21 @@
                     width: '400px',
                 });
             <?php endif; ?>
+
+            // popup flash validasi
+            <?php if (session()->getFlashdata('flash_7')) : ?>
+                Swal.fire({
+                    icon: "warning",
+                    text: '<?= session()->getFlashdata('flash_7'); ?>',
+                    showConfirmButton: false,
+                    timer: 5000,
+                    width: 250,
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        icon: 'custom-icon',
+                    }
+                });
+            <?php endif ?>
         });
     </script>
 </body>

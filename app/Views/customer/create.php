@@ -40,19 +40,19 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="telp">Nomor Telephone</label>
+                                <label for="nomor_telephone">Nomor Telephone</label>
                                 <div class="input-group input-group-outline">
-                                    <input type="text" name="telp" class="form-control  <?= (validation_errors()) ? 'is-invalid' : '' ?> " placeholder="+628 xxx" value="<?= old('telp') ?>" />
+                                    <input type="text" name="nomor_telephone" class="form-control  <?= (validation_errors()) ? 'is-invalid' : '' ?> " placeholder="+628 xxx" value="<?= old('nomor_telephone') ?>" />
                                     <div class="invalid-feedback">
-                                        <?= validation_show_error('telp') ?>
+                                        <?= validation_show_error('nomor_telephone') ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="jk">Jenis Kelamin</label>
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
                                 <div class="input-group input-group-outline">
-                                    <select name="jk" id="jk" class="form-select px-2">
-                                        <option value="Laki-laki"> - pilih - </option>
+                                    <select name="jenis_kelamin" id="jenis_kelamin" class="form-select px-2">
+                                        <option value=""> - pilih - </option>
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>

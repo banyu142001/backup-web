@@ -10,8 +10,7 @@ class Auth extends BaseController
     public function index()
     {
         $data = [
-            'auth_title' => 'myPos - Login',
-
+            'auth_title' => 'Login',
         ];
         return view('auth/index', $data);
     }
@@ -87,7 +86,7 @@ class Auth extends BaseController
     public function register()
     {
         $data = [
-            'auth_title' => 'myPos - Register',
+            'auth_title' => 'Register',
 
         ];
         return view('auth/register', $data);
@@ -170,7 +169,7 @@ class Auth extends BaseController
 
 
         session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
-        <span class="text-sm">👌Registrasi suksess ! silahkan login </span>
+        <span class="text-sm">Registrasi suksess ! silahkan login </span>
         ' . icon_close . '
         </div>');
         return redirect()->to('/auth/register');

@@ -25,13 +25,10 @@ class Customer extends BaseController
     // tambah data supplier baru /  create new supplier data
     public function create()
     {
-        // load model CustomerModel
-        $customerModel =  $this->loadModel('CustomerModel');
 
         $data = [
             'title'         => 'Tambah Data Customer',
             'breadcrumb'    => 'Customer / Tambah Data Customer',
-            'customers'     => $customerModel->selectAllCustomer(),
         ];
         return view('customer/create', $data);
     }
@@ -53,7 +50,7 @@ class Customer extends BaseController
                     'max_length'  => '{field} maksimal 100 karakter'
                 ]
             ],
-            'telp'                => [
+            'nomor_telephone'                => [
                 'label'           => 'Nomor Telephone',
                 'rules'           => 'required|trim',
                 'errors' => [
@@ -70,8 +67,8 @@ class Customer extends BaseController
         $data =
             [
                 'nama_customer' => $this->request->getVar('nama_customer'),
-                'no_telephone'  => $this->request->getVar('telp'),
-                'jenis_kelamin' => $this->request->getVar('jk'),
+                'no_telephone'  => $this->request->getVar('nomor_telephone'),
+                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
                 'alamat'        => $this->request->getVar('alamat'),
             ];
 
@@ -113,7 +110,7 @@ class Customer extends BaseController
                     'max_length'  => '{field} maksimal 100 karakter'
                 ]
             ],
-            'telp'                => [
+            'nomor_telephone'                => [
                 'label'           => 'Nomor Telephone',
                 'rules'           => 'required|trim',
                 'errors' => [
@@ -131,8 +128,8 @@ class Customer extends BaseController
             [
                 'id_customer'   => $id_customer,
                 'nama_customer' => $this->request->getVar('nama_customer'),
-                'no_telephone'  => $this->request->getVar('telp'),
-                'jenis_kelamin' => $this->request->getVar('jk'),
+                'no_telephone'  => $this->request->getVar('nomor_telephone'),
+                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
                 'alamat'        => $this->request->getVar('alamat'),
             ];
 

@@ -70,27 +70,8 @@ abstract class BaseController extends Controller
         // E.g.: $this->session = \Config\Services::session();
     }
 
-    // metode load model pertama
-
-    // protected $authModel, $suplyModel, $userModel, $cusModel, $katModel, $satuanModel, $produkModel, $stokMasukModel, $stokKeluarModel, $cartModel, $penjualanModel, $detailPenjualanModel, $homeModel;
-    // public function __construct()
-    // {
-    //     $this->suplyModel = new SupplierModel();
-    //     $this->userModel = new UserModel();
-    //     $this->cusModel  = new CustomerModel();
-    //     $this->katModel = new KategoriModel();
-    //     $this->satuanModel = new SatuanModel();
-    //     $this->produkModel = new ProdukModel();
-    //     $this->authModel = new AuthModel();
-    //     $this->stokMasukModel = new StokMasukModel();
-    //     $this->stokKeluarModel = new StokKeluarModel();
-    //     $this->cartModel = new CartModel();
-    //     $this->penjualanModel = new PenjualanModel();
-    //     $this->detailPenjualanModel = new PenjualanDetailModel();
-    // }
 
     // metode load model cara ke 2
-
     protected $models = [];
 
     public function __construct()

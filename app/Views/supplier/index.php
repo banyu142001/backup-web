@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($suppliers as $suply) : ?>
+                    <?php foreach ($suppliers as $supplier) : ?>
                         <tr>
                             <td>
                                 <div class="d-flex px-2">
@@ -60,24 +60,24 @@
                                         <i class="fa-solid fa-truck-arrow-right text-success mx-2"></i>
                                     </div>
                                     <div class="my-auto">
-                                        <h6 class="mb-0 text-sm"><?= $suply['nama_supplier'] ?></h6>
+                                        <h6 class="mb-0 text-sm"><?= $supplier['nama_supplier'] ?></h6>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm mb-0"><?= $suply['no_telephone'] ?></p>
+                                <p class="text-sm mb-0"><?= $supplier['no_telephone'] ?></p>
                             </td>
                             <td>
-                                <p class="text-sm mb-0"><?= $suply['alamat'] ?></p>
+                                <p class="text-sm mb-0"><?= $supplier['alamat'] ?></p>
                             </td>
                             <td>
-                                <p class="text-sm mb-0"><?= $suply['deskripsi'] ?></p>
+                                <p class="text-sm mb-0"><?= $supplier['deskripsi'] ?></p>
                             </td>
                             <td class="align-middle text-center">
-                                <a href="/supplier/edit/<?= $suply['id_supplier'] ?>" class="text-xs" <?= text_success ?>>
+                                <a href="/supplier/edit/<?= $supplier['id_supplier'] ?>" class="text-xs" <?= text_success ?>>
                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                 </a>
-                                <a href="/supplier/delete/<?= $suply['id_supplier'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
+                                <a href="/supplier/delete/<?= $supplier['id_supplier'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                 </a>
                             </td>
