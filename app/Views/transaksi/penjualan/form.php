@@ -509,7 +509,7 @@
                 success: function(result) {
 
                     if (result.success == true) {
-
+                        alert("Transaksi Berhasil");
                         window.open('<?= base_url('/penjualan/cetak/') ?>' + result.id_penjualan, '_blank')
                     }
 
