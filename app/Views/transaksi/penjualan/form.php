@@ -208,7 +208,7 @@
 
                             Swal.fire({
                                 showConfirmButton: false,
-                                icon: 'warning',
+                                icon: 'success',
                                 text: 'Data ditambah ke cart ',
                                 width: '300px',
                                 timer: 1000,
@@ -227,7 +227,7 @@
                         } else {
                             Swal.fire({
                                 showConfirmButton: false,
-                                icon: 'warning',
+                                icon: 'error',
                                 text: 'Data gagal ditambah ke cart ',
                                 width: '300px',
                                 timer: 1000,
@@ -257,7 +257,7 @@
                     if (result.success == true) {
                         Swal.fire({
                             showConfirmButton: false,
-                            icon: 'warning',
+                            icon: 'success',
                             text: 'Data berhasil dihapus',
                             width: '300px',
                             timer: 1000,
@@ -394,7 +394,7 @@
                         if (result.success == true) {
                             Swal.fire({
                                 showConfirmButton: false,
-                                icon: 'warning',
+                                icon: 'success',
                                 text: 'Data berhasil diupdate ',
                                 width: '300px',
                                 timer: 1000,
@@ -492,7 +492,7 @@
 
         // validasi inputan
         if (sub_total < 1) {
-
+            
             Swal.fire({
                 showConfirmButton: false,
                 icon: 'warning',

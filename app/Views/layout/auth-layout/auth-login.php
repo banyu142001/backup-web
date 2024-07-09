@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Material Icons -->
@@ -126,10 +129,29 @@
             <?php if (session()->getFlashdata('flash_6')) : ?>
                 Swal.fire({
                     icon: 'success',
-                    text: '<?= session()->getFlashdata('flash_6'); ?>',
+                    text: 'Sampai jumpa lagi',
                     showConfirmButton: false,
-                    timer: 7000,
-                    width: '400px',
+                    timer: 2000,
+                    showClass: {
+                        popup: `
+                    animate__animated
+                    animate__fadeInDown
+                    animate__faster
+                 `
+                    },
+                    hideClass: {
+                        popup: `
+                        animate__animated
+                        animate__fadeOutDown
+                        animate__faster
+                        `
+                    },
+                    customClass: {
+                        popup: 'welcome-popup',
+                        icon: 'custom-icon',
+                    },
+
+
                 });
             <?php endif; ?>
 

@@ -194,7 +194,8 @@
             customClass: {
                 confirmButton: 'custom-confirm-button',
                 cancelButton: 'custom-cancel-button'
-            }
+            },
+
         }).then((result) => {
             if (result.isConfirmed) {
 
@@ -210,15 +211,29 @@
         // Cek flashdata berhasil login
         <?php if (session()->getFlashdata('flash_5')) : ?>
             Swal.fire({
-
                 icon: 'success',
-                title: '<?= session()->getFlashdata('flash_5'); ?>',
-                text: 'Selamat datang di Point Of Sale Management App',
+                text: 'Selamat datang',
                 showConfirmButton: false,
-                timer: 5000,
+                timer: 2000,
+                showClass: {
+                    popup: `
+                    animate__animated
+                    animate__fadeInDown
+                    animate__faster
+                 `
+                },
+                hideClass: {
+                    popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+                `
+                },
                 customClass: {
                     popup: 'welcome-popup',
-                }
+                    icon: 'custom-icon',
+                },
+
 
             });
         <?php endif; ?>
