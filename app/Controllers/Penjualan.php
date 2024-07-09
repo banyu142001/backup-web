@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
+use CodeIgniter\HTTP\ResponseInterface;
+
 class Penjualan extends BaseController
 {
     public function index(): string
@@ -12,8 +15,6 @@ class Penjualan extends BaseController
         $produkModel = $this->loadModel('ProdukModel');
         $customerModel = $this->loadModel('CustomerModel');
         $cartModel = $this->loadModel('CartModel');
-
-
 
         $data = [
 

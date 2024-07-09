@@ -209,7 +209,7 @@
                             Swal.fire({
                                 showConfirmButton: false,
                                 icon: 'warning',
-                                text: 'Data berhasil ditambah ke cart ',
+                                text: 'Data ditambah ke cart ',
                                 width: '300px',
                                 timer: 1000,
                                 customClass: {
@@ -336,15 +336,42 @@
 
             // validasi data edit data cart
             if (harga_cart == 0) {
-                alert('Harga produk tidak boleh kosong !')
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Harga produk tidak boleh kosong',
+                    width: '300px',
+                    timer: 3000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
                 $('#harga_cart').focus()
 
             } else if (jumlah_cart == 0) {
-                alert('Jumlah / QTY tidak boleh kosong !')
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Jumlah tidak boleh kosong',
+                    width: '300px',
+                    timer: 3000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
                 $('#jumlah_cart').focus()
 
             } else if (parseInt(jumlah_cart) > parseInt(stok_produk)) {
-                alert('Stok produk tidak mecukupi !')
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Stok produk tidak mencukupi',
+                    width: '300px',
+                    timer: 1000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
                 $('#jumlah_cart').focus()
             } else {
 
@@ -384,7 +411,7 @@
 
                             Swal.fire({
                                 showConfirmButton: false,
-                                icon: 'warning',
+                                icon: 'error',
                                 text: 'Data gagal diupdate',
                                 width: '300px',
                                 timer: 1000,
