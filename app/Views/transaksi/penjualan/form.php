@@ -509,11 +509,11 @@
                 success: function(result) {
 
                     if (result.success == true) {
-                        alert("Transaksi Berhasil");
-                        window.open('<?= base_url('/penjualan/cetak/') ?>' + result.id_penjualan, '_blank')
+                        // alert("Transaksi Berhasil");
+                        window.open('<?= base_url('/penjualan/cetak/') ?>' + result.id_penjualan, '_blank');
                     }
 
-                    location.href = '<?= base_url('penjualan') ?>'
+                    location.href = '<?= base_url('penjualan') ?>';
                 }
             })
         }
