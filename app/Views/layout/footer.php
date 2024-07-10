@@ -188,9 +188,9 @@
         const href = $(this).attr('href');
         Swal.fire({
             text: 'Anda akan keluar dari sistem',
-            showCancelButton: true,
-            confirmButtonColor: "#014ffd",
             confirmButtonText: '<i class="fa-solid fa-right-from-bracket mx-1"></i> Keluar',
+            confirmButtonColor: "#014ffd",
+            showCancelButton: true,
             width: '300px',
             customClass: {
                 confirmButton: 'custom-confirm-button',

@@ -1,17 +1,22 @@
 /* popup sweetalert style */
 .custom-confirm-button {
-  padding: 3px;
-  width: 100px;
-  margin-left: 100px;
+  padding: 3px 4px;
+  /* width: 100px; */
+  margin-left: 5px;
   margin-top: -10px;
+  font-size: 14px;
+  order: 2;
 }
 .custom-text {
-  padding: 9px 0;
+  padding: 7px 0px;
 }
 
 .custom-cancel-button {
-  padding: 3px;
+  padding: 3px 4px;
   margin-top: -10px;
+  font-size: 14px;
+  order: 1;
+  margin-left: 100px;
 }
 
 .custom-icon {
