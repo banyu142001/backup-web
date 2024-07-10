@@ -57,7 +57,7 @@ class Satuan extends BaseController
         // insert data to Database
         $satuanModel->save($data);
 
-        session()->setFlashdata('flash', 'Data Satuan Baru telah ditambahkn');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkn');
         return redirect()->to('/satuan');
     }
 
@@ -98,7 +98,7 @@ class Satuan extends BaseController
         // insert data to Database
         $satuanModel->save($data);
 
-        session()->setFlashdata('flash', 'Data Satuan telah diupdate');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/satuan');
     }
 
@@ -118,7 +118,7 @@ class Satuan extends BaseController
             return redirect()->to('/satuan');
         }
 
-        session()->setFlashdata('flash', 'Data Satuan telah dihapus');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/satuan');
     }
 }

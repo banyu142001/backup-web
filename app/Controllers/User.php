@@ -110,7 +110,7 @@ class User extends BaseController
         // insert data to Database
         $userModel->saveUserData($data);
 
-        session()->setFlashdata('flash', 'Data User telah ditambakan');
+        session()->setFlashdata('flash', 'Data berhasil ditambakan');
         return redirect()->to('/user');
     }
 
@@ -212,7 +212,7 @@ class User extends BaseController
         // insert data to Database
         $userModel->saveUpdateData($data);
 
-        session()->setFlashdata('flash', 'Data User telah diupdate');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/user');
     }
 
@@ -226,7 +226,7 @@ class User extends BaseController
         $userModel = $this->loadModel('UserModel');
 
         $userModel->delete(['id' => $id]);
-        session()->setFlashdata('flash', 'Data User telah dihapus');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/user');
     }
 }

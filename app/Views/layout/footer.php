@@ -111,8 +111,9 @@
             text: flash,
             showConfirmButton: false,
             timer: 4500,
+            width: '400px',
             customClass: {
-                icon: 'custom-icon'
+                icon: 'custom-icon',
             }
 
         });

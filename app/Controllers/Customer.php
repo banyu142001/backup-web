@@ -75,7 +75,7 @@ class Customer extends BaseController
         // insert data to Database
         $customerModel->saveCustomerData($data);
 
-        session()->setFlashdata('flash', 'Data Customer Baru telah ditambahkan');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkan');
         return redirect()->to('/customer');
     }
 
@@ -136,7 +136,7 @@ class Customer extends BaseController
         // insert data to Database
         $customerModel->saveUpdateCustomerData($data);
 
-        session()->setFlashdata('flash', 'Data Customer telah diupdate');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/customer');
     }
 
@@ -148,7 +148,7 @@ class Customer extends BaseController
         $customerModel =  $this->loadModel('CustomerModel');
 
         $customerModel->delete(['id_customer' => $id_custumer]);
-        session()->setFlashdata('flash', 'Data Customer telah dihapus');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/customer');
     }
 }

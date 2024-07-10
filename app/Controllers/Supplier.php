@@ -76,7 +76,7 @@ class Supplier extends BaseController
         // insert data to Database
         $supplierModel->saveSupplierData($data);
 
-        session()->setFlashdata('flash', 'Data Supplier Baru telah ditambahkan');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkan');
         return redirect()->to('/supplier');
     }
 
@@ -139,7 +139,7 @@ class Supplier extends BaseController
         // insert data to Database
         $supplierModel->saveUpdateSupplierData($data);
 
-        session()->setFlashdata('flash', 'Data Supplier Baru telah diupdate');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/supplier');
     }
 
@@ -158,7 +158,7 @@ class Supplier extends BaseController
             return redirect()->to('/supplier');
         }
 
-        session()->setFlashdata('flash', 'Data Supplier telah dihapus');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/supplier');
     }
 }

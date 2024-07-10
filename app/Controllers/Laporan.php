@@ -45,7 +45,7 @@ class Laporan extends BaseController
 
         $penjualanModel->delete(['id_penjualan' => $id_penjualan]);
 
-        session()->setFlashdata('flash', 'Data laporan penjualan telah dihapus');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
 
         return redirect()->to('/laporan/penjualan');
     }

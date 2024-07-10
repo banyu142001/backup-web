@@ -99,7 +99,7 @@ class Produk extends BaseController
         // insert data to Database
         $produkModel->saveProdukData($data);
 
-        session()->setFlashdata('flash', 'Data Produk Baru telah ditambahkan');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkan');
         return redirect()->to('/produk');
     }
 
@@ -206,7 +206,7 @@ class Produk extends BaseController
         // insert data to Database
         $produkModel->saveUpdateProdukData($data);
 
-        session()->setFlashdata('flash', 'Data Produk telah diupdate');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/produk');
     }
 
@@ -226,7 +226,7 @@ class Produk extends BaseController
             return redirect()->to('/produk');
         }
 
-        session()->setFlashdata('flash', 'Data Produk telah dihapus');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/produk');
     }
 }

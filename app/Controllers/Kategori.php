@@ -55,7 +55,7 @@ class Kategori extends BaseController
         // insert data to Database
         $kategoriModel->saveKategoriData($data);
 
-        session()->setFlashdata('flash', 'Data Kategori Baru telah ditambakan');
+        session()->setFlashdata('flash', 'Data berhasil ditambakan');
 
         return redirect()->to('/kategori');
     }
@@ -97,7 +97,7 @@ class Kategori extends BaseController
         // insert data to Database
         $kategoriModel->saveUpdateData($data);
 
-        session()->setFlashdata('flash', 'Data kategori telah diupdate');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
 
         return redirect()->to('/kategori');
     }
@@ -119,7 +119,7 @@ class Kategori extends BaseController
             return redirect()->to('/kategori');
         }
 
-        session()->setFlashdata('flash', 'Data Kategori telah dihapus');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
 
         return redirect()->to('/kategori');
     }
