@@ -187,14 +187,15 @@
         e.preventDefault();
         const href = $(this).attr('href');
         Swal.fire({
-            text: 'Klik KELUAR Anda akan keluar dari sistem',
+            text: 'Anda akan keluar dari sistem',
             showCancelButton: true,
             confirmButtonColor: "#014ffd",
             confirmButtonText: '<i class="fa-solid fa-right-from-bracket mx-1"></i> Keluar',
-            width: '450px',
+            width: '300px',
             customClass: {
                 confirmButton: 'custom-confirm-button',
-                cancelButton: 'custom-cancel-button'
+                cancelButton: 'custom-cancel-button',
+                popup: 'custom-text',
             },
 
         }).then((result) => {
