@@ -8,18 +8,25 @@ use CodeIgniter\HTTP\ResponseInterface;
 class User extends BaseController
 {
 
+
     public function index()
     {
-        // load Model User
-        $userModel = $this->loadModel('UserModel');
+        if (session()->get('level') != 1) {
 
-        $data = [
+            return redirect()->to('/errors/html/error_404');
+        } else {
 
-            'title'        => 'User',
-            'breadcrumb'    => 'User',
-            'users'         => $userModel->selectAllUser(),
-        ];
-        return view('user/index', $data);
+            // // load Model User
+            $userModel = $this->loadModel('UserModel');
+
+            $data = [
+
+                'title'        => 'User',
+                'breadcrumb'    => 'User',
+                'users'         => $userModel->selectAllUser(),
+            ];
+            return view('user/index', $data);
+        }
     }
 
     // create user
@@ -215,8 +222,6 @@ class User extends BaseController
         session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/user');
     }
-
-
 
 
     // delete method

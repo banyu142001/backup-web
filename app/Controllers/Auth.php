@@ -65,7 +65,6 @@ class Auth extends BaseController
                     'foto'       => $userData['foto'],
                 ];
 
-
                 session()->set($login_session);
                 session()->setFlashdata('flash_5', 'Berhasil Login');
                 return redirect()->to('/home');
