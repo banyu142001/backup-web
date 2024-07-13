@@ -142,7 +142,7 @@
                             </tr>
                             <tr>
                                 <th>Kasir</th>
-                                <td style="font-size: 14px;">: <?= session()->get('nama') ?> </td>
+                                <td style="font-size: 14px;">: <?= session()->get('nama') ?></td>
                             </tr>
                             <tr>
                                 <th>Cash</th>
