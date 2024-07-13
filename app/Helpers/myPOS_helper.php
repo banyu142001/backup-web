@@ -5,7 +5,7 @@
 function menu_dashboard($title)
 {
 
-    return ($title) == 'Dashboard' ? 'text-white active bg-gradient-primary' : '';
+    return ($title) == 'Dashboard' ? 'text-white active bg-gradient-info' : '';
 }
 
 // menu supplier
@@ -13,7 +13,7 @@ function menu_supplier($title)
 {
     if (($title) == 'Supplier' | $title == 'Tambah Data Supplier' | $title == 'Edit Data Supplier') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 // end of menu supplier
@@ -23,7 +23,7 @@ function menu_customer($title)
 {
     if (($title) == 'Customer' | $title == 'Tambah Data Customer' | $title == 'Edit Data Customer') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 // end of menu customers
@@ -33,7 +33,7 @@ function menu_produk($title)
 {
     if (($title) == 'Produk' | $title == 'Tambah Data Produk' | $title == 'Edit Data Produk') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 // end of menu produk
@@ -41,14 +41,14 @@ function menu_produk($title)
 // menu kategori
 function menu_kategori($title)
 {
-    return ($title) == 'Kategori' ? 'text-white active bg-gradient-primary' : '';
+    return ($title) == 'Kategori' ? 'text-white active bg-gradient-info' : '';
 }
 // end of menu kategori
 
 // menu satuan
 function menu_satuan($title)
 {
-    return ($title) == 'Satuan' ? 'text-white active bg-gradient-primary' : '';
+    return ($title) == 'Satuan' ? 'text-white active bg-gradient-info' : '';
 }
 // end of menu satuan
 
@@ -58,7 +58,7 @@ function menu_user($title)
 {
     if (($title) == 'User' | $title == 'Tambah Data User' | $title == 'Edit Data User') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 
@@ -70,7 +70,7 @@ function menu_stok($title)
 {
     if (($title) == 'Stok Masuk' | $title == 'Tambah Data Stok Masuk') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 // end of menu user
@@ -80,7 +80,7 @@ function menu_stok_keluar($title)
 {
     if ($title == 'Stok Keluar' | $title == 'Tambah Data Stok Keluar') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 // menu penjualan
@@ -88,7 +88,7 @@ function menu_penjualan($title)
 {
     if ($title == 'Penjualan') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 // end of penjualan
@@ -98,7 +98,7 @@ function menu_laporan_penjualan($title)
 {
     if ($title == 'Laporan-Penjualan') {
         // 
-        return $title =  'text-white active bg-gradient-primary';
+        return $title =  'text-white active bg-gradient-info';
     }
 }
 // end of penjualan
