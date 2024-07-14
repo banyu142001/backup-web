@@ -46,7 +46,7 @@
                     <div class="row mb-2">
                         <div class="col-lg-4 text-lg-center text-center">
                             <img src="/assets/img/bayu.jpg" alt="bayu" class="rounded" width="100">
-                            <h5 class="m-0 mt-1">BAYU GIRIUM</h5>
+                            <h5 class="m-0 mt-1">BAYU GURIUM</h5>
                             <small class="d-block">Sistem Informasi 2020</small>
                         </div>
                         <div class="col-lg-4">
