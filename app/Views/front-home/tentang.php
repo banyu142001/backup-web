@@ -49,8 +49,8 @@
                             <h5 class="m-0 mt-1">BAYU GURIUM</h5>
                             <small class="d-block">Sistem Informasi 2020</small>
                         </div>
-                        <div class="col-lg-4">
-                            <p class="m-0">INSTITUT TEKNOLOGI DAN BISNIS STIKOM AMBON</p>
+                        <div class="col-lg-4 text-lg-center text-center">
+                            <p class="m-0 mt-3">INSTITUT TEKNOLOGI DAN BISNIS STIKOM AMBON</p>
                             <small>Alamat: Jl. A. Y. Patty, Kel Honipopu, Kec. Sirimau, Kota Ambon, Maluku</small>
                         </div>
                     </div>
