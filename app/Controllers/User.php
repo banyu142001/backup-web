@@ -234,4 +234,73 @@ class User extends BaseController
         session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/user');
     }
+
+    // method profile user
+    public function profile()
+    {
+        $data = [
+
+            'title'        => '',
+            'breadcrumb'    => '',
+        ];
+        return view('user/profile-user', $data);
+    }
+    // update password
+    public function update_password()
+    {
+        $data = [
+
+            'title'        => '',
+            'breadcrumb'    => '',
+        ];
+        return view('user/update-password', $data);
+    }
+
+    // save upsate password
+    public function save_update_password()
+    {
+
+        // model user
+        $userModel = $this->loadModel('UserModel');
+
+        // get data 
+        $id_user = session()->get('id');
+        $passwor_lama = $this->request->getVar('password_lama');
+        $passwor_baru = $this->request->getVar('password_baru');
+
+        $user = $userModel->selectAllUser(['id' => $id_user]);
+
+        // set rule
+        $rules = [
+
+            'password_lama' => [
+                'rules'  => 'required',
+            ],
+            'password_baru' => [
+                'rules'  => 'required',
+            ],
+
+        ];
+
+        if (!$this->validate($rules)) {
+
+            return redirect()->to('/user/update_password')->withInput();
+        }
+
+        if (password_verify($passwor_lama, $user['password'])) {
+
+            $data = [
+                'id' => $id_user,
+                'password' => password_hash($passwor_baru, PASSWORD_DEFAULT),
+            ];
+
+            $userModel->save($data);
+            session()->setFlashdata('flash', 'Password telah diudate');
+            return redirect()->to('/user/update_password');
+        } else {
+
+            session()->setFlashdata('flash_password', 'Password tidak sesuai');
+            return redirect()->to('/user/update_password');
+        }
+    }
 }

@@ -101,6 +101,7 @@
     const flash_2 = $('#flash_2').data('flash_2');
     const flash_3 = $('#flash_3').data('flash_3');
     const flash_4 = $('#flash_4').data('flash_4');
+    const flash_password = $('#flash_password').data('flash_password');
 
 
     // alert CRUD sistem
@@ -155,6 +156,21 @@
             timer: 5000
         });
     }
+
+    // flash worng update password user
+    if (flash_password) {
+        Swal.fire({
+            icon: "error",
+            text: flash_password,
+            showConfirmButton: false,
+            width: '400px',
+            timer: 5000,
+            customClass: {
+                icon: 'custom-icon'
+            }
+        });
+    }
+
 
     // alert delete data
     $(document).on('click', '#btn-hapus', function(e) {
