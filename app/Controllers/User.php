@@ -303,4 +303,52 @@ class User extends BaseController
             return redirect()->to('/user/update_password');
         }
     }
+
+    // update sampul
+    public function update_sampul()
+    {
+
+        $userModel = $this->loadModel('UserModel');
+
+        // set rules
+        $rules = [
+
+            'sampul' => [
+                'rules' => 'uploaded[sampul]|max_size[sampul, 1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'sampul harus diisi',
+                    'max_size' => 'ukuran file terlalu besar',
+                    'is_image' => 'yang anda pilih bukan gambar',
+                    'mime_in' => 'yang anda pilih bukan gambar',
+                ]
+            ],
+        ];
+
+        if (!$this->validate($rules)) {
+
+            return redirect()->to('/user/profile')->withInput();
+        }
+
+        // get name of sampul
+        $sampul = $this->request->getFile('sampul');
+
+        // generate nama random
+        $nama_sampul = $sampul->getRandomName($sampul);
+
+        // pindahkan gambar pada foler tujuan
+        $sampul->move('assets/img/profile-user', $nama_sampul);
+
+
+
+        // prepare data
+        $data = [
+            'id'   => session()->get('id'),
+            'foto' => $nama_sampul,
+        ];
+
+        // save data
+        $userModel->save($data);
+        session()->setFlashdata('flash', 'Profile telah diupdate');
+        return redirect()->to('/user/profile');
+    }
 }

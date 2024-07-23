@@ -80,8 +80,8 @@
             <div class="<?= ($level == 1) ? 'col-xl-3' : 'col-xl-4' ?> col-sm-6 mb-xl-0 mb-4">
                 <div class="card rounded-2">
                     <div class="card-header p-3 pt-2">
-                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                            <img src="/assets/img/<?= session()->get('foto') ?>" alt="" class="img-fluid rounded-circle">
+                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute p-1" style="background-image: url('assets/img/profile-user/<?= session()->get('foto') ?>'); background-position: center; background-size: cover;">
+                            <!-- <img src="/assets/img/profile-user/<?= session()->get('foto') ?>" alt="profile-picture" class="img-fluid rounded-circle" style="width: 60px; height: 60px;"> -->
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm text-success font-weight-bolder mb-0 text-capitalize"><?= (session()->get('level') == 1) ? 'Admin' : 'Kasir' ?></p>
