@@ -25,19 +25,19 @@ class SatuanModel extends Model
         return $this->where(['id_satuan' => $id_satuan])->first();
     }
 
-    // save data user from admin
-    public function saveSatuanData($data)
-    {
+    // // save data user from admin
+    // public function saveSatuanData($data)
+    // {
 
-        return $this->save($data);
-    }
+    //     return $this->save($data);
+    // }
 
-    // save update data from admin
-    public function saveUpdateData($data)
-    {
+    // // save update data from admin
+    // public function saveUpdateData($data)
+    // {
 
-        return $this->save($data);
-    }
+    //     return $this->save($data);
+    // }
 
     // hitung semua data satuan
     public function count_satuan()

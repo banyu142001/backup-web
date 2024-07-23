@@ -19,6 +19,9 @@ class Auth extends BaseController
     // Login method
     public function login()
     {
+        // load model AuthModel
+        $authModel =  $this->loadModel('AuthModel');
+
         // set rules and validate
         $rules = [
 
@@ -45,7 +48,7 @@ class Auth extends BaseController
         // get username & password
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
-        $userData  = $this->authModel->userDataAuth($username);
+        $userData  = $authModel->userDataAuth($username);
         // check akun user
         if ($userData) {
 
@@ -96,6 +99,9 @@ class Auth extends BaseController
 
     public function saveRegister()
     {
+
+        // load model AuthModel
+        $userModel =  $this->loadModel('UserModel');
 
         // set rules and validate
         $rules = [
@@ -164,7 +170,7 @@ class Auth extends BaseController
             ];
 
         // insert data to Database
-        $this->userModel->saveRegUserData($data);
+        $userModel->saveRegUserData($data);
 
 
         session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >

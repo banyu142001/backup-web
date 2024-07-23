@@ -10,10 +10,13 @@ class StokKeluar extends BaseController
 
     public function index()
     {
+        // load mode Stok Keluar
+        $stokKeluarModel =  $this->loadModel('StokKeluarModel');
+
         $data = [
             'title'         => 'Stok Keluar',
             'breadcrumb'    => 'Stok Keluar',
-            'data_stok_keluar' => $this->stokKeluarModel->selectAllStokKeluar(),
+            'data_stok_keluar' => $stokKeluarModel->selectAllStokKeluar(),
         ];
         return view('transaksi/stokkeluar/index', $data);
     }
@@ -21,11 +24,15 @@ class StokKeluar extends BaseController
     // tambah data stok masuk
     public function create()
     {
+        // load model ProdukModel dan Supplier
+        $produkModel =  $this->loadModel('ProdukModel');
+        $supplierModel =  $this->loadModel('SupplierModel');
+
         $data = [
             'title'           => 'Tambah Data Stok Keluar',
             'breadcrumb'      => 'Tambah Data Stok Keluar',
-            'data_produk'     => $this->produkModel->selectAllProduk(),
-            'data_supplier'   => $this->suplyModel->selectAllSupplier(),
+            'data_produk'     => $produkModel->selectAllProduk(),
+            'data_supplier'   => $supplierModel->selectAllSupplier(),
         ];
         return view('transaksi/stokkeluar/create', $data);
     }
@@ -33,6 +40,9 @@ class StokKeluar extends BaseController
     // save data stok masuk
     public function save()
     {
+        // load model ProdukModel dan Supplier
+        $stokKeluarModel =  $this->loadModel('StokKeluarModel');
+        $produkModel =  $this->loadModel('ProdukModel');
 
         $rules = [
 
@@ -65,8 +75,8 @@ class StokKeluar extends BaseController
             'tanggal'       => $this->request->getVar('tgl'),
         ];
 
-        $this->stokKeluarModel->saveData($data);
-        $this->produkModel->update_stok_keluar($data);
+        $stokKeluarModel->saveData($data);
+        $produkModel->update_stok_keluar($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data stok keluar </strong> telah ditambah & diupdate.
@@ -78,8 +88,11 @@ class StokKeluar extends BaseController
     // delete data stok masuk
     public function delete($id_stok_keluar)
     {
+        // load model ProdukModel dan Supplier
+        $stokKeluarModel =  $this->loadModel('StokKeluarModel');
+        $produkModel =  $this->loadModel('ProdukModel');
 
-        $data_stok = $this->stokKeluarModel->selectAllStokKeluar(['id_stok_keluar' => $id_stok_keluar]);
+        $data_stok = $stokKeluarModel->selectAllStokKeluar(['id_stok_keluar' => $id_stok_keluar]);
 
         $data = [
 
@@ -87,8 +100,8 @@ class StokKeluar extends BaseController
             'id_produk'   => $data_stok['id_produk'],
         ];
 
-        $this->produkModel->update_delete_stok_keluar($data);
-        $this->stokKeluarModel->delete(['id_stok_keluar' => $id_stok_keluar]);
+        $produkModel->update_delete_stok_keluar($data);
+        $stokKeluarModel->delete(['id_stok_keluar' => $id_stok_keluar]);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data stok keluar </strong> telah dihapus & diupdate.

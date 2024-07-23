@@ -11,29 +11,36 @@ class Supplier extends BaseController
 
     public function index()
     {
+        // load model SupplierModel
+        $supplierModel =  $this->loadModel('SupplierModel');
 
         $data = [
             'title'         => 'Supplier',
             'breadcrumb'    => 'Supplier',
-            'suppliers'     => $this->suplyModel->selectAllSupplier()
+            'suppliers'     => $supplierModel->selectAllSupplier()
         ];
         return view('supplier/index', $data);
     }
 
-    //create supplier data
+    // create new supplier data / tambah data supplier
     public function create()
     {
+        // load model SupplierModel
+        $supplierModel =  $this->loadModel('SupplierModel');
+
         $data = [
             'title'         => 'Tambah Data Supplier',
             'breadcrumb'    => 'Supplier / Tambah Data Supplier',
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(),
+            'suppliers'     =>  $supplierModel->selectAllSupplier(),
         ];
         return view('supplier/create', $data);
     }
 
-    // save supplier
+    // simpan data supplier baru / save supplier data
     public function save()
     {
+        // load model SupplierModel
+        $supplierModel =  $this->loadModel('SupplierModel');
 
         // set rules and validate
         $rules = [
@@ -70,7 +77,7 @@ class Supplier extends BaseController
             ];
 
         // insert data to Database
-        $this->suplyModel->saveSupplierData($data);
+        $supplierModel->saveSupplierData($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data Supplier Baru</strong> telah ditambahkan.
@@ -79,21 +86,25 @@ class Supplier extends BaseController
         return redirect()->to('/supplier');
     }
 
-    // edit supplier data
+    // ubah data supplier / edit supplier data
     public function edit($id_supplier)
     {
+        // load model SupplierModel
+        $supplierModel =  $this->loadModel('SupplierModel');
 
         $data = [
             'title'         => 'Edit Data Supplier',
             'breadcrumb'    => 'Supplier / Edit Data Supplier',
-            'suppliers'     =>  $this->suplyModel->selectAllSupplier(['id_supplier' => $id_supplier]),
+            'suppliers'     =>  $supplierModel->selectAllSupplier(['id_supplier' => $id_supplier]),
         ];
         return view('supplier/edit', $data);
     }
 
-    // update data user
+    // update data supplier
     public function update($id_supplier)
     {
+        // load model SupplierModel
+        $supplierModel =  $this->loadModel('SupplierModel');
 
         // set rules and validate
         $rules = [
@@ -132,7 +143,7 @@ class Supplier extends BaseController
             ];
 
         // insert data to Database
-        $this->suplyModel->saveUpdateSupplierData($data);
+        $supplierModel->saveUpdateSupplierData($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data Supplier</strong> telah diupdate.
@@ -142,13 +153,14 @@ class Supplier extends BaseController
     }
 
 
-    // delete method
+    // hapus data supllier / delete supplier
     public function delete($id_supplier)
     {
+        // load model SupplierModel
+        $supplierModel =  $this->loadModel('SupplierModel');
 
-
-        $this->suplyModel->delete(['id_supplier' => $id_supplier]);
-        $errors = $this->suplyModel->db->error();
+        $supplierModel->delete(['id_supplier' => $id_supplier]);
+        $errors = $supplierModel->db->error();
 
         if ($errors['code'] != 0) {
             session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . ' >

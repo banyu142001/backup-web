@@ -6,14 +6,23 @@ class Penjualan extends BaseController
 {
     public function index(): string
     {
+
+        // load model Penjualan, Produk, Customer dan Cart
+        $penjualanModel = $this->loadModel('PenjualanModel');
+        $produkModel = $this->loadModel('ProdukModel');
+        $customerModel = $this->loadModel('CustomerModel');
+        $cartModel = $this->loadModel('CartModel');
+
+
+
         $data = [
 
             'title'          => 'Penjualan',
             'breadcrumb'     => 'Penjualan',
-            'invoice'        => $this->penjualanModel->generateInvoiceCode(),
-            'data_produk'    => $this->produkModel->selectAllProduk(),
-            'data_customer'  => $this->cusModel->selectAllCustomer(),
-            'data_cart'     => $this->cartModel->getAllCart(),
+            'invoice'        => $penjualanModel->generateInvoiceCode(),
+            'data_produk'    => $produkModel->selectAllProduk(),
+            'data_customer'  => $customerModel->selectAllCustomer(),
+            'data_cart'     => $cartModel->getAllCart(),
 
         ];
         return view('transaksi/penjualan/index', $data);
@@ -22,8 +31,12 @@ class Penjualan extends BaseController
     // method simpan data transaksi penjualan
     public function save_payment()
     {
+        // load model Penjualan, Cart
+        $penjualanModel = $this->loadModel('PenjualanModel');
+        $cartModel = $this->loadModel('CartModel');
+
         // ambil data yang dikirim dari ajax
-        $invoice_code = $this->penjualanModel->generateInvoiceCode();
+        $invoice_code = $penjualanModel->generateInvoiceCode();
 
         $invoice        = $invoice_code;
         $id_customer    = $this->request->getVar('id_customer');
@@ -52,10 +65,10 @@ class Penjualan extends BaseController
         ];
 
         // simpan data ke dalam tabel penjualan
-        $id_penjualan =  $this->penjualanModel->save_payment_sale($data);
+        $id_penjualan =  $penjualanModel->save_payment_sale($data);
 
         // ambil data dari tabel cart (agar dapat kita simpan kedalam tabel detai penjualan)
-        $data_cart = $this->cartModel->getAllCart();
+        $data_cart = $cartModel->getAllCart();
         $row = [];
         foreach ($data_cart as $cart) {
 
@@ -69,11 +82,11 @@ class Penjualan extends BaseController
             ]);
         }
 
-        $this->penjualanModel->save_detail_penjualan($row);
+        $penjualanModel->save_detail_penjualan($row);
 
 
-        if ($this->cartModel->db->affectedRows() > 0) {
-            $this->cartModel->truncate();
+        if ($cartModel->db->affectedRows() > 0) {
+            $cartModel->truncate();
             $params = ['success' => true, "id_penjualan" => $id_penjualan];
         } else {
             $params = ['success' => false];
@@ -86,6 +99,8 @@ class Penjualan extends BaseController
     //  method simpan data ke cart belanja
     public function save()
     {
+        // load model Cart
+        $cartModel = $this->loadModel('CartModel');
 
         $id_produk =  $this->request->getVar('id_produk');
         $harga = $this->request->getVar('harga_data_cart');
@@ -101,19 +116,19 @@ class Penjualan extends BaseController
         ];
 
         //  ambil data produk berdasarkan id_produk
-        $data_cart = $this->cartModel->getAllCart(['cart.id_produk' => $id_produk]);
+        $data_cart = $cartModel->getAllCart(['cart.id_produk' => $id_produk]);
 
         if ($data_cart > 0) {
 
             // method update jumlah/qty jika produk sama
-            $this->cartModel->update_cart_qty($data);
+            $cartModel->update_cart_qty($data);
         } else {
 
-            $this->cartModel->saveCartData($data);
+            $cartModel->saveCartData($data);
         }
 
 
-        if ($this->cartModel->db->affectedRows() > 0) {
+        if ($cartModel->db->affectedRows() > 0) {
 
             $params = ['success' => true];
         } else {
@@ -127,10 +142,13 @@ class Penjualan extends BaseController
     // method laod data cart
     public function load_cart()
     {
+        // load model Cart
+        $cartModel = $this->loadModel('CartModel');
+
         $data = [
             'title' => '',
             'bread' => '',
-            'data_cart'     => $this->cartModel->getAllCart(),
+            'data_cart'     => $cartModel->getAllCart(),
         ];
         return view('transaksi/penjualan/data_cart', $data);
     }
@@ -139,12 +157,14 @@ class Penjualan extends BaseController
     // method hapus data dari cart belanja
     public function deleteCart()
     {
+        // load model Cart
+        $cartModel = $this->loadModel('CartModel');
 
         $id_cart =  $this->request->getVar('id_cart');
 
-        $this->cartModel->delete(['id_cart' => $id_cart]);
+        $cartModel->delete(['id_cart' => $id_cart]);
 
-        if ($this->cartModel->db->affectedRows() > 0) {
+        if ($cartModel->db->affectedRows() > 0) {
 
             $params = ['success' => true];
         } else {
@@ -158,6 +178,10 @@ class Penjualan extends BaseController
     // method update data cart belanja
     public function update()
     {
+
+        // load model Cart dan Penjualan
+        $cartModel = $this->loadModel('CartModel');
+        $penjualanModel = $this->loadModel('PenjualanModel');
 
         // ambil data yang dikirimkan melalui ajax
         $id_cart       = $this->request->getVar('id_cart');
@@ -176,9 +200,9 @@ class Penjualan extends BaseController
             'total_data_cart' => $total
         ];
 
-        $this->cartModel->saveUpdate($data);
+        $cartModel->saveUpdate($data);
 
-        if ($this->penjualanModel->db->affectedRows() > 0) {
+        if ($penjualanModel->db->affectedRows() > 0) {
 
             $params = ['success' => true];
         } else {
@@ -192,12 +216,16 @@ class Penjualan extends BaseController
     // method cetak sruk belanja
     public function cetak($id)
     {
+        // load model Penjualan dan Detail Penjualan
+        $penjualanModel = $this->loadModel('PenjualanModel');
+        $detailPenjualanModel = $this->loadModel('PenjualanDetailModel');
+
         $data = [
 
             'title'          => 'Print Struk',
             'breadcrumb'     => 'Print',
-            'penjualan'      => $this->penjualanModel->getAllPenjualan(['id_penjualan' => $id]),
-            'data_detail'    => $this->detailPenjualanModel->getDetailData(['id_penjualan_detail' => $id]),
+            'penjualan'      => $penjualanModel->getAllPenjualan(['id_penjualan' => $id]),
+            'data_detail'    => $detailPenjualanModel->getDetailData(['id_penjualan_detail' => $id]),
 
         ];
         return view('transaksi/penjualan/print', $data);

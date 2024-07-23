@@ -8,23 +8,30 @@ use CodeIgniter\HTTP\ResponseInterface;
 class Customer extends BaseController
 {
 
+
     public function index()
     {
+        // load model CustomerModel
+        $customerModel =  $this->loadModel('CustomerModel');
+
         $data = [
             'title'         => 'Customer',
             'breadcrumb'    => 'Customer',
-            'customers'     => $this->cusModel->selectAllCustomer(),
+            'customers'     => $customerModel->selectAllCustomer(),
         ];
         return view('customer/index', $data);
     }
 
-    //create supplier data
+    // tambah data supplier baru /  create new supplier data
     public function create()
     {
+        // load model CustomerModel
+        $customerModel =  $this->loadModel('CustomerModel');
+
         $data = [
             'title'         => 'Tambah Data Customer',
             'breadcrumb'    => 'Customer / Tambah Data Customer',
-            'customers'     => $this->cusModel->selectAllCustomer(),
+            'customers'     => $customerModel->selectAllCustomer(),
         ];
         return view('customer/create', $data);
     }
@@ -32,6 +39,8 @@ class Customer extends BaseController
     // save customer
     public function save()
     {
+        // load model CustomerModel
+        $customerModel =  $this->loadModel('CustomerModel');
 
         // set rules and validate
         $rules = [
@@ -67,7 +76,8 @@ class Customer extends BaseController
             ];
 
         // insert data to Database
-        $this->cusModel->saveCustomerData($data);
+        $customerModel->saveCustomerData($data);
+
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data Customer Baru</strong> telah ditambahkan.
         ' . icon_close . '
@@ -78,10 +88,13 @@ class Customer extends BaseController
     // edit customer data
     public function edit($id_customer)
     {
+        // load model CustomerModel
+        $customerModel =  $this->loadModel('CustomerModel');
+
         $data = [
             'title'         => 'Edit Data Customer',
             'breadcrumb'    => 'Customer / Edit Data Customer',
-            'customers'     => $this->cusModel->selectAllCustomer(['id_customer' => $id_customer]),
+            'customers'     => $customerModel->selectAllCustomer(['id_customer' => $id_customer]),
         ];
         return view('customer/edit', $data);
     }
@@ -89,6 +102,8 @@ class Customer extends BaseController
     // update data customer
     public function update($id_customer)
     {
+        // load model CustomerModel
+        $customerModel =  $this->loadModel('CustomerModel');
 
         // set rules and validate
         $rules = [
@@ -125,7 +140,7 @@ class Customer extends BaseController
             ];
 
         // insert data to Database
-        $this->cusModel->saveUpdateCustomerData($data);
+        $customerModel->saveUpdateCustomerData($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . 'Data Customer</strong> telah diupdate.
@@ -138,8 +153,10 @@ class Customer extends BaseController
     // delete method
     public function delete($id_custumer)
     {
+        // load model CustomerModel
+        $customerModel =  $this->loadModel('CustomerModel');
 
-        $this->cusModel->delete(['id_customer' => $id_custumer]);
+        $customerModel->delete(['id_customer' => $id_custumer]);
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data Customer</strong> telah dihapus.
       ' . icon_close . '

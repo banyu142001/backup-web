@@ -10,11 +10,14 @@ class User extends BaseController
 
     public function index()
     {
+        // load Model User
+        $userModel = $this->loadModel('UserModel');
+
         $data = [
 
             'title'        => 'User',
             'breadcrumb'    => 'User',
-            'users'         => $this->userModel->selectAllUser(),
+            'users'         => $userModel->selectAllUser(),
         ];
         return view('user/index', $data);
     }
@@ -34,6 +37,9 @@ class User extends BaseController
     // save user
     public function save()
     {
+
+        // load Model User
+        $userModel = $this->loadModel('UserModel');
 
         // set rules and validate
         $rules = [
@@ -102,7 +108,7 @@ class User extends BaseController
             ];
 
         // insert data to Database
-        $this->userModel->saveUserData($data);
+        $userModel->saveUserData($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . ' Data User</strong> telah ditambahkan.
@@ -114,12 +120,14 @@ class User extends BaseController
     // edit data user
     public function edit($id)
     {
+        // load Model User
+        $userModel = $this->loadModel('UserModel');
 
         $data = [
 
             'title'         => 'Edit Data User',
             'breadcrumb'    => 'User / Edit Data User',
-            'user'          => $this->userModel->selectAllUser(['id' => $id]),
+            'user'          => $userModel->selectAllUser(['id' => $id]),
         ];
         return view('user/edit', $data);
     }
@@ -127,7 +135,10 @@ class User extends BaseController
     // update data user
     public function update($id)
     {
-        $userDataLama = $this->userModel->selectAllUser(['id' => $id]);
+        // load Model User
+        $userModel = $this->loadModel('UserModel');
+
+        $userDataLama = $userModel->selectAllUser(['id' => $id]);
 
         $username = $this->request->getVar('username');
         $email = $this->request->getVar('email');
@@ -202,7 +213,7 @@ class User extends BaseController
             ];
 
         // insert data to Database
-        $this->userModel->saveUpdateData($data);
+        $userModel->saveUpdateData($data);
 
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . ' >
         <strong>' . icon_success . 'Data User</strong> telah diupdate.
@@ -217,8 +228,10 @@ class User extends BaseController
     // delete method
     public function delete($id)
     {
+        // load Model User
+        $userModel = $this->loadModel('UserModel');
 
-        $this->userModel->delete(['id' => $id]);
+        $userModel->delete(['id' => $id]);
         session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . '>
         <strong>' . icon_success . 'Data User</strong> telah dihapus.
         ' . icon_close . '
