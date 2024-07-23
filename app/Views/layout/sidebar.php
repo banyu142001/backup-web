@@ -83,7 +83,7 @@
             </li>
             <?php if (session()->get('level') != 1) : ?>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href=" /testimoni/add">
+                    <a class="nav-link text-dark <?= menu_testimoni($title) ?>" href=" /testimoni/create">
                         <div class="text-center text-dark me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-pencil"></i>
                         </div>
@@ -104,7 +104,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= menu_user($title) ?>" href=" /testimoni">
+                    <a class="nav-link <?= menu_testimoni($title) ?>" href=" /testimoni">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-cog"></i>
                         </div>

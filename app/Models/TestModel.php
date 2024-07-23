@@ -16,6 +16,7 @@ class TestModel extends Model
     public function getAllTestimoni()
     {
 
-        return $this->join('user', 'testimoni.id_user = user.id')->findAll();
+        return $this->join('user', 'testimoni.id_user = user.id')->orderBy('id_test', 'DESC')
+            ->findAll();
     }
 }

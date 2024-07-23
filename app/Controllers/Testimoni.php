@@ -10,7 +10,7 @@ class Testimoni extends BaseController
 
         $data = [
 
-            'title'          => 'User testing',
+            'title'          => 'User-Testing',
             'breadcrumb'     => 'Testimoni',
             'data_testimoni' => $TestModel->getAllTestimoni(),
         ];
@@ -23,7 +23,7 @@ class Testimoni extends BaseController
 
         $data = [
 
-            'title'      => 'Add Testimoni',
+            'title'      => 'Add-Testimoni',
             'breadcrumb' => 'Testimoni',
         ];
         return view('testimoni/create', $data);
@@ -75,9 +75,7 @@ class Testimoni extends BaseController
         $TestModel = $this->loadModel('TestModel');
 
         $TestModel->delete(['id_test' => $id]);
-        // session()->setFlashdata('flash', 'Data berhasil dihapus');
+        session()->setFlashdata('flash', 'Ulasan telah dihapus');
         return redirect()->to('/testimoni');
-
-        echo 'Oke';
     }
 }

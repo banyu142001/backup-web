@@ -175,6 +175,22 @@ function menu_laporan_penjualan($title)
 }
 // end of penjualan
 
+// menu testimoni
+function menu_testimoni($title)
+{
+    // 
+    $level = session()->get('level');
+
+    if ($title == 'User-Testing' | $title == 'Add-Testimoni') {
+        if ($level == 1) {
+            return $title =  'text-white active bg-gradient-primary';
+        } else {
+            return $title =  'text-white active bg-gradient-info';
+        }
+    }
+}
+// end of penjualan
+
 
 // indo date format
 function indo_date($date)

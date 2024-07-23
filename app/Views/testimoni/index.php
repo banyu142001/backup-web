@@ -31,12 +31,13 @@
             <div class="col-lg-10">
                 <p class="m-0">List Ulasan user :</p>
                 <?php foreach ($data_testimoni as $test) : ?>
-                    <div class="row g-0 border p-1 rounded-2 border-light">
+                    <div class="row g-0 border p-1 rounded-2 border-light my-1">
                         <div class="col-lg-2 col-3 text-center">
                             <img src="assets/img/profile-user/<?= $test['foto'] ?>" class="img-fluid rounded-circle mt-2" style="width: 60px; height: 60px;">
                         </div>
                         <div class="col-lg-9 col-9">
                             <p class="m-0 fw-bold"><?= $test['nama'] ?></p>
+                            <p class="m-0"><?= $test['email'] ?></p>
                             <small><span class="text-muted">Ulasan</span> : <?= $test['ulasan'] ?></small>
                             <div class="row">
                                 <div class="col-lg-7 col-lg">
@@ -56,7 +57,7 @@
                                     </table>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a href="/testimoni/delete/<?= $test['id_test'] ?>" class="btn btn-sm btn-danger rounded-1 mt-lg-4 mt-0">Hapus ulasan</a>
+                                    <a href="/testimoni/delete/<?= $test['id_test'] ?>" id="btn-hapus" class="btn btn-sm btn-danger rounded-1 mt-lg-4 mt-0">Hapus ulasan</a>
                                 </div>
                             </div>
                         </div>
