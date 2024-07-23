@@ -82,6 +82,9 @@
                 </a>
             </li>
             <?php if (session()->get('level') == 1) : ?>
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs <?= ($level == 1) ? 'text-white' : 'text-dark' ?> font-weight-bolder opacity-8">Users | <i class="fa-solid fa-flag"></i></h6>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link <?= menu_user($title) ?>" href=" /user">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
