@@ -62,7 +62,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Data User</p>
-                                <h4 class="mb-0">2,300</h4>
+                                <h4 class="mb-0"><?= $user ?></h4>
                             </div>
                         </div>
                         <hr class="dark horizontal my-0">
@@ -81,7 +81,6 @@
                 <div class="card rounded-2">
                     <div class="card-header p-3 pt-2">
                         <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute p-1" style="background-image: url('assets/img/profile-user/<?= session()->get('foto') ?>'); background-position: center; background-size: cover;">
-                            <!-- <img src="/assets/img/profile-user/<?= session()->get('foto') ?>" alt="profile-picture" class="img-fluid rounded-circle" style="width: 60px; height: 60px;"> -->
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm text-success font-weight-bolder mb-0 text-capitalize"><?= (session()->get('level') == 1) ? 'Admin' : 'Kasir' ?></p>

@@ -68,12 +68,13 @@ class PenjualanModel extends Model
 
     public function getAllPenjualan($id_penjualan = false)
     {
+        $id_user = session()->get('id');
 
         if ($id_penjualan == false) {
 
             return $this->join('customer', 'penjualan.id_customer = customer.id_customer', 'left')
                 ->join('user', 'penjualan.id_user = user.id')
-                ->orderBy('id_penjualan', 'DESC')
+                ->orderBy('id_penjualan', 'DESC')->where(['id_user' => $id_user])
                 ->findAll();
         }
 

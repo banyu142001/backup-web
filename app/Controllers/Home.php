@@ -14,6 +14,7 @@ class Home extends BaseController
         $stokKeluarModel =  $this->loadModel('StokKeluarModel');
         $penjualanModel =  $this->loadModel('PenjualanModel');
         $penjualanDetailModel = $this->loadModel('PenjualanDetailModel');
+        $userModel =  $this->loadModel('UserModel');
 
         $data = [
 
@@ -27,6 +28,7 @@ class Home extends BaseController
             'produk_terlaris' => $penjualanModel->getProdukTerlaris(),
             'penjualan'       => $penjualanModel->count_penjualan(),
             'penjualan_detail' => $penjualanDetailModel->count_detail_penjualan(),
+            'user'             => $userModel->count_user(),
 
         ];
         return view('home/index', $data);

@@ -235,6 +235,7 @@ class User extends BaseController
         return redirect()->to('/user');
     }
 
+
     // method profile user
     public function profile()
     {
