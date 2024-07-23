@@ -9,27 +9,25 @@
                     <i class="fas fa-folder-plus text-white fs-4  "></i>
                 </div>
             </div>
-            <div class="col-auto my-auto">
+            <div class="col-auto col-6 my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        Data Stok Masuk / Barang Masuk
+                        Data Stok Masuk
                     </h5>
                     <p class="mb-0 font-weight-normal text-sm">
                         Point Of Sale Management
                     </p>
                 </div>
             </div>
-            <div class="col my-auto">
-                <a href="/stokmasuk/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
+            <div class="col-lg my-auto">
+                <a href="/stokmasuk/create" class="mx-3 mt-lg-2 mt-2 text-info mb-0 float-lg-end float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg">
-                <?php if (session()->getFlashdata('flash')) : ?>
-                    <?= session()->getFlashdata('flash'); ?>
-                <?php endif; ?>
-            </div>
-        </div>
+
+        <!-- alert sistem -->
+        <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+
+
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
@@ -72,7 +70,7 @@
                                 <a href="" class="text-xs" <?= text_success ?> data-bs-toggle="modal" data-bs-target="#modalDetail<?= $stok['id_stok_masuk'] ?>">
                                     <i class="fas fa-eye mx-1"></i> Detail
                                 </a>
-                                <a href="/stokmasuk/delete/<?= $stok['id_stok_masuk'] . '/' . $stok['id_produk']  ?>" class="text-xs" <?= text_danger ?>>
+                                <a href="/stokmasuk/delete/<?= $stok['id_stok_masuk'] . '/' . $stok['id_produk']  ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                     <i class="fas fa-trash mx-1"></i> Delete
                                 </a>
                             </td>

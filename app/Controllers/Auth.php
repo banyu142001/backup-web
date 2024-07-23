@@ -10,8 +10,7 @@ class Auth extends BaseController
     public function index()
     {
         $data = [
-            'auth_title' => 'myPos - Login',
-
+            'auth_title' => 'Login',
         ];
         return view('auth/index', $data);
     }
@@ -61,27 +60,24 @@ class Auth extends BaseController
                     'logged_in'   => true,
                     'id'          => $userData['id'],
                     'nama'        => $userData['nama'],
+                    'username'    => $userData['username'],
+                    'alamat'    => $userData['alamat'],
                     'email'       => $userData['email'],
                     'level'       => $userData['level'],
                     'foto'       => $userData['foto'],
                 ];
 
                 session()->set($login_session);
+                session()->setFlashdata('flash_5', 'Berhasil Login');
                 return redirect()->to('/home');
             } else {
-                session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' >
-                <span class="text-sm">' . icon_warning . 'Username / Password tidak sesuai!</span>
-                ' . icon_close . '
-                </div>');
+                session()->setFlashdata('flash_4', 'Username & Password tidak sesuai');
                 return redirect()->to('/auth');
             }
         } else {
 
 
-            session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_DANGER . ' ">
-                <span class="text-sm">' . icon_warning . ' Data user tidak ditemukan!</span>
-                ' . icon_close . '
-                </div>');
+            session()->setFlashdata('flash_4', 'Data User tidak ditemukan ');
             return redirect()->to('/auth');
         }
     }
@@ -91,7 +87,7 @@ class Auth extends BaseController
     public function register()
     {
         $data = [
-            'auth_title' => 'myPos - Register',
+            'auth_title' => 'Register',
 
         ];
         return view('auth/register', $data);
@@ -121,7 +117,7 @@ class Auth extends BaseController
                 'errors' => [
                     'required'    => '{field} harus diisi',
                     'min_length'  => '{field} minimal 3 karakter',
-                    'is_unique'   => '{field} sudah terdaftar ! pilih kombinasi {field} yang lain',
+                    'is_unique'   => '{field} sudah terdaftar !',
                     'max_length'  => '{field} maksimal 10 karakter'
                 ]
             ],
@@ -174,7 +170,7 @@ class Auth extends BaseController
 
 
         session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
-        <span class="text-sm">👌Registrasi suksess ! silahkan login </span>
+        <span class="text-sm">Registrasi suksess ! silahkan login </span>
         ' . icon_close . '
         </div>');
         return redirect()->to('/auth/register');
@@ -192,10 +188,7 @@ class Auth extends BaseController
         session()->remove('foto');
 
 
-        session()->setFlashdata('flash', '<div class="alert p-0 py-2 px-2 alert-dismissible text-white" role="alert" ' . ALERT_SUCCESS . ' >
-        <span class="text-sm">Anda berhasil logout ! se you 👋👋</span>
-          ' . icon_close . '
-        </div>');
+        session()->setFlashdata('flash_6', 'Anda berhasil logout! sampai jumpa lagi');
 
         return redirect()->to('/auth');
     }

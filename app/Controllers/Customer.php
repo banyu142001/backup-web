@@ -25,13 +25,10 @@ class Customer extends BaseController
     // tambah data supplier baru /  create new supplier data
     public function create()
     {
-        // load model CustomerModel
-        $customerModel =  $this->loadModel('CustomerModel');
 
         $data = [
             'title'         => 'Tambah Data Customer',
             'breadcrumb'    => 'Customer / Tambah Data Customer',
-            'customers'     => $customerModel->selectAllCustomer(),
         ];
         return view('customer/create', $data);
     }
@@ -53,7 +50,7 @@ class Customer extends BaseController
                     'max_length'  => '{field} maksimal 100 karakter'
                 ]
             ],
-            'telp'                => [
+            'nomor_telephone'                => [
                 'label'           => 'Nomor Telephone',
                 'rules'           => 'required|trim',
                 'errors' => [
@@ -70,18 +67,15 @@ class Customer extends BaseController
         $data =
             [
                 'nama_customer' => $this->request->getVar('nama_customer'),
-                'no_telephone'  => $this->request->getVar('telp'),
-                'jenis_kelamin' => $this->request->getVar('jk'),
+                'no_telephone'  => $this->request->getVar('nomor_telephone'),
+                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
                 'alamat'        => $this->request->getVar('alamat'),
             ];
 
         // insert data to Database
         $customerModel->saveCustomerData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Customer Baru</strong> telah ditambahkan.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkan');
         return redirect()->to('/customer');
     }
 
@@ -116,7 +110,7 @@ class Customer extends BaseController
                     'max_length'  => '{field} maksimal 100 karakter'
                 ]
             ],
-            'telp'                => [
+            'nomor_telephone'                => [
                 'label'           => 'Nomor Telephone',
                 'rules'           => 'required|trim',
                 'errors' => [
@@ -134,18 +128,15 @@ class Customer extends BaseController
             [
                 'id_customer'   => $id_customer,
                 'nama_customer' => $this->request->getVar('nama_customer'),
-                'no_telephone'  => $this->request->getVar('telp'),
-                'jenis_kelamin' => $this->request->getVar('jk'),
+                'no_telephone'  => $this->request->getVar('nomor_telephone'),
+                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
                 'alamat'        => $this->request->getVar('alamat'),
             ];
 
         // insert data to Database
         $customerModel->saveUpdateCustomerData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . 'Data Customer</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/customer');
     }
 
@@ -157,10 +148,7 @@ class Customer extends BaseController
         $customerModel =  $this->loadModel('CustomerModel');
 
         $customerModel->delete(['id_customer' => $id_custumer]);
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Customer</strong> telah dihapus.
-      ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/customer');
     }
 }

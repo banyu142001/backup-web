@@ -57,10 +57,7 @@ class Satuan extends BaseController
         // insert data to Database
         $satuanModel->save($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <p style="font-size:14px" class="mb-0 d-inline" ><strong > ' . icon_success . ' Satuan Baru</strong> telah ditambahkan.</p>
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkn');
         return redirect()->to('/satuan');
     }
 
@@ -85,10 +82,7 @@ class Satuan extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            session()->setFlashdata('flash_update_rule', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"  ' . ALERT_DANGER . ' >
-            <small> ' . icon_warning . ' <strong>Nama Satuan</strong> harus diisi !! lakukan edit kembali.</small>
-            ' . icon_close . '
-          </div>');
+            session()->setFlashdata('flash_3', 'Perikasa kembali inputan anda! (Inputan tidak boleh kosong, Data inputan tidak boleh sama) ');
             return redirect()->to('/satuan')->withInput();
         }
 
@@ -104,10 +98,7 @@ class Satuan extends BaseController
         // insert data to Database
         $satuanModel->save($data);
 
-        session()->setFlashdata('flash_update', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Satuan</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/satuan');
     }
 
@@ -123,17 +114,11 @@ class Satuan extends BaseController
 
         if ($errors['code'] != 0) {
 
-            session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . ' >
-            <strong>' . icon_success . ' Data Satuan tidak dapat dihapus </strong> (data ini sedang digunakan pada data master produk).
-            ' . icon_close . '
-          </div>');
+            session()->setFlashdata('flash_2', 'Data tidak dapat dihapus. (Data satuan ini sedang digunakan pada data master produk).');
             return redirect()->to('/satuan');
         }
 
-        session()->setFlashdata('flash_del', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Satuan </strong> telah dihapus.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/satuan');
     }
 }

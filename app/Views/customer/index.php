@@ -13,7 +13,7 @@
                     <i class="fa-solid fa-users-line text-white fs-4"></i>
                 </div>
             </div>
-            <div class="col-auto my-auto">
+            <div class="col-lg-auto col-6 my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
                         Data Customer
@@ -23,17 +23,15 @@
                     </p>
                 </div>
             </div>
-            <div class="col my-auto">
-                <a href="/customer/create" class="mx-3 text-info mb-0 float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
+            <div class="col-lg my-auto">
+                <a href="/customer/create" class="mx-3 mt-lg-2 mt-3 text-info mb-0 float-lg-end float-end fw-lighter font-italic opacity-5"> <i class="fa fa-plus"></i> Tambah data</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg">
-                <?php if (session()->getFlashdata('flash')) : ?>
-                    <?= session()->getFlashdata('flash'); ?>
-                <?php endif; ?>
-            </div>
-        </div>
+
+        <!-- alert sistem -->
+        <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+
+
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0" id="myTable">
                 <thead>
@@ -79,7 +77,7 @@
                                 <a href="/customer/edit/<?= $customer['id_customer'] ?>" class="text-xs" <?= text_success ?>>
                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                 </a>
-                                <a href="" class="text-xs" data-bs-toggle="modal" <?= text_danger ?> data-bs-target="#modalDelCus<?= $customer['id_customer'] ?> ">
+                                <a href="/customer/delete/<?= $customer['id_customer'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                 </a>
                             </td>
@@ -90,27 +88,6 @@
         </div>
     </div>
 </div>
-<!-- MODAL HAPUS DATA CUSTOMERE -->
-<?php foreach ($customers as $customer) : ?>
-    <div class="modal fade" id="modalDelCus<?= $customer['id_customer'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content rounded-1 border-0 shadow-none">
-                <div class="modal-header p-2">
-                    <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Customer</h1>
-                    <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
-                </div>
-                <div class="modal-body p-3 my-0">
-                    <p>Data Customer <strong><?= $customer['nama_customer'] ?></strong> akan dihapus?</p>
-                </div>
-                <div class="modal-footer p-2">
-                    <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
-                    <a href="/customer/delete/<?= $customer['id_customer'] ?>" class="badge text-white bg-danger p-2"> <i class="fa-solid fa-trash mx-1"></i> Hapus</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php endforeach; ?>
-
 </div>
 
 <?= $this->endSection(); ?>

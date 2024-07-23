@@ -18,9 +18,12 @@
                     </div>
                 </div>
                 <div class="card-body px-3 pb-2">
-                    <?php if (session()->getFlashdata('flash')) : ?>
-                        <?= session()->getFlashdata('flash'); ?>
-                    <?php endif; ?>
+
+
+                    <!-- sweet alert -->
+                    <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+
+
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                             <thead>
@@ -37,7 +40,7 @@
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <div>
-                                                    <img src="/assets/img/<?= $user['foto'] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user2">
+                                                    <img src="/assets/img/profile-user/<?= $user['foto'] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user2">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="mb-0 text-sm"><?= $user['nama'] ?></h6>
@@ -63,7 +66,7 @@
                                                 <a href="/user/edit/<?= $user['id'] ?>" class="text-xs" <?= text_success ?>>
                                                     <i class="material-icons text-sm mx-1">edit</i> Edit
                                                 </a>
-                                                <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelete<?= $user['id'] ?> ">
+                                                <a href="/user/delete/<?= $user['id'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                                     <i class="material-icons text-sm mx-1">delete</i> Delete
                                                 </a>
                                             <?php endif ?>

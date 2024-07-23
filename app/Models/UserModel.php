@@ -43,4 +43,11 @@ class UserModel extends Model
 
         return $this->save($data);
     }
+
+    // hitung semua data user
+    public function count_user()
+    {
+
+        return $this->countAll();
+    }
 }

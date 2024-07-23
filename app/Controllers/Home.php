@@ -13,7 +13,8 @@ class Home extends BaseController
         $stokMasukModel =  $this->loadModel('StokMasukModel');
         $stokKeluarModel =  $this->loadModel('StokKeluarModel');
         $penjualanModel =  $this->loadModel('PenjualanModel');
-
+        $penjualanDetailModel = $this->loadModel('PenjualanDetailModel');
+        $userModel =  $this->loadModel('UserModel');
 
         $data = [
 
@@ -25,6 +26,9 @@ class Home extends BaseController
             'stok_masuk' => $stokMasukModel->count_stok_masuk(),
             'stok_keluar' => $stokKeluarModel->count_stok_keluar(),
             'produk_terlaris' => $penjualanModel->getProdukTerlaris(),
+            'penjualan'       => $penjualanModel->count_penjualan(),
+            'penjualan_detail' => $penjualanDetailModel->count_detail_penjualan(),
+            'user'             => $userModel->count_user(),
 
         ];
         return view('home/index', $data);

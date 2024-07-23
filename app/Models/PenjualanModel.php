@@ -68,12 +68,13 @@ class PenjualanModel extends Model
 
     public function getAllPenjualan($id_penjualan = false)
     {
+        $id_user = session()->get('id');
 
         if ($id_penjualan == false) {
 
             return $this->join('customer', 'penjualan.id_customer = customer.id_customer', 'left')
                 ->join('user', 'penjualan.id_user = user.id')
-                ->orderBy('id_penjualan', 'DESC')
+                ->orderBy('id_penjualan', 'DESC')->where(['id_user' => $id_user])
                 ->findAll();
         }
 
@@ -96,28 +97,10 @@ class PenjualanModel extends Model
 
         return $query->getResultArray();
     }
+
+    public function count_penjualan()
+    {
+
+        return $this->countAll();
+    }
 }
-
-// =====================================================================
-// Model detail penjualan
-// class PenjualanDetailModel extends Model
-// {
-//     // protected $table            = 'detail_penjualan';
-//     // protected $primaryKey       = 'id_detail';
-//     // protected $allowedFields    = ['id_detail', 'id_penjualan_detail', 'id_produk_detail', 'harga_detail', 'qty_detail', 'diskon_detail', 'total_detail'];
-//     // protected $useTimestamps = true;
-
-
-//     // // get alll detail data
-//     // public function getDetailData($id_detail = false)
-//     // {
-
-//     //     if ($id_detail == false) {
-
-
-//     //         return $this->join('produk', 'detail_penjualan.id_produk_detail = produk.id_produk')->findAll();
-//     //     }
-
-//     //     return $this->join('produk', 'detail_penjualan.id_produk_detail = produk.id_produk')->where(['detail_penjualan.id_penjualan_detail' => $id_detail])->findAll();
-//     // }
-// }

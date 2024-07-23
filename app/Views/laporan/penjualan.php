@@ -21,13 +21,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg">
-                <?php if (session()->getFlashdata('flash')) : ?>
-                    <?= session()->getFlashdata('flash'); ?>
-                <?php endif; ?>
-            </div>
-        </div>
+
+        <!-- alert sistem -->
+        <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0" id="dataTable">
                 <thead>
@@ -87,7 +84,7 @@
                                             </div>
                                         </a>
 
-                                        <a href="/laporan/delete/<?= $penjualan['id_penjualan'] ?>" class="btn btn-sm  p-0 px-2 rounded-1 cursor-pointer my-0 border" class=" text-xs " <?= text_danger ?>>
+                                        <a href="/laporan/delete/<?= $penjualan['id_penjualan'] ?>" class="btn btn-sm  p-0 px-2 rounded-1 cursor-pointer my-0 border" class=" text-xs " <?= text_danger ?> id="btn-hapus">
                                             <div class=" fas fa-trash"></div>
                                         </a>
                                     </div>
@@ -145,7 +142,7 @@
                             </tr>
                             <tr>
                                 <th>Kasir</th>
-                                <td style="font-size: 14px;">: <?= session()->get('nama') ?> </td>
+                                <td style="font-size: 14px;">: <?= session()->get('nama') ?></td>
                             </tr>
                             <tr>
                                 <th>Cash</th>

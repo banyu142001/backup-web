@@ -10,9 +10,19 @@ class Front extends BaseController
     public function index()
     {
         $data = [
-            'auth_title' => 'myPos - Beranda',
+            'auth_title' => 'Beranda',
 
         ];
         return view('front-home/index', $data);
+    }
+
+    public function tentang()
+    {
+
+        $data = [
+            'auth_title' => 'Tentang',
+
+        ];
+        return view('front-home/tentang', $data);
     }
 }

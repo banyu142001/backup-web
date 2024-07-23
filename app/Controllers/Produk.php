@@ -25,8 +25,7 @@ class Produk extends BaseController
     //create produk data
     public function create()
     {
-        // load model ProdukModel, KategoriModel dan SatuanModel
-        $produkModel  =  $this->loadModel('ProdukModel');
+        // load model KategoriModel dan SatuanModel
         $kategoriModel =  $this->loadModel('KategoriModel');
         $satuanModel  =  $this->loadModel('SatuanModel');
 
@@ -35,7 +34,6 @@ class Produk extends BaseController
             'breadcrumb'    => 'Produk / Tambah Data Produk',
             'kategori'      => $kategoriModel->selectAllKategori(),
             'satuan'        => $satuanModel->selectAllSatuan(),
-            // 'data_produk'   => $produkModel->selectAllProduk(),
         ];
         return view('produk/create', $data);
     }
@@ -68,7 +66,7 @@ class Produk extends BaseController
                 ]
             ],
             'kategori'       => [
-                'label'           => 'Katrgori',
+                'label'           => 'Kategori',
                 'rules'           => 'required',
                 'errors' => [
                     'required'    => '{field} harus diisi',
@@ -95,16 +93,13 @@ class Produk extends BaseController
                 'id_kategori' => $this->request->getVar('kategori'),
                 'id_satuan' => $this->request->getVar('satuan'),
                 'harga' => $this->request->getVar('harga'),
-                "stok"  => 0,
+                'stok'  => 0,
             ];
 
         // insert data to Database
         $produkModel->saveProdukData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Produk Baru</strong> telah ditambahkan.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkan');
         return redirect()->to('/produk');
     }
 
@@ -211,10 +206,7 @@ class Produk extends BaseController
         // insert data to Database
         $produkModel->saveUpdateProdukData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Produk</strong> telah diupdate.
-        ' . icon_close . ' 
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/produk');
     }
 
@@ -230,17 +222,11 @@ class Produk extends BaseController
         $errors = $produkModel->db->error();
         if ($errors['code'] != 0) {
 
-            session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . '  >
-        <strong>' . icon_warning . '  Data Produk tidak dapat dihapus</strong>  (data produk ini sedang digunakan pada data stok masuk).
-        ' . icon_close . ' 
-      </div>');
+            session()->setFlashdata('flash_2', 'Data tidak dapat dihapus.(Data produk ini sedang digunakan pada data stok masuk)');
             return redirect()->to('/produk');
         }
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Produk</strong> telah dihapus.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/produk');
     }
 }

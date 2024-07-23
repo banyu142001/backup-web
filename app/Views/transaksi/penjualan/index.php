@@ -87,11 +87,11 @@
     </div>
     <div class="card px-0 py-1 rounded-1 border-0 mt-2">
         <div class="row mx-1">
-            <div class="col-lg-7 col-lg">
+            <div class="col-lg-7 col-lg table-responsive">
                 <table class="table table-sm table-striped">
                     <thead>
                         <tr>
-                            <th class="fw-normal p-2" style="font-size: 14px;">Kd Produk</th>
+                            <th class="fw-normal p-2" style="font-size: 14px;">Produk</th>
                             <th class="fw-normal p-2" style="font-size: 14px;">Nama Produk</th>
                             <th class="fw-normal p-2" style="font-size: 14px;">Harga</th>
                             <th class="fw-normal p-2" style="font-size: 14px;">Jumlah</th>
@@ -130,38 +130,40 @@
                         <input type="number" value="0" name="grand_total" id="grand_total" class="form-control border border-light form-control-sm fw-bold" readonly>
                     </div>
                 </div>
-                <div class="row my-1 justify-content-center">
-                    <div class="col-3">
-                        <span class="text-xs">Cash</span>
+                <form action="">
+                    <div class="row my-1 justify-content-center">
+                        <div class="col-3">
+                            <span class="text-xs">Cash</span>
+                        </div>
+                        <div class="col-7">
+                            <input type="number" value="0" name="cash" id="cash" class="form-control border border-light form-control-sm">
+                        </div>
                     </div>
-                    <div class="col-7">
-                        <input type="number" value="0" name="cash" id="cash" class="form-control border border-light form-control-sm">
+                    <div class="row my-1 justify-content-center">
+                        <div class="col-3">
+                            <span class="text-xs">Kembalian</span>
+                        </div>
+                        <div class="col-7">
+                            <input type="number" value="0" name="kembalian" id="kembalian" class="form-control border border-light form-control-sm">
+                        </div>
                     </div>
-                </div>
-                <div class="row my-1 justify-content-center">
-                    <div class="col-3">
-                        <span class="text-xs">Kembalian</span>
+                    <div class="row my-1 justify-content-center">
+                        <div class="col-3">
+                            <span class="text-xs">Nota</span>
+                        </div>
+                        <div class="col-7">
+                            <textarea name="nota" id="nota" class="form-control form-control-sm border" cols="30" rows="2"></textarea>
+                        </div>
                     </div>
-                    <div class="col-7">
-                        <input type="number" value="0" name="kembalian" id="kembalian" class="form-control border border-light form-control-sm">
+                    <div class="row my-1 justify-content-center">
+                        <div class="col-lg-3 col-lg">
+                            <button class="btn btn-sm btn-outline-info mt-2 rounded-2" name="submit" type="reset">Clear</button>
+                        </div>
+                        <div class="col-lg-7 col-lg">
+                            <button class="btn w-100 mt-2 rounded-2 text-white" id="simpan_transaksi" <?= btn_success ?>>Simpan Transaksi </button>
+                        </div>
                     </div>
-                </div>
-                <div class="row my-1 justify-content-center">
-                    <div class="col-3">
-                        <span class="text-xs">Nota</span>
-                    </div>
-                    <div class="col-7">
-                        <textarea name="nota" id="nota" class="form-control form-control-sm border" cols="30" rows="2"></textarea>
-                    </div>
-                </div>
-                <div class="row my-1 justify-content-center">
-                    <div class="col-lg-3 col-lg">
-                        <button class="btn btn-sm btn-outline-primary mt-2 rounded-2" name="submit" type="submit">Clear</button>
-                    </div>
-                    <div class="col-lg-7 col-lg">
-                        <button class="btn w-100 mt-2 rounded-2 text-white" id="simpan_transaksi" <?= btn_success ?>>Simpan Transaksi </button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

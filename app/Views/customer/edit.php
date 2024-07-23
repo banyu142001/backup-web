@@ -41,19 +41,19 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="telp">Nomor Telephone</label>
+                                <label for="nomor_telephone">Nomor Telephone</label>
                                 <div class="input-group input-group-outline">
-                                    <input type="text" name="telp" class="form-control fw-bold  <?= (validation_errors()) ? 'is-invalid' : '' ?> " placeholder="+628 xxx" value="<?= (old('telp')) ? old('telp') : $customers['no_telephone'] ?>" />
+                                    <input type="text" name="nomor_telephone" class="form-control fw-bold  <?= (validation_errors()) ? 'is-invalid' : '' ?> " placeholder="+628 xxx" value="<?= (old('nomor_telephone')) ? old('nomor_telephone') : $customers['no_telephone'] ?>" />
                                     <div class="invalid-feedback">
-                                        <?= validation_show_error('telp') ?>
+                                        <?= validation_show_error('nomor_telephone') ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="jk">Jenis Kelamin</label>
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
                                 <div class="input-group input-group-outline">
-                                    <select name="jk" id="jk" class="form-select fw-bold px-2">
-                                        <option value="Laki-laki"> - pilih - </option>
+                                    <select name="jenis_kelamin" id="jenis_kelamin" class="form-select fw-bold px-2">
+                                        <option value=""> - pilih - </option>
                                         <option value="Laki-laki" <?= ($customers['jenis_kelamin'] == 'Laki-laki') ? 'selected' : null ?>>Laki-laki</option>
                                         <option value="Perempuan" <?= ($customers['jenis_kelamin'] == 'Perempuan') ? 'selected' : null ?>>Perempuan</option>
                                     </select>

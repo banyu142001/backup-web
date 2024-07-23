@@ -78,10 +78,7 @@ class StokKeluar extends BaseController
         $stokKeluarModel->saveData($data);
         $produkModel->update_stok_keluar($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data stok keluar </strong> telah ditambah & diupdate.
-        ' . icon_close . ' 
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkan');
         return redirect()->to('/stokkeluar');
     }
 
@@ -103,10 +100,7 @@ class StokKeluar extends BaseController
         $produkModel->update_delete_stok_keluar($data);
         $stokKeluarModel->delete(['id_stok_keluar' => $id_stok_keluar]);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data stok keluar </strong> telah dihapus & diupdate.
-        ' . icon_close . ' 
-      </div>');
+        session()->setFlashdata('flash', 'Data berhsil dihapus');
 
         return redirect()->to('/stokkeluar');
     }

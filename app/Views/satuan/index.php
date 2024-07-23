@@ -6,42 +6,43 @@
     <div class="row">
         <div class="col-12">
             <div class="row">
-                <div class="col-lg-2 mb-1">
+                <div class="col-lg-2 col-4 mb-1">
                     <div class="bg-secondary opacity-2  px-2 p-2 rounded-1">
                         <div class="row">
                             <div class="col-3 text-center">
-                                <i class="fa-solid fa-user px-2 p-1 bg-white rounded-2 "></i>
+                                <i class="fas fa-cookie-bite px-2 p-1 bg-white rounded-2"></i>
                             </div>
                             <div class="col-6 text-center text-white">
-                                <small>Makanan</small>
+                                <small class="mx-lg-2 mx-2">Makanan</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 mb-1">
+                <div class="col-lg-2 col-4 mb-1">
                     <div class="bg-secondary opacity-2  px-2 p-2 rounded-1">
                         <div class="row">
                             <div class="col-3 text-center">
-                                <i class="fa-solid fa-user px-2 p-1 bg-white rounded-2 "></i>
+                                <i class="fas fa-cookie-bite px-2 p-1 bg-white rounded-2"></i>
                             </div>
                             <div class="col-6 text-center text-white">
-                                <small>Makanan</small>
+                                <small class="mx-lg-2 mx-2">Makanan</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 mb-1">
+                <div class="col-lg-2 col-4 mb-1">
                     <div class="bg-secondary opacity-2  px-2 p-2 rounded-1">
                         <div class="row">
                             <div class="col-3 text-center">
-                                <i class="fa-solid fa-user px-2 p-1 bg-white rounded-2 "></i>
+                                <i class="fas fa-cookie-bite px-2 p-1 bg-white rounded-2"></i>
                             </div>
                             <div class="col-6 text-center text-white">
-                                <small>Makanan</small>
+                                <small class="mx-lg-2 mx-2">Makanan</small>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="card my-1 rounded-1 ">
                 <div class="row gx-4 mt-3">
@@ -64,17 +65,14 @@
                 <div class="card-body px-2 pb-1">
                     <div class="row justify-content-around ">
                         <div class="col-lg-7 border-bottom">
-                            <?php if (session()->getFlashdata('flash_del')) : ?>
-                                <?= session()->getFlashdata('flash_del') ?>
-                            <?php endif ?>
-                            <?php if (session()->getFlashdata('flash_update')) : ?>
-                                <?= session()->getFlashdata('flash_update') ?>
-                            <?php endif ?>
-                            <?php if (session()->getFlashdata('flash_update_rule')) : ?>
-                                <?= session()->getFlashdata('flash_update_rule') ?>
-                            <?php endif ?>
+
+                            <!-- alert sistem -->
+                            <div id="flash" data-flash="<?= session()->getFlashdata('flash') ?>"></div>
+                            <div id="flash_2" data-flash_2="<?= session()->getFlashdata('flash_2') ?>"></div>
+                            <div id="flash_3" data-flash_3="<?= session()->getFlashdata('flash_3') ?>"></div>
+
                             <div class="table-responsive p-0">
-                                <table class="table table-sm align-items-center mb-0">
+                                <table class="table table-sm align-items-center mb-0" id="myTable">
                                     <thead>
                                         <tr>
                                             <th class="text-uppercase text-secondary  text-xxs font-weight-bolder opacity-7">
@@ -93,7 +91,7 @@
                                                     <a href="" class="text-xs" <?= text_success ?> data-bs-toggle="modal" data-bs-target="#modalUpdateSatuan<?= $satuan['id_satuan'] ?> ">
                                                         <i class="material-icons text-sm mx-1">edit</i> Edit
                                                     </a>
-                                                    <a href="" class="text-xs" <?= text_danger ?> data-bs-toggle="modal" data-bs-target="#modalDelSatuan<?= $satuan['id_satuan'] ?>">
+                                                    <a href="/satuan/delete/<?= $satuan['id_satuan'] ?>" class="text-xs" <?= text_danger ?> id="btn-hapus">
                                                         <i class="material-icons text-sm mx-1">delete</i> Delete
                                                     </a>
                                                 </td>
@@ -106,9 +104,6 @@
                         <div class="col-lg-4">
                             <div class="rounded-0">
                                 <div class="card-body rounded-0 px-3 pb-2">
-                                    <?php if (session()->getFlashdata('flash')) : ?>
-                                        <?= session()->getFlashdata('flash') ?>
-                                    <?php endif ?>
                                     <p class="text-uppercase">Tambah data satuan baru</p>
                                     <form action="/satuan/save" method="post">
                                         <div class="form-group">
@@ -130,27 +125,6 @@
             </div>
         </div>
     </div>
-
-    <!-- MODAL HAPUS DATA SATUAN -->
-    <?php foreach ($data_satuan as $satuan) : ?>
-        <div class="modal fade" id="modalDelSatuan<?= $satuan['id_satuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content rounded-1 border-0 shadow-none ">
-                    <div class="modal-header p-2">
-                        <h1 class="modal-title fs-5 mx-2" id="exampleModalLabel">Hapus data Satuan</h1>
-                        <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
-                    </div>
-                    <div class="modal-body p-3 my-0">
-                        <p>Data Satuan <strong><?= $satuan['nama_satuan'] ?></strong> akan dihapus?</p>
-                    </div>
-                    <div class="modal-footer p-2">
-                        <a href="" class=" badge text-dark bg-light p-2" data-bs-dismiss="modal">Batal</a>
-                        <a href="/satuan/delete/<?= $satuan['id_satuan'] ?>" class="badge text-white bg-danger p-2"> <i class="fa-solid fa-trash mx-1"></i> Hapus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
 
     <!-- MODAL UPDATE SATUAN -->
     <?php foreach ($data_satuan as $satuan) : ?>

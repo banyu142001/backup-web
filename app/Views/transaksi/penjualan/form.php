@@ -4,7 +4,7 @@
         <div class="modal-content rounded-1 shadow-none border-0">
             <div class="modal-header p-0 py-1 px-3">
                 <p class="modal-title fw-bolder mt-2">Pilih Produk</p>
-                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-2 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
+                <span data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer position-absolute top-1 start-100  translate-middle p-2"><i class="fas fa-times-circle bg-white rounded-circle border-0 text-danger" style="font-size: 25px;"></i></span>
             </div>
             <div class="modal-body table-responsive">
                 <table class="table table-borderles table-sm table-striped" id="dataTable">
@@ -167,9 +167,29 @@
             // validasi data produk
 
             if (id_produk == '') {
-                alert("Produk belum dipilih")
+
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Silahkan pilih produk',
+                    width: '300px',
+                    timer: 1000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
+
             } else if (stok < 1 || parseInt(stok) < (parseInt(qty_cart) + parseInt(qty))) {
-                alert("Stok produk tidak mencukupi")
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Stok produk tidak mencukupi',
+                    width: '300px',
+                    timer: 1000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
             } else {
 
                 $.ajax({
@@ -185,15 +205,36 @@
                     success: function(result) {
 
                         if (result.success == true) {
+
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'success',
+                                text: 'Data ditambah ke cart ',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
+
                             $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
                                 hitung()
-                        })
+                            })
                             $('#id_produk').val('')
                             $('#kode_produk').val('')
                             $('#qty').val(1)
 
                         } else {
-                            alert("Data gagal ditambhkan ke cart")
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'error',
+                                text: 'Data gagal ditambah ke cart ',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
                         }
                     }
                 })
@@ -214,7 +255,16 @@
                 },
                 success: function(result) {
                     if (result.success == true) {
-
+                        Swal.fire({
+                            showConfirmButton: false,
+                            icon: 'success',
+                            text: 'Data berhasil dihapus',
+                            width: '300px',
+                            timer: 1000,
+                            customClass: {
+                                icon: 'custom-icon',
+                            }
+                        });
                         $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
                             hitung()
                         })
@@ -286,15 +336,42 @@
 
             // validasi data edit data cart
             if (harga_cart == 0) {
-                alert('Harga produk tidak boleh kosong !')
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Harga produk tidak boleh kosong',
+                    width: '300px',
+                    timer: 3000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
                 $('#harga_cart').focus()
 
             } else if (jumlah_cart == 0) {
-                alert('Jumlah / QTY tidak boleh kosong !')
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Jumlah tidak boleh kosong',
+                    width: '300px',
+                    timer: 3000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
                 $('#jumlah_cart').focus()
 
             } else if (parseInt(jumlah_cart) > parseInt(stok_produk)) {
-                alert('Stok produk tidak mecukupi !')
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'warning',
+                    text: 'Stok produk tidak mencukupi',
+                    width: '300px',
+                    timer: 1000,
+                    customClass: {
+                        icon: 'custom-icon',
+                    }
+                });
                 $('#jumlah_cart').focus()
             } else {
 
@@ -315,6 +392,16 @@
                     success: function(result) {
 
                         if (result.success == true) {
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'success',
+                                text: 'Data berhasil diupdate ',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
                             $('#tb_cart').load('<?= base_url('/penjualan/load_cart') ?>', function() {
                                 hitung()
                             })
@@ -322,7 +409,16 @@
 
                         } else {
 
-                            alert('Data Cart tidak dapat diupdate !')
+                            Swal.fire({
+                                showConfirmButton: false,
+                                icon: 'error',
+                                text: 'Data gagal diupdate',
+                                width: '300px',
+                                timer: 1000,
+                                customClass: {
+                                    icon: 'custom-icon',
+                                }
+                            });
                         }
                     }
                 })
@@ -396,10 +492,28 @@
 
         // validasi inputan
         if (sub_total < 1) {
-
-            alert('Silahkan pilih produk !')
+            
+            Swal.fire({
+                showConfirmButton: false,
+                icon: 'warning',
+                text: 'Silahkan pilih produk ',
+                width: '300px',
+                timer: 1000,
+                customClass: {
+                    icon: 'custom-icon',
+                }
+            });
         } else if (cash < 1) {
-            alert('Nominal / Cash belum di input !')
+            Swal.fire({
+                showConfirmButton: false,
+                icon: 'warning',
+                text: 'Nominal / Cash belum diinput',
+                width: '300px',
+                timer: 2000,
+                customClass: {
+                    icon: 'custom-icon',
+                }
+            });
             $('#cash').focus()
         } else {
 
@@ -422,14 +536,11 @@
                 success: function(result) {
 
                     if (result.success == true) {
-
-                        alert('Transaksi Berhasil !')
-                        window.open('<?= base_url('/penjualan/cetak/') ?>' + result.id_penjualan, '_blank')
-                    } else {
-                        alert('Transaksi Gagal !')
-
+                        // alert("Transaksi Berhasil");
+                        window.open('<?= base_url('/penjualan/cetak/') ?>' + result.id_penjualan, '_blank');
                     }
-                    location.href = '<?= base_url('penjualan') ?>'
+
+                    location.href = '<?= base_url('penjualan') ?>';
                 }
             })
         }

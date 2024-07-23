@@ -22,21 +22,18 @@ class Supplier extends BaseController
         return view('supplier/index', $data);
     }
 
-    // create new supplier data / tambah data supplier
+    // create new supplier data / tambah data supplier baru
     public function create()
     {
-        // load model SupplierModel
-        $supplierModel =  $this->loadModel('SupplierModel');
 
         $data = [
             'title'         => 'Tambah Data Supplier',
             'breadcrumb'    => 'Supplier / Tambah Data Supplier',
-            'suppliers'     =>  $supplierModel->selectAllSupplier(),
         ];
         return view('supplier/create', $data);
     }
 
-    // simpan data supplier baru / save supplier data
+    // save new suppliers data / simpan data baru supplier
     public function save()
     {
         // load model SupplierModel
@@ -66,7 +63,7 @@ class Supplier extends BaseController
             return redirect()->to('/supplier/create')->withInput();
         }
 
-        // get data from form input
+        // prepare data
         $data =
             [
                 'nama_supplier' => $this->request->getVar('nama_supplier'),
@@ -79,14 +76,11 @@ class Supplier extends BaseController
         // insert data to Database
         $supplierModel->saveSupplierData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Supplier Baru</strong> telah ditambahkan.
-         ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil ditambahkan');
         return redirect()->to('/supplier');
     }
 
-    // ubah data supplier / edit supplier data
+    // Edit suppliers data / edit data supplier
     public function edit($id_supplier)
     {
         // load model SupplierModel
@@ -131,7 +125,7 @@ class Supplier extends BaseController
             return redirect()->to('/supplier/edit/' . $this->request->getVar('id_supplier'))->withInput();
         }
 
-        // get data from form input
+        // get and prepare data
         $data =
             [
                 'id_supplier'   => $id_supplier,
@@ -145,15 +139,12 @@ class Supplier extends BaseController
         // insert data to Database
         $supplierModel->saveUpdateSupplierData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data Supplier</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/supplier');
     }
 
 
-    // hapus data supllier / delete supplier
+    //delete supplier / hapus data supllier
     public function delete($id_supplier)
     {
         // load model SupplierModel
@@ -163,17 +154,11 @@ class Supplier extends BaseController
         $errors = $supplierModel->db->error();
 
         if ($errors['code'] != 0) {
-            session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_DANGER . ' >
-            <strong>' . icon_warning . ' Data supplier tidak dapat dihapus. </strong> (data supplier ini sedang digunakan pada data stok masuk).
-            ' . icon_close . '
-          </div>');
+            session()->setFlashdata('flash_2', 'Data tidak dapat dihapus.(Data supplier ini sedang digunakan pada data stok masuk)');
             return redirect()->to('/supplier');
         }
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-            <strong>' . icon_success . ' Data Supplier</strong> telah dihapus.
-            ' . icon_close . '
-          </div>');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/supplier');
     }
 }

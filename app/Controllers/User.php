@@ -8,18 +8,25 @@ use CodeIgniter\HTTP\ResponseInterface;
 class User extends BaseController
 {
 
+
     public function index()
     {
-        // load Model User
-        $userModel = $this->loadModel('UserModel');
+        if (session()->get('level') != 1) {
 
-        $data = [
+            return redirect()->to('/errors/html/error_404');
+        } else {
 
-            'title'        => 'User',
-            'breadcrumb'    => 'User',
-            'users'         => $userModel->selectAllUser(),
-        ];
-        return view('user/index', $data);
+            // // load Model User
+            $userModel = $this->loadModel('UserModel');
+
+            $data = [
+
+                'title'        => 'User',
+                'breadcrumb'    => 'User',
+                'users'         => $userModel->selectAllUser(),
+            ];
+            return view('user/index', $data);
+        }
     }
 
     // create user
@@ -110,10 +117,7 @@ class User extends BaseController
         // insert data to Database
         $userModel->saveUserData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert" ' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . ' Data User</strong> telah ditambahkan.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil ditambakan');
         return redirect()->to('/user');
     }
 
@@ -215,14 +219,9 @@ class User extends BaseController
         // insert data to Database
         $userModel->saveUpdateData($data);
 
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . ' >
-        <strong>' . icon_success . 'Data User</strong> telah diupdate.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil diupdate');
         return redirect()->to('/user');
     }
-
-
 
 
     // delete method
@@ -232,10 +231,125 @@ class User extends BaseController
         $userModel = $this->loadModel('UserModel');
 
         $userModel->delete(['id' => $id]);
-        session()->setFlashdata('flash', '<div class="alert text-white alert-dismissible fade show p-2 px-3" role="alert"' . ALERT_SUCCESS . '>
-        <strong>' . icon_success . 'Data User</strong> telah dihapus.
-        ' . icon_close . '
-      </div>');
+        session()->setFlashdata('flash', 'Data berhasil dihapus');
         return redirect()->to('/user');
+    }
+
+
+    // method profile user
+    public function profile()
+    {
+        $data = [
+
+            'title'        => '',
+            'breadcrumb'    => '',
+        ];
+        return view('user/profile-user', $data);
+    }
+    // update password
+    public function update_password()
+    {
+        $data = [
+
+            'title'        => '',
+            'breadcrumb'    => '',
+        ];
+        return view('user/update-password', $data);
+    }
+
+    // save upsate password
+    public function save_update_password()
+    {
+
+        // model user
+        $userModel = $this->loadModel('UserModel');
+
+        // get data 
+        $id_user = session()->get('id');
+        $passwor_lama = $this->request->getVar('password_lama');
+        $passwor_baru = $this->request->getVar('password_baru');
+
+        $user = $userModel->selectAllUser(['id' => $id_user]);
+
+        // set rule
+        $rules = [
+
+            'password_lama' => [
+                'rules'  => 'required',
+            ],
+            'password_baru' => [
+                'rules'  => 'required',
+            ],
+
+        ];
+
+        if (!$this->validate($rules)) {
+
+            return redirect()->to('/user/update_password')->withInput();
+        }
+
+        if (password_verify($passwor_lama, $user['password'])) {
+
+            $data = [
+                'id' => $id_user,
+                'password' => password_hash($passwor_baru, PASSWORD_DEFAULT),
+            ];
+
+            $userModel->save($data);
+            session()->setFlashdata('flash', 'Password telah diudate');
+            return redirect()->to('/user/update_password');
+        } else {
+
+            session()->setFlashdata('flash_password', 'Password tidak sesuai');
+            return redirect()->to('/user/update_password');
+        }
+    }
+
+    // update sampul
+    public function update_sampul()
+    {
+
+        $userModel = $this->loadModel('UserModel');
+
+        // set rules
+        $rules = [
+
+            'sampul' => [
+                'rules' => 'uploaded[sampul]|max_size[sampul, 1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'sampul harus diisi',
+                    'max_size' => 'ukuran file terlalu besar',
+                    'is_image' => 'yang anda pilih bukan gambar',
+                    'mime_in' => 'yang anda pilih bukan gambar',
+                ]
+            ],
+        ];
+
+        if (!$this->validate($rules)) {
+
+            return redirect()->to('/user/profile')->withInput();
+        }
+
+        // get name of sampul
+        $sampul = $this->request->getFile('sampul');
+
+        // generate nama random
+        $nama_sampul = $sampul->getRandomName($sampul);
+
+        // pindahkan gambar pada foler tujuan
+        $sampul->move('assets/img/profile-user', $nama_sampul);
+
+
+
+        // prepare data
+        $data = [
+            'id'   => session()->get('id'),
+            'foto' => $nama_sampul,
+        ];
+
+        // save data
+        $userModel->save($data);
+        session()->setFlashdata('flash', 'Profile telah diupdate');
+        return redirect()->to('/user/profile');
     }
 }
