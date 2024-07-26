@@ -79,7 +79,7 @@
                     <div class="form-group mb-1">
                         <label for="detail" class="fw-bolder">Detail Keterangan Produk</label>
                         <div class="input-group input-group-outline">
-                            <input type="text" name="detail" id="detail" class="form-control" placeholder="Rusak / Hilang / Kedaluwarsa">
+                            <input type="text" name="detail" id="detail" class="form-control" placeholder="Rusak / Hilang / Kadaluarsa">
                         </div>
                     </div>
                     <div class="form-group mb-1">
