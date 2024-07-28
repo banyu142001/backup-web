@@ -40,24 +40,31 @@
                             <p class="m-0"><?= $test['email'] ?></p>
                             <small><span class="text-muted">Ulasan</span> : <?= $test['ulasan'] ?></small>
                             <div class="row">
-                                <div class="col-lg-7 col-lg">
+                                <div class="col-lg col-9">
                                     <table class="table table-sm  table-striped text-center">
                                         <thead>
                                             <tr class="p-0">
                                                 <td style="font-size: 12px;">Performa Sistem</td>
                                                 <td style="font-size: 12px;">Desain</td>
+                                                <td style="font-size: 12px;"></td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th style="font-size: 12px;" class="text-center"><?= $test['performa'] ?></th>
-                                                <th style="font-size: 12px;"><?= $test['desain'] ?></th>
+                                                <th style="font-size: 12px;" class="text-center">
+                                                    <textarea class="form-control border px-2 bg-white" name="" id="" cols="30" rows="3"><?= $test['performa'] ?>
+                                                    </textarea>
+                                                </th>
+                                                <th style="font-size: 12px;">
+                                                    <textarea class="form-control border px-2 bg-white" name="" id="" cols="30" rows="3"><?= $test['desain'] ?>
+                                                </textarea>
+                                                </th>
+                                                <th>
+                                                    <a href="/testimoni/delete/<?= $test['id_test'] ?>" id="btn-hapus" class="text-danger"><i class="fa fa-trash mt-3 px-2"></i></a>
+                                                </th>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                                <div class="col-lg-3">
-                                    <a href="/testimoni/delete/<?= $test['id_test'] ?>" id="btn-hapus" class="btn btn-sm btn-danger rounded-1 mt-lg-4 mt-0">Hapus ulasan</a>
                                 </div>
                             </div>
                         </div>
