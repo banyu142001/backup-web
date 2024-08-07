@@ -296,7 +296,7 @@ class User extends BaseController
             ];
 
             $userModel->save($data);
-            session()->setFlashdata('flash', 'Password telah diudate');
+            session()->setFlashdata('flash', 'Password telah diupdate');
             return redirect()->to('/user/update_password');
         } else {
 
